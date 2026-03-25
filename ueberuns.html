@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#2b3134",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5a4136",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#121416",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#e2e2e5",
+                        "inverse-on-surface": "#2f3133",
+                        "outline": "#a98a7d",
+                        "tertiary": "#e9c400",
+                        "primary-container": "#ff6b00",
+                        "secondary-container": "#41484b",
+                        "surface-variant": "#333537",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "on-primary": "#561f00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed": "#dde3e7",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-dim": "#121416",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "primary": "#ffb693",
+                        "surface": "#121416",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e5",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-highest": "#333537",
+                        "surface-bright": "#37393b",
+                        "surface-container-low": "#1a1c1e",
+                        "on-secondary-container": "#afb6b9",
+                        "on-secondary-fixed": "#161d1f",
+                        "on-primary-container": "#572000",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-tertiary-container": "#4c3e00",
+                        "surface-container-high": "#282a2c",
+                        "secondary": "#c1c8cb",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-background": "#e2e2e5",
+                        "surface-container": "#1e2022"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(255, 107, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .shutter-hover:hover::after {
+            transform: translateY(0);
+        }
+
+        .shutter-hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff6b00;
+            transform: translateY(100%);
+            transition: transform 0.2s steps(4);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 z-50 w-full bg-[#121416] flex justify-between items-center px-8 py-4">
+        <div class="text-2xl font-black tracking-tighter text-white uppercase font-headline">
+            Blueprint Talent
+        </div>
+        <div class="hidden md:flex items-center space-x-8 font-headline uppercase tracking-tighter text-sm font-bold">
+            <a class="text-white/80 hover:text-white transition-colors" href="#">Jobs</a>
+            <a class="text-white/80 hover:text-white transition-colors" href="#">Für Unternehmen</a>
+            <a class="text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1" href="#">Über Uns</a>
+        </div>
+        <button
+            class="bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter text-sm font-bold px-6 py-2 transition-all duration-100 active:scale-95 hover:bg-primary-fixed-dim">
+            Kontakt
+        </button>
+    </nav>
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="relative px-8 py-24 md:py-32 overflow-hidden blueprint-grid">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div
+                    class="inline-flex items-center space-x-2 text-primary font-headline font-bold text-xs tracking-[0.2em] uppercase mb-6">
+                    <span class="w-8 h-[2px] bg-primary"></span>
+                    <span>Wer wir sind &amp; Wie wir arbeiten</span>
+                </div>
+                <h1
+                    class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-12 max-w-4xl">
+                    Präzision in der <span class="text-primary-container">Personalplanung.</span>
+                </h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <p class="text-xl md:text-2xl text-secondary leading-relaxed font-light">
+                        Wir bauen Brücken zwischen erstklassigen Talenten und den innovativsten Bauunternehmen des
+                        Landes. Blueprint Talent ist mehr als eine Personalvermittlung – wir sind Ihr strategischer
+                        Partner für strukturelles Wachstum.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none border-l border-outline-variant">
+            </div>
+        </section>
+        <!-- Mission & Stats Section -->
+        <section class="bg-surface-container-low py-24 px-8">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+                <div class="md:col-span-5">
+                    <h2
+                        class="font-headline text-3xl font-bold uppercase tracking-tighter mb-8 flex items-center gap-4">
+                        <span class="text-tertiary-fixed-dim text-5xl">01</span>
+                        Unsere Mission
+                    </h2>
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        In einer Branche, in der jeder Millimeter zählt, darf die Personalsuche nicht dem Zufall
+                        überlassen werden. Unsere Mission ist es, den Fachkräftemangel im Baugewerbe durch technisches
+                        Verständnis und menschliche Expertise zu lösen.
+                    </p>
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-surface-container-high border-l-4 border-primary-container">
+                            <span class="material-symbols-outlined text-primary-container">engineering</span>
+                            <div>
+                                <h4 class="font-headline font-bold uppercase text-sm">Technisches Know-how</h4>
+                                <p class="text-xs text-secondary mt-1">Wir verstehen die Baupläne unserer Kunden.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-surface-container-high border-l-4 border-tertiary">
+                            <span class="material-symbols-outlined text-tertiary">speed</span>
+                            <div>
+                                <h4 class="font-headline font-bold uppercase text-sm">Effizienz</h4>
+                                <p class="text-xs text-secondary mt-1">Schnelle Besetzung durch ein gewachsenes
+                                    Netzwerk.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-7 relative">
+                    <div class="aspect-video bg-surface-container-highest relative overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 transition-all duration-700"
+                            data-alt="dramatic wide shot of a modern glass skyscraper construction site at twilight with heavy machinery and steel beams"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2OSF9gob6ATCtMbKqCX31obe_SY8d-e4IRkDZkTiDWjd0Hi9asfrCIm0XNqee7qR2YCS1NjuZaquXm4MkQ6QcVguvEFqqnotOl9POju3YOETKbXbFLELoJybgIMWIOr-kTiH9qJdBS6xIxAm7t-7f_SysJ0hj9_RwDamBq5KEBwjQCtsW2W7xbzlM_hg_qbRA2ITWrIDRTTNC1DGrbwH9pzai1KCqaYPiXNtitNhcIgdExjFn4KpZKpxR8te4Zplk4kAK2rnS7jA" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-8 left-8 right-8">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-background/80 backdrop-blur-md p-6">
+                                    <div class="text-primary font-headline text-3xl font-black">450+</div>
+                                    <div class="text-[10px] uppercase tracking-widest text-secondary">Projekte</div>
+                                </div>
+                                <div class="bg-background/80 backdrop-blur-md p-6">
+                                    <div class="text-primary font-headline text-3xl font-black">12k</div>
+                                    <div class="text-[10px] uppercase tracking-widest text-secondary">Talente</div>
+                                </div>
+                                <div class="bg-background/80 backdrop-blur-md p-6">
+                                    <div class="text-primary font-headline text-3xl font-black">98%</div>
+                                    <div class="text-[10px] uppercase tracking-widest text-secondary">Erfolgsquote</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Team Section -->
+        <section class="py-24 px-8 max-w-7xl mx-auto">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tighter mb-16 flex items-center gap-4">
+                <span class="text-tertiary-fixed-dim text-5xl">02</span>
+                Das Fundament
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/20">
+                <!-- Team Member 1 -->
+                <div
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                            data-alt="professional male executive in a sharp dark suit with architectural models in a blurred office background"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0eAgNcsdwf1jYqkiSPpcYBv1X5FxpT1VNQlRMyXDGf4XriT13vlLw43I6XtG7PcQLUpQoWPzICs4BZ7_vCor3n2O6Q4Ym9-zLKwAWJa3iBLA6CYBA561xRspjqlZoLVoXac8QZyk7NUWRMLVEcaHNeOQEF_MYu2L8ZwuP34wUtzHd519OzQkT3X7c4x627cF6-x0X3GozYidB1lwwxCgtFfAQGDkFgQD864ozu-qGF9-UZ_8A7gSBmAq6SqkThgkIbu9vMNONK7g" />
+                    </div>
+                    <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Marcus Steiner</h3>
+                    <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
+                        Managing Director</p>
+                    <p
+                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Experte für Hochbau und strategisches Recruitment mit 15 Jahren Erfahrung.</p>
+                    <div class="flex space-x-4">
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
+                    </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                            data-alt="confident professional woman in industrial setting with blueprints and high-tech tablet"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8ERGhqYiG5XdGbKWnyD97kR3Lwv7voJQ0TUqCwP06muvgxEaGLz3ZgQ1hyFkYSynCaOmiXLxo4AxXyIC9ve-_sc02DS6S7eAmE62zMLSkAuDsmGFHJ7jOX4DHoyd8qtBfAydcGw2lMZAnxCMkSXiik9ftRcDXUNL-xoZP3jTaDGjmiIOkKpAbBKMd7MvSLV5Y_3g8LAV0GJg5v2ZB7MI3oo0Z7CtOzXHTu02FF_1LLJB5oVZog0pJHDVymOb6Js2eGujAdGvsDmA" />
+                    </div>
+                    <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Elena Richter</h3>
+                    <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
+                        Head of Talent</p>
+                    <p
+                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Spezialistin für Bauingenieurwesen und internationale Fachkräfteakquise.</p>
+                    <div class="flex space-x-4">
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
+                    </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                            data-alt="male engineer in white helmet looking at a tablet against a blurred construction background"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqTR4MlAH55tAesbqPaVB4Id9cRUjjZI2dsf5Ju0iGo4PKZRU-10V9Ia__8M9N5_VpVu_ysbifDco1am-WAc8LY9TdldeqfnJMXWUB2wLW84JEXG7L68IyOMB_9S5dp-HP8Hjc6szYIj9nwu59BbYlFqqJyDW5qQAtt3paRxEX5sv5X0Nv3NTXeTgJJ3sdSt47Ku_GODSj5xjsgOYckeLZjrcTQfbs_x9DKWqndkfZ__J5-O1c9_E0kZI_FLr2iIrvAPVIQU0yWx0" />
+                    </div>
+                    <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Thomas Weber</h3>
+                    <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
+                        Senior Consultant</p>
+                    <p
+                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Ehemaliger Bauleiter, kennt die Herausforderungen auf der Baustelle aus erster Hand.</p>
+                    <div class="flex space-x-4">
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
+                    </div>
+                </div>
+                <!-- Team Member 4 -->
+                <div
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                            data-alt="woman in modern office space with clean minimalist architectural design"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgugYetaLsvUuy6GKxTqqq7PcD9rObMSS2HUsoj9joka_FLhK_TxP7uEF1aOheEBzjcovBcyS3p3sDp_aH1_PTz7hl7VIl-ZtBtyKGGjryRvLVjJRp3GViYhkmN_1T3mJk_0twZprhPwvx6bWS-20HBZxfPfgHod7rzZZIlV4Y2W4tEswFWn8DEW4Y9rA_VX14tpbJnM-lCqzmSJHcvi0V51ZenOF4Qu37Ng4NzGV0-MKp4lst2PzDMRYIkyGd_CmHPCjpHTQxThw" />
+                    </div>
+                    <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Sarah Meyer</h3>
+                    <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
+                        Recruitment Specialist</p>
+                    <p
+                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Expertin für Employer Branding und digitale Recruiting-Prozesse.</p>
+                    <div class="flex space-x-4">
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
+                        <span
+                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="bg-surface-container-lowest py-24 px-8 border-t border-outline-variant/10">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="font-headline text-3xl font-bold uppercase tracking-tighter mb-16 flex items-center gap-4">
+                    <span class="text-tertiary-fixed-dim text-5xl">03</span>
+                    Projektbesprechung
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div class="space-y-12">
+                        <div class="bg-surface-container p-10 border-l-8 border-primary-container">
+                            <h3 class="font-headline text-xl font-bold uppercase mb-6">Berliner Zentrale</h3>
+                            <div class="space-y-4 font-body text-secondary">
+                                <p class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary">location_on</span>
+                                    Kurfürstendamm 214, 10719 Berlin
+                                </p>
+                                <p class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary">call</span>
+                                    +49 (0) 30 889 001 00
+                                </p>
+                                <p class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary">mail</span>
+                                    contact@blueprint-talent.com
+                                </p>
+                            </div>
+                        </div>
+                        <div class="h-80 bg-surface-container-high relative overflow-hidden group">
+                            <div
+                                class="absolute inset-0 bg-blue-900/10 z-10 pointer-events-none group-hover:bg-transparent transition-colors">
+                            </div>
+                            <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-transform duration-1000 group-hover:scale-110"
+                                data-alt="stylized map or aerial view of Berlin cityscape at night with illuminated streets"
+                                data-location="Berlin"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFWw6VrMG1jtNzYZMkD19ZF8KpVnVVOQtSLSBOhkMi27mTKZbhiWl3oFfGh0qPST-uiWyfybSgzDaumKZn-4j7nr_LlGL5kLIwp2KXj0AImdNe1qSlOpzDLDKNjg3M7eMl9m6Z5r3zAC2sZ5c9eeakiPlP1hJPxbFryFzPiH9-AITnm8Ij3s4Q8HakXilECvMucX9AiwYL73inHa3MJZiW00E8HUomKwZGFxrsjrFxlIk_C6c6QOrGfBDELLMt4mVYC5CaF8pH788" />
+                            <div class="absolute inset-0 flex items-center justify-center z-20">
+                                <div class="bg-primary-container p-4 animate-pulse">
+                                    <span
+                                        class="material-symbols-outlined text-white text-3xl">location_searching</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container p-10">
+                        <h3 class="font-headline text-xl font-bold uppercase mb-8">Kontaktformular</h3>
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label
+                                        class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Vorname</label>
+                                    <input
+                                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                                        placeholder="Max" type="text" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Nachname</label>
+                                    <input
+                                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                                        placeholder="Mustermann" type="text" />
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Email
+                                    Adresse</label>
+                                <input
+                                    class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                                    placeholder="max@unternehmen.de" type="email" />
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Anliegen</label>
+                                <select
+                                    class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm">
+                                    <option>Fachkräfte finden</option>
+                                    <option>Karriereberatung</option>
+                                    <option>Projektanfrage</option>
+                                    <option>Sonstiges</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Nachricht</label>
+                                <textarea
+                                    class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm resize-none"
+                                    placeholder="Beschreiben Sie Ihr Bauvorhaben oder Ihre Karriereziele..."
+                                    rows="4"></textarea>
+                            </div>
+                            <button
+                                class="w-full relative overflow-hidden bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter font-black py-4 shutter-hover z-0 transition-all active:scale-95"
+                                type="submit">
+                                Nachricht Senden
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#0c0e10] px-8 py-16 w-full border-t border-outline-variant/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <div class="text-xl font-bold text-white uppercase tracking-tighter font-headline">
+                    Blueprint Talent
+                </div>
+                <p class="text-slate-500 text-xs leading-relaxed max-w-xs">
+                    Ihr Spezialist für die Vermittlung hochqualifizierter Fachkräfte im Ingenieur- und Bauwesen.
+                    Technisch versiert, menschlich fundiert.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold mb-6">Navigation
+                </h4>
+                <ul class="space-y-3 font-['Inter'] text-xs tracking-wide">
+                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Jobs</a></li>
+                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Services</a></li>
+                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Referenzen</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold mb-6">Rechtliches
+                </h4>
+                <ul class="space-y-3 font-['Inter'] text-xs tracking-wide">
+                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Datenschutz</a></li>
+                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Impressum</a></li>
+                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">AGB</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold mb-6">Newsletter
+                </h4>
+                <div class="flex">
+                    <input
+                        class="bg-surface-container-highest border-0 py-2 px-3 text-xs w-full focus:ring-1 focus:ring-primary-container"
+                        placeholder="Email Adresse" type="email" />
+                    <button class="bg-primary-container px-3">
+                        <span class="material-symbols-outlined text-sm text-on-primary">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-['Inter'] text-xs tracking-wide text-slate-400">© 2024 Blueprint Talent. Engineered Precision
+                in Recruitment.</p>
+            <div class="flex space-x-6">
+                <span
+                    class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer text-lg">brand_awareness</span>
+                <span
+                    class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer text-lg">groups</span>
+                <span
+                    class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer text-lg">hub</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#2b3134",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5a4136",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#121416",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#e2e2e5",
+                        "inverse-on-surface": "#2f3133",
+                        "outline": "#a98a7d",
+                        "tertiary": "#e9c400",
+                        "primary-container": "#ff6b00",
+                        "secondary-container": "#41484b",
+                        "surface-variant": "#333537",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "on-primary": "#561f00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed": "#dde3e7",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-dim": "#121416",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "primary": "#ffb693",
+                        "surface": "#121416",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e5",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-highest": "#333537",
+                        "surface-bright": "#37393b",
+                        "surface-container-low": "#1a1c1e",
+                        "on-secondary-container": "#afb6b9",
+                        "on-secondary-fixed": "#161d1f",
+                        "on-primary-container": "#572000",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-tertiary-container": "#4c3e00",
+                        "surface-container-high": "#282a2c",
+                        "secondary": "#c1c8cb",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-background": "#e2e2e5",
+                        "surface-container": "#1e2022"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .blueprint-grid {
+            background-image: radial-gradient(rgba(255, 182, 147, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .glass-card {
+            background: rgba(51, 53, 55, 0.6);
+            backdrop-filter: blur(20px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 z-50 w-full bg-[#121416] flex justify-between items-center px-8 py-4 max-w-none">
+        <div class="text-2xl font-black tracking-tighter text-white uppercase font-headline">
+            Blueprint Talent
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                href="#">Jobs</a>
+            <a class="font-headline uppercase tracking-tighter text-sm font-bold text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1"
+                href="#">Für Unternehmen</a>
+            <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                href="#">Über Uns</a>
+        </div>
+        <button
+            class="bg-primary-container text-on-primary-container px-6 py-2 font-headline uppercase tracking-tighter text-sm font-bold hover:bg-[#ff6b00] hover:text-black transition-all duration-100 active:scale-95">
+            Kontakt
+        </button>
+    </nav>
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="relative min-h-[819px] flex items-center px-8 blueprint-grid overflow-hidden">
+            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-8 z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high mb-6">
+                        <span class="w-2 h-2 bg-primary"></span>
+                        <span class="font-label text-xs uppercase tracking-[0.2em] text-primary">Engineered
+                            Solutions</span>
+                    </div>
+                    <h1
+                        class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
+                        Maßgeschneidertes <span class="text-primary-container">Recruiting</span> für Ihr Bauvorhaben
+                    </h1>
+                    <p class="font-body text-xl text-secondary max-w-xl leading-relaxed mb-10">
+                        Wir verbinden technische Exzellenz mit präziser Personalberatung. Blueprint Talent ist Ihr
+                        Partner für die Vermittlung von Fach- und Führungskräften im Bauwesen.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-primary-container text-on-primary-container px-10 py-4 font-headline uppercase tracking-tighter text-lg font-black hover:bg-primary transition-all duration-100">
+                            Jetzt Personal finden
+                        </button>
+                        <button
+                            class="border border-outline-variant/30 text-white px-10 py-4 font-headline uppercase tracking-tighter text-lg font-black hover:bg-surface-container-high transition-all duration-100">
+                            Unsere Services
+                        </button>
+                    </div>
+                </div>
+                <div class="md:col-span-4 relative hidden md:block">
+                    <div class="aspect-[3/4] bg-surface-container-low overflow-hidden grayscale contrast-125">
+                        <img alt="Professional Construction Site" class="w-full h-full object-cover opacity-60"
+                            data-alt="Close up of a construction engineer holding blueprints against a background of a modern steel skyscraper structure under a clear sky"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAye7NN7udJhgfshSIrLcxZoMLr5YXnBvArNz4LDJl6jjK9VTltf3H3FMvBf4aThRR7bls27kSA2nTWQaMOIefmIdkiUaV8qGaTrr3pVuja1nI8VN1CklSLYi6ol9-Rzc0PjwbbvMtY1c9rK0qfSfPaWW2vIldSl2VeLGS22eOuMaqhlptz2HCgzzKU5kdmnUTh4C3cTnnuTI0NvtRiTOvGunDMr3sUi8SdZ03IdLFq7iCs7M5x0bsP_gpBo77CKuV0vyuI4c1AQUE" />
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-primary-container p-6 w-48 aspect-square flex flex-col justify-end">
+                        <span class="font-headline text-4xl font-black text-on-primary">100%</span>
+                        <span class="font-label text-[10px] uppercase tracking-widest text-on-primary font-bold">Fokus
+                            Bauwesen</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Warum Blueprint Talent? - Bento Grid -->
+        <section class="py-24 px-8 bg-surface-container-lowest">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                    <div>
+                        <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">Warum
+                            Blueprint Talent?</h2>
+                        <div class="h-1 w-24 bg-primary-container"></div>
+                    </div>
+                    <p class="font-body text-secondary max-w-md">
+                        In der Bauwirtschaft ist Präzision der Schlüssel zum Erfolg. Wir übertragen diesen Maßstab auf
+                        den gesamten Recruiting-Prozess.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+                    <!-- Feature: Speed -->
+                    <div class="bg-surface p-12 flex flex-col justify-between aspect-square group">
+                        <div class="font-headline text-7xl font-outline text-transparent stroke-white/10 opacity-20"
+                            style="-webkit-text-stroke: 1px rgba(255,255,255,0.2)">01</div>
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-4xl mb-6">bolt</span>
+                            <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter mb-4">Geschwindigkeit
+                            </h3>
+                            <p class="text-secondary leading-relaxed">Unser aktives Netzwerk ermöglicht Besetzungen
+                                innerhalb von durchschnittlich 45 Tagen – ohne Qualitätsverlust.</p>
+                        </div>
+                    </div>
+                    <!-- Feature: Quality -->
+                    <div class="bg-surface-container-low p-12 flex flex-col justify-between aspect-square">
+                        <div class="font-headline text-7xl font-outline text-transparent stroke-white/10 opacity-20"
+                            style="-webkit-text-stroke: 1px rgba(255,255,255,0.2)">02</div>
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-4xl mb-6">verified</span>
+                            <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter mb-4">Qualität</h3>
+                            <p class="text-secondary leading-relaxed">Jeder Kandidat durchläuft einen technischen
+                                Assessment-Check, der auf die spezifischen Anforderungen am Bau abgestimmt ist.</p>
+                        </div>
+                    </div>
+                    <!-- Feature: Network -->
+                    <div class="bg-surface p-12 flex flex-col justify-between aspect-square">
+                        <div class="font-headline text-7xl font-outline text-transparent stroke-white/10 opacity-20"
+                            style="-webkit-text-stroke: 1px rgba(255,255,255,0.2)">03</div>
+                        <div>
+                            <span class="material-symbols-outlined text-primary text-4xl mb-6">hub</span>
+                            <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter mb-4">Netzwerk</h3>
+                            <p class="text-secondary leading-relaxed">Zugang zu passiven Kandidaten, die auf dem freien
+                                Markt nicht sichtbar sind – vom Bauleiter bis zum Projektsteuerer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Process -->
+        <section class="py-32 px-8 bg-background relative overflow-hidden">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="mb-20">
+                    <span class="font-label text-xs uppercase tracking-[0.3em] text-primary block mb-4">Modulares
+                        System</span>
+                    <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter">Unser Prozess
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="relative group">
+                        <div
+                            class="bg-surface-container p-8 h-full transition-transform duration-300 group-hover:-translate-y-2">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">01</span>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Briefing</h4>
+                            </div>
+                            <p class="text-sm text-secondary leading-relaxed">Wir analysieren Ihre Projektanforderungen
+                                und die Unternehmenskultur im Detail, um das ideale Profil zu erstellen.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative group">
+                        <div
+                            class="bg-surface-container-high p-8 h-full transition-transform duration-300 group-hover:-translate-y-2">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">02</span>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Sourcing</h4>
+                            </div>
+                            <p class="text-sm text-secondary leading-relaxed">Direktansprache über exklusive Kanäle und
+                                unser technisches Experten-Netzwerk in der DACH-Region.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative group">
+                        <div
+                            class="bg-surface-container p-8 h-full transition-transform duration-300 group-hover:-translate-y-2">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">03</span>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Selection</h4>
+                            </div>
+                            <p class="text-sm text-secondary leading-relaxed">Persönliche Interviews und
+                                Referenz-Checks. Sie erhalten nur die drei passgenauesten Dossiers.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative group">
+                        <div
+                            class="bg-surface-container-high p-8 h-full transition-transform duration-300 group-hover:-translate-y-2">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">04</span>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Onboarding</h4>
+                            </div>
+                            <p class="text-sm text-secondary leading-relaxed">Begleitung der Vertragsverhandlung und
+                                Support während der Einarbeitungsphase für langfristigen Erfolg.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Kontakt Form Section -->
+        <section class="py-24 px-8 bg-surface-container-lowest">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="font-headline text-4xl md:text-7xl font-black uppercase tracking-tighter mb-8">
+                        Kontaktieren Sie uns</h2>
+                    <p class="text-xl text-secondary mb-12">Lassen Sie uns über Ihre Vakanzen sprechen. Wir erstellen
+                        Ihnen ein unverbindliches Angebot für Ihr Bauprojekt.</p>
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <div class="text-primary-container"><span
+                                    class="material-symbols-outlined text-4xl">location_on</span></div>
+                            <div>
+                                <h5 class="font-headline font-bold uppercase tracking-tighter text-white mb-1">
+                                    Headquarters</h5>
+                                <p class="text-secondary">Kurfürstendamm 212<br />10719 Berlin</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="text-primary-container"><span
+                                    class="material-symbols-outlined text-4xl">call</span></div>
+                            <div>
+                                <h5 class="font-headline font-bold uppercase tracking-tighter text-white mb-1">
+                                    Engineering Line</h5>
+                                <p class="text-secondary">+49 (0) 30 123 456 78</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface p-10 relative">
+                    <div class="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-primary-container/20">
+                    </div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label
+                                    class="font-label text-[10px] uppercase tracking-widest text-secondary font-bold">Vorname</label>
+                                <input
+                                    class="w-full bg-surface-container-highest border-none focus:ring-1 focus:ring-primary-container py-4 px-4 text-white placeholder-white/20"
+                                    placeholder="Max" type="text" />
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="font-label text-[10px] uppercase tracking-widest text-secondary font-bold">Nachname</label>
+                                <input
+                                    class="w-full bg-surface-container-highest border-none focus:ring-1 focus:ring-primary-container py-4 px-4 text-white placeholder-white/20"
+                                    placeholder="Mustermann" type="text" />
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-label text-[10px] uppercase tracking-widest text-secondary font-bold">Unternehmen</label>
+                            <input
+                                class="w-full bg-surface-container-highest border-none focus:ring-1 focus:ring-primary-container py-4 px-4 text-white placeholder-white/20"
+                                placeholder="Bau GmbH &amp; Co. KG" type="text" />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-label text-[10px] uppercase tracking-widest text-secondary font-bold">E-Mail
+                                Adresse</label>
+                            <input
+                                class="w-full bg-surface-container-highest border-none focus:ring-1 focus:ring-primary-container py-4 px-4 text-white placeholder-white/20"
+                                placeholder="name@firma.de" type="email" />
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="font-label text-[10px] uppercase tracking-widest text-secondary font-bold">Nachricht</label>
+                            <textarea
+                                class="w-full bg-surface-container-highest border-none focus:ring-1 focus:ring-primary-container py-4 px-4 text-white placeholder-white/20"
+                                placeholder="Details zu Ihrem Vorhaben..." rows="4"></textarea>
+                        </div>
+                        <button
+                            class="w-full bg-primary-container text-on-primary-container py-5 font-headline uppercase tracking-tighter text-lg font-black hover:bg-primary transition-all duration-100">
+                            Anfrage Senden
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#0c0e10] w-full grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16">
+        <div class="md:col-span-2">
+            <div class="text-xl font-bold text-white uppercase tracking-tighter mb-6">Blueprint Talent</div>
+            <p class="font-['Inter'] text-xs tracking-wide text-slate-400 max-w-sm mb-8 leading-relaxed">
+                © 2024 Blueprint Talent. Engineered Precision in Recruitment. Wir transformieren die Art und Weise, wie
+                die Bauindustrie Talente findet.
+            </p>
+        </div>
+        <div>
+            <h6 class="font-headline text-white uppercase tracking-tighter font-bold text-sm mb-6">Navigation</h6>
+            <ul class="space-y-4">
+                <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                        href="#">Jobs</a></li>
+                <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                        href="#">Services</a></li>
+                <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                        href="#">Über Uns</a></li>
+            </ul>
+        </div>
+        <div>
+            <h6 class="font-headline text-white uppercase tracking-tighter font-bold text-sm mb-6">Rechtliches</h6>
+            <ul class="space-y-4">
+                <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                        href="#">Datenschutz</a></li>
+                <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                        href="#">Impressum</a></li>
+                <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                        href="#">AGB</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#2b3134",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5a4136",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#121416",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#e2e2e5",
+                        "inverse-on-surface": "#2f3133",
+                        "outline": "#a98a7d",
+                        "tertiary": "#e9c400",
+                        "primary-container": "#ff6b00",
+                        "secondary-container": "#41484b",
+                        "surface-variant": "#333537",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "on-primary": "#561f00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed": "#dde3e7",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-dim": "#121416",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "primary": "#ffb693",
+                        "surface": "#121416",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e5",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-highest": "#333537",
+                        "surface-bright": "#37393b",
+                        "surface-container-low": "#1a1c1e",
+                        "on-secondary-container": "#afb6b9",
+                        "on-secondary-fixed": "#161d1f",
+                        "on-primary-container": "#572000",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-tertiary-container": "#4c3e00",
+                        "surface-container-high": "#282a2c",
+                        "secondary": "#c1c8cb",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-background": "#e2e2e5",
+                        "surface-container": "#1e2022"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121416;
+            color: #e2e2e5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(51, 53, 55, 0.6);
+            backdrop-filter: blur(20px);
+        }
+
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .shutter-hover:hover {
+            background-size: 100% 100%;
+        }
+
+        .shutter-hover {
+            background-image: linear-gradient(#ff6b00, #ff6b00);
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: 100% 0%;
+            transition: background-size 0.3s linear;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+    <div class="fixed inset-0 noise-bg z-[100]"></div>
+    <!-- TopNavBar -->
+    <nav
+        class="bg-[#121416] dark:bg-[#121416] flex justify-between items-center w-full px-8 py-4 max-w-none docked full-width top-0 z-50 sticky">
+        <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                href="/jobs">Jobs</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                href="/unternehmen">Für Unternehmen</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                href="/ueber-uns">Über Uns</a>
+            <button
+                class="bg-primary-container text-on-primary px-6 py-2 font-headline uppercase tracking-tighter text-sm font-bold shutter-hover hover:text-white">Kontakt</button>
+        </div>
+        <div class="md:hidden text-white">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-[921px] flex flex-col justify-end overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover grayscale opacity-60"
+                data-alt="dramatic low angle shot of a modern glass skyscraper reflecting the sky with sharp architectural lines and structural precision"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxVh68_CJeEIdj9neiqhqhhgtjwv9EqTE8tzorppt3s9NeDftLo33ZepS9oRgzIVkZ0vMXAHXATSdmILqtZCM_VChlBbgURCffN8RB0UJ9gf6582gwBVmu6jCPKyYLUfxJGGYvoP4gKXBCA9YFWDk8wV4EkLsy-JB1eBrGWus-yq2TMSdUAgnOaKdRlnrf0RJf9FOGBzVKNriZ6BiiBs-uLHpcTQ4n54fwXxCr5d-gPhPu5ZBlq6YLAjKcvj6_afYOmHaqab3Qe64" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        </div>
+        <div class="relative z-10 px-8 pb-20 max-w-7xl w-full mx-auto">
+            <div
+                class="inline-block bg-primary-container text-on-primary px-4 py-1 font-headline text-xs font-bold uppercase tracking-widest mb-6">
+                EST. 2022 / RECRUITMENT PRECISION</div>
+            <h1
+                class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-white max-w-4xl">
+                Wir bauen die Zukunft – durch das richtige Personal.
+            </h1>
+            <div class="mt-12 flex flex-col md:flex-row gap-6">
+                <button
+                    class="bg-primary-container text-on-primary px-10 py-5 font-headline text-lg font-black uppercase tracking-tighter shutter-hover hover:text-white flex items-center gap-4">
+                    Offene Stellen Finden
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <button
+                    class="border border-white/20 text-white px-10 py-5 font-headline text-lg font-black uppercase tracking-tighter hover:bg-white hover:text-black transition-all">
+                    Talente Anfragen
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Expertise Section: Rigid Asymmetry -->
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div class="md:col-span-4">
+                <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">01 / Expertise
+                </div>
+                <h2 class="font-headline text-5xl font-black uppercase tracking-tighter text-white">Unsere Expertise
+                </h2>
+                <p class="mt-6 text-slate-400 font-body leading-relaxed max-w-sm">
+                    Wir vermitteln nicht nur Mitarbeiter. Wir liefern die strukturellen Komponenten für Ihren Erfolg am
+                    Bau. Technisches Verständnis trifft auf menschliche Präzision.
+                </p>
+            </div>
+            <div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+                <div class="bg-surface-container-low p-10 group">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">architecture</span>
+                    <h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white mb-4">Bauleiter</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Operative Exzellenz auf der Baustelle. Wir finden
+                        die Kapitäne, die Projekte termingerecht und im Budget steuern.</p>
+                </div>
+                <div class="bg-surface-container p-10 group">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">straighten</span>
+                    <h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white mb-4">Architekten
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Visionäre Gestaltung trifft auf technische
+                        Machbarkeit. Wir verbinden kreative Köpfe mit renommierten Büros.</p>
+                </div>
+                <div class="bg-surface-container-high p-10 group">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">engineering</span>
+                    <h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white mb-4">Ingenieure
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Strukturelle Integrität in jedem Detail.
+                        Spezialisten für Statik, TGA und Tiefbau aus unserem Netzwerk.</p>
+                </div>
+                <div class="bg-surface-container p-10 group flex items-end">
+                    <a class="text-primary font-headline font-bold uppercase tracking-tighter text-lg flex items-center gap-2 group-hover:gap-4 transition-all"
+                        href="#">
+                        Alle Disziplinen
+                        <span class="material-symbols-outlined">north_east</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTAs Section: Dual Action -->
+    <section class="bg-surface-container-low py-1">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="relative group h-[500px] overflow-hidden flex items-center justify-center">
+                <img class="absolute inset-0 w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700"
+                    data-alt="construction worker in high visibility vest looking out over a large construction site at sunset with heavy machinery"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi3MMpUxURRc3eQ8FKVdI4v2T1XqeJFdxc_GN5qTJrovtl4Hog4F5ppGfLGAWvDvKdoFx7rRWeQevrwYJax_QJlawLjVWjNGW9qQwvJMpuVHDcdHHN6cmCEeWdzI7jOGh7vtmVsJpU5CO32VMOwaeq9e3uT09HHhS1ycoY1qtbQfpEmL7SnZ3mSQrJaG75KC_OUcF8OGGrdCHAvG1ve7kV6nf0TdLyYsIi3o8uW5Hjvl7EnOxeJz6eK8KgkAiLVHf9W7hQEJT3Whc" />
+                <div class="relative z-10 text-center px-8">
+                    <h2
+                        class="font-headline text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8">
+                        Für Fachkräfte</h2>
+                    <button
+                        class="bg-transparent border-2 border-primary text-primary px-8 py-4 font-headline font-bold uppercase tracking-tighter hover:bg-primary hover:text-on-primary transition-all">
+                        Karriere Starten
+                    </button>
+                </div>
+            </div>
+            <div
+                class="relative group h-[500px] overflow-hidden flex items-center justify-center bg-surface-container-high">
+                <img class="absolute inset-0 w-full h-full object-cover grayscale opacity-30 group-hover:scale-105 transition-transform duration-700"
+                    data-alt="close-up of architectural blueprints and a yellow hard hat on a wooden desk in a modern office"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzPLzSVoIchB7JdVmL93-8ZLqCXbU2dlXubgs_ADc8qZ5iY48efqF4k9b1Wl1uxV1Njarn65RhO76Hpa9QKku4obBkuEFJ38iNoM3o43Q4HYU42tDaJEoLe7dmOlHjQ7R55fCjJQIBSVEPvj_54BVyLx8Hq856IJipPRfEyEhe2xkiqVHOhIhIJl4LO6qt7Qf8iBwclQmcj5Ki0JC6UsTFGK6h7WAjlwQNIavgxmkxcnKtEzdViVw7BqAr1NK7oORv9TD1_WHOwB0" />
+                <div class="relative z-10 text-center px-8">
+                    <h2
+                        class="font-headline text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8">
+                        Für Unternehmen</h2>
+                    <button
+                        class="bg-primary-container text-on-primary px-8 py-4 font-headline font-bold uppercase tracking-tighter shutter-hover hover:text-white">
+                        Personal Finden
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section: Bento Gallery -->
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="mb-16">
+            <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">02 / Portfolio
+            </div>
+            <h2 class="font-headline text-5xl font-black uppercase tracking-tighter text-white">Projekte &amp; Erfolge
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+            <div class="md:col-span-8 relative group overflow-hidden bg-surface-container">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    data-alt="expansive view of a modern brutalist concrete structure with bold geometric shapes and deep shadows"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs1ilPwGnrMc-YBApIKZNZdKN0ZzP15fygGyiLLj4afKiHSgkMH6fqf9iKz_V2qgG4iwIj0PRUJWgNnbLuiKw_xyjRi6DyIp_hCL16ky0qQEggsZDW_JWcHVmSMTSuf4ZIbh2O_fcbsD_eUTJGaip9u4yoGV4K9NacnLfs1B7VJEMdRI3SC29zQL8s9LIiU7CkgKfv6K28cZc21gfcpAkvacol-fECKuuGq8lgNZoKNjZh4AAG9jO9T9-1YGxJGpi4iTUdtkKzqDw" />
+                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                    <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-widest">Berlin,
+                        2023</span>
+                    <h4 class="font-headline text-2xl font-bold uppercase text-white mt-2">Metropol Tower</h4>
+                    <p class="text-slate-300 text-sm mt-2 max-w-md">Vollständige Besetzung des Ingenieursteams für den
+                        Fassadenbau.</p>
+                </div>
+            </div>
+            <div class="md:col-span-4 relative group overflow-hidden bg-surface-container-high">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    data-alt="interior view of a modern glass atrium with complex steel support structures and bright natural light"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkSR8r5MmQaO4zt_sfwoRQeR3J1Zr8DZrVs27eG_9NtKoLF1MOW8-WzuS1vhOmOk_cnYWQZeYclOUEPyxTDghOtfglIqvUgmrcy3dsjvJQthsVw7IHmcB-7lypefRSZ6FExtRaXb_88i5qpX277lbL9OaD21VFaLt5TXWE_SP6nZrHic6364vC1ylADW8DLfnfuEC30tu1izzAEg7HJhu8KLhXvcvzPfuaDUXXuM7fCDGizeH7qFZOAEJG_vQ-8vHkdSsJVNAqIhA" />
+                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                    <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-widest">Hamburg,
+                        2024</span>
+                    <h4 class="font-headline text-xl font-bold uppercase text-white mt-2">Elbe Campus</h4>
+                </div>
+            </div>
+            <div class="md:col-span-4 relative group overflow-hidden bg-surface-container-low">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    data-alt="night time long exposure of a construction site with cranes and lights creating a sense of constant movement"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3UQ9wFrxBTi6oxVBl-LF4CZnyydKlFuq1RaLcbj3_g8vJ28_Xpa6rleDNEa9qm8HohRSpLPE-1UAYiMESKJNnLM6trtcBmf-j2YE6kDYKhre8x_O_s10RlztrOaeWaP2qqI9GV8m8L0ZFjL7DGBAzFJtGqCyS-pTjt7QvJOpUCwAGKjoqKMO1NIX_y6J0SNhtfHYAor7IRcKdoUHvrCVtaNxM6oqTR0aCfwE2CEK_F24DoJMvGnW7QGzat9_5oy-CIQL1wNKkgs" />
+                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                    <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-widest">München</span>
+                    <h4 class="font-headline text-xl font-bold uppercase text-white mt-2">Logistikzentrum Süd</h4>
+                </div>
+            </div>
+            <div class="md:col-span-8 relative group overflow-hidden bg-surface-container-highest">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    data-alt="industrial architectural detail of rusted steel beams and bolted connections against a blue sky"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOmYectsQRGm1aXoIqpxWNoqRF0vkZCwAWa_cU1Izgx6x2DI5UHeaAOjWQJjEVIsZJh5YPnjLtEGpNnLZe18iEP8j4dxI7BU36V2vSI7-pZUfdeTz2QUGXutrednkYlXOKavKNPwAtpgx2h3UUO7fgHZR-ZQbqoVemlLNpXQea1s353vAuMbiyKXzCE29mQoVQT4vUW0KtMG4aMgQIDYeSD2kAZZjTHQ1WeXZBj7Y_MIr-unZGlLThOylJ3UJXhBsZjP9jN_HPPcM" />
+                <div
+                    class="absolute inset-0 glass-card opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center p-12">
+                    <div class="text-center">
+                        <h4 class="font-headline text-3xl font-black uppercase text-white">Über 250+</h4>
+                        <p class="font-body text-slate-300 mt-2">Erfolgreich besetzte Schlüsselpositionen in
+                            DACH-Region.</p>
+                    </div>
+                </div>
+                <div class="absolute bottom-8 left-8">
+                    <h4 class="font-headline text-xl font-bold uppercase text-white">Infrastruktur Nord</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
+                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
+                    Ihr Partner für spezialisiertes Recruiting im Baugewerbe. Wir verbinden die besten Köpfe mit den
+                    anspruchsvollsten Projekten.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="#">Jobs</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="#">Services</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="#">Über Uns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="#">Datenschutz</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="#">Impressum</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="#">AGB</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Newsletter</h4>
+                <div class="flex gap-2">
+                    <input
+                        class="bg-surface-container-highest border-none text-xs text-white p-3 w-full focus:ring-1 focus:ring-primary"
+                        placeholder="E-Mail Adresse" type="email" />
+                    <button class="bg-primary text-on-primary p-3">
+                        <span class="material-symbols-outlined text-sm">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
+                <span>© 2024</span>
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-5 w-auto" />
+                <span>Engineered Precision in Recruitment.</span>
+            </div>
+            <div class="flex gap-6">
+                <a class="text-slate-500 hover:text-white transition-colors" href="#"><span
+                        class="material-symbols-outlined">share</span></a>
+                <a class="text-slate-500 hover:text-white transition-colors" href="#"><span
+                        class="material-symbols-outlined">contact_page</span></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
