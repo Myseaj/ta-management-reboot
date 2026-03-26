@@ -124,23 +124,41 @@
     <div class="fixed inset-0 noise-bg z-[100]"></div>
     <!-- TopNavBar -->
     <nav
-        class="bg-[#121416] dark:bg-[#121416] flex justify-between items-center w-full px-8 py-4 max-w-none docked full-width top-0 z-50 sticky">
-        <a href="index.html" aria-label="Zur Startseite">
-            <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
-            <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+        class="bg-[#121416] dark:bg-[#121416] w-full px-8 py-4 max-w-none top-0 z-50 sticky border-b border-outline-variant/15">
+        <div class="flex justify-between items-center">
+            <a href="index.html" aria-label="Zur Startseite">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
+
             <div class="hidden md:flex gap-8 items-center">
                 <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                     href="/jobs">Jobs</a>
                 <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                     href="/unternehmen">Für Unternehmen</a>
                 <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
-                    href="/ueber-uns">Über Uns</a>
-                <button
-                    class="bg-primary-container text-on-primary px-6 py-2 font-headline uppercase tracking-tighter text-sm font-bold shutter-hover hover:text-white">Kontakt</button>
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="bg-primary-container text-on-primary px-6 py-2 font-headline uppercase tracking-tighter text-sm font-bold shutter-hover hover:text-white inline-block">Kontakt</a>
             </div>
-            <div class="md:hidden text-white">
-                <span class="material-symbols-outlined">menu</span>
+
+            <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 border-t border-white/10 mt-4">
+            <div class="flex flex-col gap-3">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="mt-2 bg-primary-container text-on-primary px-6 py-2 font-headline uppercase tracking-tighter text-sm font-bold inline-block w-fit">Kontakt</a>
             </div>
+        </div>
     </nav>
     <!-- Hero Section -->
     <section class="relative min-h-[921px] flex flex-col justify-end overflow-hidden">
@@ -207,7 +225,7 @@
                 </div>
                 <div class="bg-surface-container p-10 group flex items-end">
                     <a class="text-primary font-headline font-bold uppercase tracking-tighter text-lg flex items-center gap-2 group-hover:gap-4 transition-all"
-                        href="#">
+                        href="/disziplinen.html">
                         Alle Disziplinen
                         <span class="material-symbols-outlined">north_east</span>
                     </a>
@@ -351,49 +369,64 @@
                 <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
                 <ul class="space-y-3">
                     <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                            href="#">Jobs</a></li>
+                            href="/jobs">Jobs</a></li>
                     <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                            href="#">Services</a></li>
+                            href="/unternehmen">Services</a></li>
                     <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                            href="#">Über Uns</a></li>
+                            href="/ueberuns">Über Uns</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
                 <ul class="space-y-3">
                     <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                            href="#">Datenschutz</a></li>
+                            href="/datenschutz">Datenschutz</a></li>
                     <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                            href="#">Impressum</a></li>
+                            href="/impressum">Impressum</a></li>
                     <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                            href="#">AGB</a></li>
+                            href="/dsgvo">DSGVO</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Newsletter</h4>
-                <div class="flex gap-2">
-                    <input
-                        class="bg-surface-container-highest border-none text-xs text-white p-3 w-full focus:ring-1 focus:ring-primary"
-                        placeholder="E-Mail Adresse" type="email" />
-                    <button class="bg-primary text-on-primary p-3">
-                        <span class="material-symbols-outlined text-sm">send</span>
-                    </button>
-                </div>
-            </div>
+        </div>
+        <div class="px-8 py-5 border-t border-white/5 flex flex-wrap items-center justify-center gap-4">
+            <span class="font-['Inter'] text-xs tracking-wide text-slate-500 uppercase">Folgen Sie uns</span>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.youtube.com/@TAManagementGmbH" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.instagram.com/ta_management_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
         <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
                 <span>© 2026 TA Management GmbH</span>
                 <span>Engineered Precision in Recruitment.</span>
             </div>
-            <div class="flex gap-6">
-                <a class="text-slate-500 hover:text-white transition-colors" href="#"><span
-                        class="material-symbols-outlined">share</span></a>
-                <a class="text-slate-500 hover:text-white transition-colors" href="#"><span
-                        class="material-symbols-outlined">contact_page</span></a>
-            </div>
         </div>
     </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isHidden = mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden", !isHidden);
+                mobileMenuButton.setAttribute("aria-expanded", String(isHidden));
+                mobileMenuIcon.textContent = isHidden ? "close" : "menu";
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenuButton.setAttribute("aria-expanded", "false");
+                    mobileMenuIcon.textContent = "menu";
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>

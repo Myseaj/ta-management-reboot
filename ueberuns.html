@@ -113,19 +113,39 @@
 
 <body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
     <!-- TopNavBar -->
-    <nav class="fixed top-0 z-50 w-full bg-[#121416] flex justify-between items-center px-8 py-4">
-        <a href="index.html" aria-label="Zur Startseite">
-            <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
-        </a>
-        <div class="hidden md:flex items-center space-x-8 font-headline uppercase tracking-tighter text-sm font-bold">
-            <a class="text-white/80 hover:text-white transition-colors" href="#">Jobs</a>
-            <a class="text-white/80 hover:text-white transition-colors" href="#">Für Unternehmen</a>
-            <a class="text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1" href="#">Über Uns</a>
+    <nav class="fixed top-0 z-50 w-full bg-[#121416] px-8 py-4">
+        <div class="flex justify-between items-center">
+            <a href="index.html" aria-label="Zur Startseite">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center space-x-8 font-headline uppercase tracking-tighter text-sm font-bold">
+                <a class="text-white/80 hover:text-white transition-colors" href="/jobs">Jobs</a>
+                <a class="text-white/80 hover:text-white transition-colors" href="/unternehmen">Für Unternehmen</a>
+                <a class="text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1" href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter text-sm font-bold px-6 py-2 transition-all duration-100 active:scale-95 hover:bg-primary-fixed-dim inline-block">
+                    Kontakt
+                </a>
+            </div>
+            <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
+            </button>
         </div>
-        <button
-            class="bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter text-sm font-bold px-6 py-2 transition-all duration-100 active:scale-95 hover:bg-primary-fixed-dim">
-            Kontakt
-        </button>
+        <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 border-t border-white/10 mt-4">
+            <div class="flex flex-col gap-3">
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-[#ff6b00]"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="mt-2 bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter text-sm font-bold px-6 py-2 inline-block w-fit">
+                    Kontakt
+                </a>
+            </div>
+        </div>
     </nav>
     <main class="pt-24">
         <!-- Hero Section -->
@@ -223,7 +243,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/20">
                 <!-- Team Member 1 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
                     <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="professional male executive in a sharp dark suit with architectural models in a blurred office background"
@@ -232,19 +252,13 @@
                     <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Aaron Ebermann</h3>
                     <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
                         Geschäftsführer</p>
-                    <p
-                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Geschäfts</p>
-                    <div class="flex space-x-4">
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
-                    </div>
+                    <p class="text-secondary text-sm leading-relaxed mt-1">
+                        Führt TA Management mit klarem Qualitätsanspruch und tiefem Marktverständnis im Bau- und
+                        Ingenieurwesen.</p>
                 </div>
                 <!-- Team Member 2 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
                     <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="confident professional woman in industrial setting with blueprints and high-tech tablet"
@@ -253,19 +267,14 @@
                     <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Waldemar Solotov</h3>
                     <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
                         Operations Manager</p>
-                    <p
-                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p class="text-secondary text-sm leading-relaxed mt-1">
+                        Steuert operative Prozesse, sorgt für verlässliche Abläufe und hält Projekte sowie Besetzungen
+                        auf Kurs.
                     </p>
-                    <div class="flex space-x-4">
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
-                    </div>
                 </div>
                 <!-- Team Member 3 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
                     <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="male engineer in white helmet looking at a tablet against a blurred construction background"
@@ -274,36 +283,25 @@
                     <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Matthias Hillebrand</h3>
                     <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
                         IT Infrastruktur Leiter</p>
-                    <p
-                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Ehemaliger Bauleiter, kennt die Herausforderungen auf der Baustelle aus erster Hand.</p>
-                    <div class="flex space-x-4">
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
-                    </div>
+                    <p class="text-secondary text-sm leading-relaxed mt-1">
+                        Verantwortet die technische Basis unserer Systeme und entwickelt eine stabile, sichere
+                        IT-Infrastruktur.
+                    </p>
                 </div>
                 <!-- Team Member 4 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container">
+                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
                     <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="woman in modern office space with clean minimalist architectural design"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgugYetaLsvUuy6GKxTqqq7PcD9rObMSS2HUsoj9joka_FLhK_TxP7uEF1aOheEBzjcovBcyS3p3sDp_aH1_PTz7hl7VIl-ZtBtyKGGjryRvLVjJRp3GViYhkmN_1T3mJk_0twZprhPwvx6bWS-20HBZxfPfgHod7rzZZIlV4Y2W4tEswFWn8DEW4Y9rA_VX14tpbJnM-lCqzmSJHcvi0V51ZenOF4Qu37Ng4NzGV0-MKp4lst2PzDMRYIkyGd_CmHPCjpHTQxThw" />
+                            src="https://profile-images.xing.com/images/7fa3f16861e9749ca8c1fecb3711ca7f-4/simon-lorey.256x256.jpg" />
                     </div>
                     <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Simon Lorey</h3>
                     <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
-                        Recruitment Specialist</p>
-                    <p
-                        class="text-secondary text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Expertin für Employer Branding und digitale Recruiting-Prozesse.</p>
-                    <div class="flex space-x-4">
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">share</span>
-                        <span
-                            class="material-symbols-outlined text-sm cursor-pointer hover:text-primary transition-colors">mail</span>
-                    </div>
+                        Senior Recruiting Consultant Bauwesen</p>
+                    <p class="text-secondary text-sm leading-relaxed mt-1">
+                        Berät Unternehmen bei der Besetzung anspruchsvoller Positionen und verbindet Fachkompetenz mit
+                        passender Teamkultur.</p>
                 </div>
             </div>
         </section>
@@ -317,7 +315,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div class="space-y-12">
                         <div class="bg-surface-container p-10 border-l-8 border-primary-container">
-                            <h3 class="font-headline text-xl font-bold uppercase mb-6">Berliner Zentrale</h3>
+                            <h3 class="font-headline text-xl font-bold uppercase mb-6">Hamburger Zentrale</h3>
                             <div class="space-y-4 font-body text-secondary">
                                 <p class="flex items-center gap-3">
                                     <span class="material-symbols-outlined text-primary">location_on</span>
@@ -407,63 +405,77 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="bg-[#0c0e10] px-8 py-16 w-full border-t border-outline-variant/10">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="space-y-6">
-                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto" />
-                <p class="text-slate-500 text-xs leading-relaxed max-w-xs">
-                    Ihr Spezialist für die Vermittlung hochqualifizierter Fachkräfte im Ingenieur- und Bauwesen.
-                    Technisch versiert, menschlich fundiert.
+    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
+                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
+                    Ihr Partner für spezialisiertes Recruiting im Baugewerbe. Wir verbinden die besten Köpfe mit den
+                    anspruchsvollsten Projekten.
                 </p>
             </div>
             <div>
-                <h4 class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold mb-6">Navigation
-                </h4>
-                <ul class="space-y-3 font-['Inter'] text-xs tracking-wide">
-                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Jobs</a></li>
-                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Services</a></li>
-                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Referenzen</a></li>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/jobs">Jobs</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/unternehmen">Services</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/ueberuns">Über Uns</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold mb-6">Rechtliches
-                </h4>
-                <ul class="space-y-3 font-['Inter'] text-xs tracking-wide">
-                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Datenschutz</a></li>
-                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">Impressum</a></li>
-                    <li><a class="text-slate-500 hover:text-[#ff6b00] transition-colors" href="#">AGB</a></li>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/datenschutz">Datenschutz</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/impressum">Impressum</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/dsgvo">DSGVO</a></li>
                 </ul>
-            </div>
-            <div>
-                <h4 class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold mb-6">Newsletter
-                </h4>
-                <div class="flex">
-                    <input
-                        class="bg-surface-container-highest border-0 py-2 px-3 text-xs w-full focus:ring-1 focus:ring-primary-container"
-                        placeholder="Email Adresse" type="email" />
-                    <button class="bg-primary-container px-3">
-                        <span class="material-symbols-outlined text-sm text-on-primary">arrow_forward</span>
-                    </button>
-                </div>
             </div>
         </div>
-        <div
-            class="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
-                <span>© 2026</span>
-                TA Management GmbH. Alle Rechte vorbehalten.
+        <div class="px-8 py-5 border-t border-white/5 flex flex-wrap items-center justify-center gap-4">
+            <span class="font-['Inter'] text-xs tracking-wide text-slate-500 uppercase">Folgen Sie uns</span>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.youtube.com/@TAManagementGmbH" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.instagram.com/ta_management_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
+                <span>© 2026 TA Management GmbH</span>
                 <span>Engineered Precision in Recruitment.</span>
-            </p>
-            <div class="flex space-x-6">
-                <span
-                    class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer text-lg">brand_awareness</span>
-                <span
-                    class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer text-lg">groups</span>
-                <span
-                    class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer text-lg">hub</span>
             </div>
         </div>
     </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isHidden = mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden", !isHidden);
+                mobileMenuButton.setAttribute("aria-expanded", String(isHidden));
+                mobileMenuIcon.textContent = isHidden ? "close" : "menu";
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenuButton.setAttribute("aria-expanded", "false");
+                    mobileMenuIcon.textContent = "menu";
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Disziplinen der Baubranche | Recruiting mit Präzision</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#c1c8cb",
+                        "surface-tint": "#ffb693",
+                        "primary-fixed": "#ffdbcc",
+                        "on-background": "#e2e2e5",
+                        "surface-dim": "#121416",
+                        "surface-container": "#1e2022",
+                        "on-tertiary-container": "#4c3e00",
+                        "on-surface": "#e2e2e5",
+                        "on-primary-container": "#572000",
+                        "tertiary-fixed": "#ffe16d",
+                        "background": "#121416",
+                        "outline": "#a98a7d",
+                        "inverse-on-surface": "#2f3133",
+                        "surface": "#121416",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-container-highest": "#333537",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#1a1c1e",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed": "#dde3e7",
+                        "primary-fixed-dim": "#ffb693",
+                        "on-secondary": "#2b3134",
+                        "on-primary-fixed": "#351000",
+                        "on-secondary-container": "#afb6b9",
+                        "inverse-primary": "#a04100",
+                        "surface-bright": "#37393b",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "on-primary": "#561f00",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "primary": "#ffb693",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-error": "#690005",
+                        "primary-container": "#ff6b00",
+                        "outline-variant": "#5a4136",
+                        "surface-container-lowest": "#0c0e10",
+                        "secondary-container": "#41484b",
+                        "surface-container-high": "#282a2c",
+                        "on-secondary-fixed": "#161d1f",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "surface-variant": "#333537",
+                        "on-tertiary": "#3a3000",
+                        "tertiary": "#e9c400",
+                        "inverse-surface": "#e2e2e5"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .blueprint-grid {
+            background-image:
+                linear-gradient(to right, rgba(255, 107, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .shutter-hover:hover {
+            box-shadow: inset 0 -100px 0 0 #ff6b00;
+        }
+
+        .glass-card {
+            background: rgba(51, 53, 55, 0.6);
+            backdrop-filter: blur(20px);
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(169, 138, 125, 0.3);
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+    <!-- Top Navigation Shell -->
+    <nav
+        class="bg-[#121416] dark:bg-[#121416] docked full-width top-0 z-50 flat no shadows border-b border-outline-variant/15">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+            <a href="index.html" aria-label="Zur Startseite">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm hover:bg-[#ffb693] transition-all duration-100 active:scale-95 inline-block">
+                    Kontakt
+                </a>
+            </div>
+            <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden px-8 pb-4 border-t border-white/10">
+            <div class="flex flex-col gap-3 pt-4">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="mt-2 bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm inline-block w-fit">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[716px] flex flex-col justify-center px-12 overflow-hidden blueprint-grid">
+            <div class="absolute top-20 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+                <img class="w-full h-full object-cover grayscale"
+                    data-alt="Technical architectural blueprint showing structural steel frame of a skyscraper with measurement lines and engineering notes"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-2Cn13PCdfo_Lr7GB3Ou7KfyhOUoXAwWb0XJAlCOMQblCHpA3dJj3VN6UNu6A6NroKFGyOCRvNpiWJ4yECStZ27EHzeE_3xDfydq_nV33K5-6SFlTCBCh-laXGG1ou_Qw0VUjjusAMby7Jl-ANFFCctOoWbczLZdAcGfqJ5802yNJyIsiQMcjyh91JPNja-KyQvujVkc6Dt0cbOQpYonRfI1sr1xbqU2byHSFPFqaxuNfbDOXFgRLlENaJB7Tt2Fzf8kb0UOF1k" />
+            </div>
+            <div class="relative z-10 max-w-5xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <span
+                        class="bg-primary-container text-on-primary-container px-3 py-1 text-xs font-bold tracking-widest uppercase">Recruiting
+                        Excellence</span>
+                    <div class="h-[1px] w-24 bg-primary"></div>
+                </div>
+                <h1 class="font-headline text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-8">
+                    UNSERE <br />
+                    <span class="text-primary-container">DISZIPLINEN</span>
+                </h1>
+                <p class="text-xl text-secondary max-w-2xl leading-relaxed border-l-4 border-primary pl-6">
+                    Wir besetzen Schlüsselpositionen in der Bauindustrie mit Fach- und Führungskräften, die Projekte
+                    wirklich voranbringen – schnell, passgenau und nachhaltig.
+                </p>
+            </div>
+            <!-- Technical Specs Overlay -->
+            <div
+                class="absolute bottom-12 right-12 hidden lg:flex flex-col gap-2 glass-card p-6 border-l-2 border-tertiary-fixed-dim">
+                <div class="flex justify-between gap-12 border-b border-outline-variant pb-2">
+                    <span class="text-[10px] uppercase tracking-widest text-tertiary">Fokusmarkt</span>
+                    <span class="text-[10px] font-mono text-white">Bau &amp; Infrastruktur DACH</span>
+                </div>
+                <div class="flex justify-between gap-12 pt-2">
+                    <span class="text-[10px] uppercase tracking-widest text-tertiary">Besetzungsquote</span>
+                    <span class="text-[10px] font-mono text-white">HIGH_PERFORMANCE</span>
+                </div>
+            </div>
+        </section>
+        <!-- Discipline 01: Hochbau & Ingenieurbau -->
+        <section class="py-24 px-12 bg-surface-container-low relative overflow-hidden">
+            <div
+                class="absolute -left-12 top-0 text-[20rem] font-headline font-black text-outline select-none opacity-20">
+                01</div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+                <div class="lg:col-span-5 flex flex-col justify-center">
+                    <h2 class="font-headline text-5xl font-bold uppercase tracking-tighter mb-8 leading-tight">
+                        Hochbau &amp; <br />Ingenieurbau
+                    </h2>
+                    <div class="space-y-6 text-secondary leading-relaxed mb-10">
+                        <p>Für Hochbau und Ingenieurbau identifizieren wir Kandidat:innen mit technischer Tiefe,
+                            Führungsstärke und Projekterfahrung in anspruchsvollen Bauvorhaben.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-surface-container p-4 border-b-2 border-primary-container">
+                                <span class="block text-primary text-xs uppercase font-bold mb-1">Profile</span>
+                                <span class="text-white font-headline font-bold">Bau- &amp; Projektleitung</span>
+                            </div>
+                            <div class="bg-surface-container p-4 border-b-2 border-primary-container">
+                                <span class="block text-primary text-xs uppercase font-bold mb-1">Spezialisierung</span>
+                                <span class="text-white font-headline font-bold">Planung &amp; Ausführung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-fit border border-primary text-primary px-8 py-4 uppercase font-bold tracking-widest transition-all shutter-hover hover:text-on-primary-container">
+                        Vakanzen ansehen
+                    </button>
+                </div>
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="h-full">
+                        <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                            data-alt="Modern corporate glass skyscraper with sharp geometric angles reflecting the sky at dusk, professional architectural photography"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh0GC71G0f0NDYhJhnNqg6LGE_NCMOgozT5dd_DVnmhvzYugYXq_SGbWfFVgpvAeO_S4kj1P5RelICxTaZFaalAwl29DW0Ry1yHdaj46WI2rxMg_iyKFfGBukDei6Eo4j2IknPsiOUwZqLZ3pgiMcdw8m65iAI12v-i6XvruFdQaXsS5XYxS1Fpy020Xo47C9MYQCnsLOvXRQENF-N6Hp7PvVl09ZNNw5EU1G27VF6aBtKeIrWVOi_oFTNSRiaOLUJ_a_MLL31LpI" />
+                    </div>
+                    <div class="space-y-4">
+                        <div class="h-2/3">
+                            <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                                data-alt="Close-up of industrial steel reinforcement bars and concrete forms on a high-end construction site, sharp focus, technical lighting"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwd7w6ufTtW9A11jkptjZ28fD9xG_Oe7H_WSx59szheuuPbRM5y7yL6vhRGjlOv4CiC3VCvRpDbDC7dD_y3T-tuH-CJKCrnn8VNaZbZOF9zXV1dVzPDE_gufJtQF_JTdZR4Nz72Pz_rxSYOD7ucnK1vEXm2FwDJ7kGnLtu3hOLf9C2y2qXXFhHpcuNnCO_W8liVGzbbfFqG-bRfh26reLjelWC8qFN4jB8cl9XwbD9uPAFm7AAJhJLrwkFk2_OIZx0qAIAfnHAdXA" />
+                        </div>
+                        <div class="h-1/3 bg-primary-container p-8 flex flex-col justify-end">
+                            <span class="material-symbols-outlined text-4xl text-on-primary-container mb-4"
+                                data-icon="architecture">architecture</span>
+                            <span class="text-2xl font-headline font-black text-on-primary-container uppercase">Statik
+                                &amp; Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Discipline 02: TGA (Bento Grid Style) -->
+        <section class="py-24 px-12 bg-background relative overflow-hidden">
+            <div class="flex justify-between items-end mb-16 border-b border-outline-variant pb-8">
+                <div>
+                    <span class="text-tertiary-fixed-dim font-mono text-sm uppercase tracking-widest block mb-2">//
+                        Besetzungsfelder</span>
+                    <h2 class="font-headline text-5xl font-bold uppercase tracking-tighter">Technische Gebäudeausrüstung
+                        (TGA)</h2>
+                </div>
+                <div class="hidden md:block text-right max-w-xs text-secondary text-sm">
+                    Wir vermitteln TGA-Expert:innen, die Gebäudetechnik ganzheitlich denken und in Betrieb,
+                    Modernisierung sowie Neubau sicher umsetzen.
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-[600px]">
+                <!-- Smart Building Card -->
+                <div class="md:col-span-2 bg-surface-container-high relative group overflow-hidden">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-700"
+                        data-alt="Futuristic server room or technical hub with blue and orange ambient lighting, technical wiring and fiber optics"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgyaWKVRAUU5XuNTY704dWWs2tLOmxuL77XX7n9_CjAKhqGSjUrRF3nrB_pYJwORcfzMSYwfowWMq6EGADOTnK9IhcDblVyUMsxy_kufb0xVmtbc1zXqSDtJT3W26BRM332LBU7LdLfYjx8yKShBkAigkE5xmGnAXOngGzjN352BFGGJnUJC-wMga4ePFx9aP30ekeFDA8cr1kcUSey9OLcpomlvwOKLN3JEqiIxXvExKKc4a2lIpVoR9gC19rHS-dgw9yR1Gz7u4" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+                    <div class="relative h-full p-8 flex flex-col justify-end">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-primary-container"
+                                data-icon="settings_remote">settings_remote</span>
+                            <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter">Smart Building</h3>
+                        </div>
+                        <p class="text-secondary text-sm max-w-md">Recruiting für Smart-Building- und
+                            Gebäudeautomationsprofile mit Praxisbezug und Schnittstellenkompetenz.</p>
+                    </div>
+                </div>
+                <!-- HLSK -->
+                <div class="bg-surface-container relative p-8 flex flex-col justify-between border-t-4 border-tertiary">
+                    <div class="text-4xl font-headline font-black text-surface-container-highest">02-A</div>
+                    <div>
+                        <h3 class="font-headline text-xl font-bold uppercase mb-2">HLSK</h3>
+                        <p class="text-xs text-secondary uppercase tracking-widest leading-relaxed">Heizung / Lüftung /
+                            Sanitär / Klima</p>
+                    </div>
+                </div>
+                <!-- Elektrotechnik -->
+                <div class="bg-surface-container-low p-8 flex flex-col group relative overflow-hidden">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <span class="material-symbols-outlined text-4xl text-primary" data-icon="bolt">bolt</span>
+                        <h3 class="font-headline text-xl font-bold uppercase">Elektro-technik</h3>
+                    </div>
+                    <div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="material-symbols-outlined text-[8rem]"
+                            data-icon="electric_bolt">electric_bolt</span>
+                    </div>
+                </div>
+                <!-- Data & Security -->
+                <div
+                    class="md:col-span-2 bg-surface-container-high p-8 flex items-center gap-12 border-l-8 border-primary-container">
+                    <div class="flex-1">
+                        <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter mb-4">Infrastruktur &amp;
+                            Sicherheit</h3>
+                        <p class="text-secondary text-sm mb-6">Wir besetzen Rollen in Brandschutz,
+                            Sicherheitstechnik und Netzwerkinfrastruktur für anspruchsvolle Gebäudeprojekte.</p>
+                        <ul
+                            class="text-[10px] grid grid-cols-2 gap-2 uppercase tracking-widest text-primary-fixed-dim font-bold">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary-container"></span>
+                                Kandidatenprüfung in mehreren Stufen</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary-container"></span>
+                                Fachliche und kulturelle Passung</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Energy Management -->
+                <div class="md:col-span-2 bg-primary-container p-8 flex flex-col justify-center">
+                    <h3
+                        class="font-headline text-4xl font-black text-on-primary-container uppercase tracking-tighter leading-none mb-2">
+                        Besetzung mit Wirkung</h3>
+                    <p class="text-on-primary-container/80 font-medium">Kurze Time-to-Hire und belastbare Shortlists
+                        für kritische Rollen in der TGA.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Discipline 03: Tiefbau & Infrastruktur -->
+        <section
+            class="py-24 px-12 bg-surface-container-low flex flex-col md:flex-row gap-16 items-center overflow-hidden">
+            <div class="w-full md:w-1/2 relative">
+                <div class="aspect-square relative overflow-hidden">
+                    <img class="w-full h-full object-cover"
+                        data-alt="Massive concrete bridge construction site with heavy machinery and cranes against a dramatic industrial sky"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDveOxy8AAL0ZkmkYhbFw4y5kJlidZ4a0z1ryo8XaegcWDvdS3poVuLUMXJO0oQpiabzf_VUnT-ppiHweBlgskXQ3QEKuMhELqQdBzwsndBpp-evKAoJD4X_rd-TPxeJqn-f6VJLzNoGMpyYF9qwMM9Uyul8TdCfbImejCchAi_2KEDg5aOotiq0V-vBnXjzigdWEA9Mrzi4oWvU90ea1m5DuXpfr5gpijhEJ5DNagvpHqdl3_F9De9KyxGBEhuQwiC0wEpG8aIxa8" />
+                    <!-- Layered Overlay -->
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-primary-container/90 backdrop-blur-sm flex items-center justify-center p-6 text-center">
+                        <span class="text-[10px] font-black uppercase text-on-primary-container leading-none">Pipeline
+                            aktiv</span>
+                    </div>
+                </div>
+                <!-- Blueprint Lines -->
+                <div
+                    class="absolute -bottom-8 -right-8 w-64 h-64 border border-outline-variant/30 pointer-events-none -z-10">
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <span class="text-primary font-bold text-4xl font-headline opacity-20 block mb-4">03</span>
+                <h2 class="font-headline text-6xl font-black uppercase tracking-tighter mb-8 leading-none">Tiefbau &amp;
+                    <br />Infrastruktur
+                </h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6 group">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 bg-surface-container flex items-center justify-center group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-white" data-icon="route">route</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline font-bold text-lg uppercase mb-2">Straßen- &amp; Verkehrswegebau
+                            </h4>
+                            <p class="text-secondary text-sm">Von Bauleitung bis Kalkulation: Wir finden Talente für
+                                komplexe Infrastrukturmaßnahmen.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 group">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 bg-surface-container flex items-center justify-center group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-white" data-icon="tunnel">subway</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline font-bold text-lg uppercase mb-2">Tunnel- &amp; Spezialtiefbau</h4>
+                            <p class="text-secondary text-sm">Wir vermitteln Spezialist:innen für anspruchsvolle
+                                Bauverfahren, Termin- und Kostensteuerung.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 group">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 bg-surface-container flex items-center justify-center group-hover:bg-primary transition-colors">
+                            <span class="material-symbols-outlined text-white" data-icon="water_drop">water_drop</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline font-bold text-lg uppercase mb-2">Wasserbau &amp; Kanalisation</h4>
+                            <p class="text-secondary text-sm">Passgenaue Besetzung für Planung, Bauüberwachung und
+                                Betrieb kommunaler Infrastruktur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Discipline 04: Industrie- & Kraftwerksbau -->
+        <section class="py-24 px-12 bg-[#0c0e10] relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-20 text-center relative">
+                    <h2
+                        class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4 z-10 relative">
+                        Industrie- &amp; Kraftwerksbau</h2>
+                    <div class="h-1 w-32 bg-primary mx-auto"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+                    <div
+                        class="bg-surface-container-low p-12 flex flex-col group hover:bg-surface-container transition-all">
+                        <span class="text-tertiary-fixed-dim font-mono mb-8 block">/ 04-X1</span>
+                        <h3 class="font-headline text-2xl font-bold uppercase mb-6">Besetzung für 24/7-Umfelder</h3>
+                        <p class="text-secondary mb-8">Wir liefern Kandidat:innen, die in regulierten und
+                            hochverfügbaren Industrieumfeldern sicher agieren.</p>
+                        <div class="mt-auto pt-8 border-t border-outline-variant">
+                            <span class="text-xs uppercase font-bold text-primary">Besetzungsdynamik: Hoch</span>
+                        </div>
+                    </div>
+                    <div class="relative min-h-[400px]">
+                        <img class="absolute inset-0 w-full h-full object-cover grayscale opacity-60"
+                            data-alt="Interior of a massive modern industrial power plant with steel pipes, turbines, and complex technical machinery in dramatic low light"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQxW4Hk2eLYy-WbOP1siMbZtpQEQUlU_pNTSfFpjJuQnGoxEWnM-5nOdeJb8tNi2maLiWBS3prR48mma6-s8RIP_ezHGsC2NhZyESK-GkJxhiqfMWwBJ_DXXZNYonfDoiHw3KRhKlt6jyQFweIYQwnf-jtvcglVMxItVzEs1k1Gf53XOKpqwxvZW4KT0LAYK01wJhR159rdLKurXq5p4JTynfgEqYsQNOzIPCO-Hcmc-T0GJTDTJskqltgtpQZ6ZXIJd0MJ2Uoucg" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div
+                                class="w-16 h-16 rounded-full border-2 border-primary-container flex items-center justify-center backdrop-blur-md">
+                                <span class="material-symbols-outlined text-primary-container text-3xl"
+                                    data-icon="play_arrow">play_arrow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-surface-container-low p-12 flex flex-col group hover:bg-surface-container transition-all">
+                        <span class="text-tertiary-fixed-dim font-mono mb-8 block">/ 04-X2</span>
+                        <h3 class="font-headline text-2xl font-bold uppercase mb-6">Qualität im Auswahlprozess</h3>
+                        <p class="text-secondary mb-8">Jede Vorstellung basiert auf strukturierter Eignungsprüfung,
+                            Referenzcheck und klarer Rollenpassung.</p>
+                        <div class="mt-auto pt-8 border-t border-outline-variant">
+                            <span class="text-xs uppercase font-bold text-primary">Matching: Präzise</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-24 px-12 bg-primary-container relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 blueprint-grid"></div>
+            <div class="max-w-5xl mx-auto relative z-10 text-center">
+                <h2
+                    class="font-headline text-5xl md:text-7xl font-black uppercase text-on-primary-container tracking-tighter mb-8 leading-tight">
+                    Bereit für den <br />Nächsten Meilenstein?
+                </h2>
+                <p class="text-on-primary-container text-xl font-medium mb-12 max-w-2xl mx-auto">
+                    Lassen Sie uns Ihre offenen Schlüsselpositionen schnell und nachhaltig besetzen.
+                    Sprechen Sie mit unseren spezialisierten Recruiting-Teams.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button
+                        class="bg-on-primary-container text-primary-container px-12 py-5 uppercase font-black tracking-widest text-lg transition-transform active:scale-95">
+                        Jetzt Kontakt aufnehmen
+                    </button>
+                    <button
+                        class="border-2 border-on-primary-container text-on-primary-container px-12 py-5 uppercase font-black tracking-widest text-lg hover:bg-on-primary-container hover:text-primary-container transition-all">
+                        Stellenprofile senden
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
+                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
+                    Ihr Partner für spezialisiertes Recruiting im Baugewerbe. Wir verbinden die besten Köpfe mit den
+                    anspruchsvollsten Projekten.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/jobs">Jobs</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/unternehmen">Services</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/ueberuns">Über Uns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/datenschutz">Datenschutz</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/impressum">Impressum</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/dsgvo">DSGVO</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="px-8 py-5 border-t border-white/5 flex flex-wrap items-center justify-center gap-4">
+            <span class="font-['Inter'] text-xs tracking-wide text-slate-500 uppercase">Folgen Sie uns</span>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.youtube.com/@TAManagementGmbH" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.instagram.com/ta_management_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
+                <span>© 2026 TA Management GmbH</span>
+                <span>Engineered Precision in Recruitment.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isHidden = mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden", !isHidden);
+                mobileMenuButton.setAttribute("aria-expanded", String(isHidden));
+                mobileMenuIcon.textContent = isHidden ? "close" : "menu";
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenuButton.setAttribute("aria-expanded", "false");
+                    mobileMenuIcon.textContent = "menu";
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

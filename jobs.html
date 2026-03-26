@@ -124,10 +124,26 @@
                 <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                     href="/ueberuns">Über Uns</a>
             </div>
-            <button
-                class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm hover:bg-[#ffb693] transition-all duration-100 active:scale-95">
+            <a href="/unternehmen#kontaktformular"
+                class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm hover:bg-[#ffb693] transition-all duration-100 active:scale-95 inline-block">
                 Kontakt
+            </a>
+            <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
             </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden px-8 pb-4 border-t border-white/10">
+            <div class="flex flex-col gap-3 pt-4">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-[#ff6b00]"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="mt-2 bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm inline-block w-fit">Kontakt</a>
+            </div>
         </div>
     </nav>
     <main class="min-h-screen blueprint-grid">
@@ -233,6 +249,10 @@
             <div class="mt-16 flex flex-col items-center gap-6">
                 <p id="jobsCount" class="font-label text-slate-500 text-sm uppercase tracking-widest">Lade verfügbare
                     Vakanzen …</p>
+                <button id="loadMoreJobsBtn"
+                    class="hidden bg-primary-container text-on-primary font-headline font-bold uppercase py-3 px-8 hover:brightness-110 transition-all">
+                    Mehr anzeigen
+                </button>
             </div>
         </section>
         <!-- Technical Specs/Blueprint Overlay Section -->
@@ -263,65 +283,51 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] full-width border-t-0">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full">
-            <div class="md:col-span-1">
+    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
                 <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
-                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed max-w-xs">
-                    Ihr strategischer Partner für die Rekrutierung von Fach- und Führungskräften im Bauwesen. Präzision
-                    in jeder Platzierung.
+                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
+                    Ihr Partner für spezialisiertes Recruiting im Baugewerbe. Wir verbinden die besten Köpfe mit den
+                    anspruchsvollsten Projekten.
                 </p>
             </div>
-            <div class="flex flex-col gap-4">
-                <h5 class="text-primary font-headline text-xs font-bold uppercase tracking-[0.2em] mb-2">Navigation</h5>
-                <a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                    href="#">Jobs</a>
-                <a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                    href="#">Services</a>
-                <a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                    href="#">Über Uns</a>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/jobs">Jobs</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/unternehmen">Services</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/ueberuns">Über Uns</a></li>
+                </ul>
             </div>
-            <div class="flex flex-col gap-4">
-                <h5 class="text-primary font-headline text-xs font-bold uppercase tracking-[0.2em] mb-2">Rechtliches
-                </h5>
-                <a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                    href="#">Datenschutz</a>
-                <a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                    href="#">Impressum</a>
-                <a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
-                    href="#">AGB</a>
-            </div>
-            <div class="flex flex-col gap-4">
-                <h5 class="text-primary font-headline text-xs font-bold uppercase tracking-[0.2em] mb-2">Connect</h5>
-                <div class="flex gap-4">
-                    <span
-                        class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer transition-colors">terminal</span>
-                    <span
-                        class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer transition-colors">precision_manufacturing</span>
-                    <span
-                        class="material-symbols-outlined text-slate-500 hover:text-primary cursor-pointer transition-colors">architecture</span>
-                </div>
-                <div class="mt-4">
-                    <p class="text-white text-xs font-bold mb-1">Newsletter</p>
-                    <div class="flex border-b border-outline-variant/30 focus-within:border-primary transition-colors">
-                        <input class="bg-transparent border-none text-xs p-2 focus:ring-0 w-full text-slate-300"
-                            placeholder="E-Mail Adresse" type="email" />
-                        <button class="material-symbols-outlined text-primary text-sm p-2">send</button>
-                    </div>
-                </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/datenschutz">Datenschutz</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/impressum">Impressum</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/dsgvo">DSGVO</a></li>
+                </ul>
             </div>
         </div>
-        <div
-            class="px-8 py-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <span class="font-['Inter'] text-[10px] tracking-wide text-slate-400 flex items-center gap-2">
-                <span>© 2024</span>
-                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-5 w-auto" />
+        <div class="px-8 py-5 border-t border-white/5 flex flex-wrap items-center justify-center gap-4">
+            <span class="font-['Inter'] text-xs tracking-wide text-slate-500 uppercase">Folgen Sie uns</span>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.youtube.com/@TAManagementGmbH" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.instagram.com/ta_management_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
+                <span>© 2026 TA Management GmbH</span>
                 <span>Engineered Precision in Recruitment.</span>
-            </span>
-            <div class="flex gap-4">
-                <span class="text-[10px] text-slate-600 font-headline uppercase tracking-widest">ISO 9001
-                    Certified</span>
-                <span class="text-[10px] text-slate-600 font-headline uppercase tracking-widest">Est. 2012</span>
             </div>
         </div>
     </footer>
@@ -331,7 +337,10 @@
             allJobs: [],
             filteredJobs: [],
             loading: true,
+            visibleCount: 20,
         };
+
+        const JOBS_PAGE_SIZE = 20;
 
         const jobsApiUrl = "https://vccbpwvprepehqxatnuo.supabase.co/rest/v1/public_job_ads";
         const jobsApiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjY2Jwd3ZwcmVwZWhxeGF0bnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUwNjY3MjQsImV4cCI6MTk5MDY0MjcyNH0.zEG6vuzJyiT0penToBCqyTWJnaHjmjGU0TbM7mQkJVY";
@@ -340,11 +349,32 @@
         const jobsLoadingElement = document.getElementById("jobsLoadingState");
         const jobsEmptyStateElement = document.getElementById("jobsEmptyState");
         const jobsCountElement = document.getElementById("jobsCount");
+        const loadMoreJobsBtnElement = document.getElementById("loadMoreJobsBtn");
 
         const positionFilterElement = document.getElementById("positionFilter");
         const locationFilterElement = document.getElementById("locationFilter");
         const textSearchFilterElement = document.getElementById("textSearchFilter");
         const searchJobsBtnElement = document.getElementById("searchJobsBtn");
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isHidden = mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden", !isHidden);
+                mobileMenuButton.setAttribute("aria-expanded", String(isHidden));
+                mobileMenuIcon.textContent = isHidden ? "close" : "menu";
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenuButton.setAttribute("aria-expanded", "false");
+                    mobileMenuIcon.textContent = "menu";
+                });
+            });
+        }
 
         function escapeHtml(value) {
             return String(value ?? "")
@@ -406,12 +436,16 @@
         }
 
         function renderJobs() {
-            jobsListElement.innerHTML = jobsState.filteredJobs.map(buildJobCard).join("");
+            const visibleJobs = jobsState.filteredJobs.slice(0, jobsState.visibleCount);
+            jobsListElement.innerHTML = visibleJobs.map(buildJobCard).join("");
             const hasJobs = jobsState.filteredJobs.length > 0;
             jobsEmptyStateElement.classList.toggle("hidden", hasJobs);
             jobsCountElement.textContent = hasJobs
-                ? `Zeige ${jobsState.filteredJobs.length} verfügbare Vakanzen`
+                ? `Zeige ${visibleJobs.length} von ${jobsState.filteredJobs.length} verfügbaren Vakanzen`
                 : "0 verfügbare Vakanzen";
+
+            const canLoadMore = hasJobs && jobsState.visibleCount < jobsState.filteredJobs.length;
+            loadMoreJobsBtnElement.classList.toggle("hidden", !canLoadMore);
         }
 
         function applyFilters() {
@@ -445,6 +479,7 @@
                 return matchesPosition && matchesLocation && matchesText;
             });
 
+            jobsState.visibleCount = JOBS_PAGE_SIZE;
             renderJobs();
         }
 
@@ -524,6 +559,10 @@
         textSearchFilterElement.addEventListener("input", applyFilters);
         locationFilterElement.addEventListener("input", applyFilters);
         searchJobsBtnElement.addEventListener("click", applyFilters);
+        loadMoreJobsBtnElement.addEventListener("click", () => {
+            jobsState.visibleCount += JOBS_PAGE_SIZE;
+            renderJobs();
+        });
 
         loadJobs();
     </script>

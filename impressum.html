@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Impressum | TA Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#2b3134",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5a4136",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#121416",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#e2e2e5",
+                        "inverse-on-surface": "#2f3133",
+                        "outline": "#a98a7d",
+                        "tertiary": "#e9c400",
+                        "primary-container": "#ff6b00",
+                        "secondary-container": "#41484b",
+                        "surface-variant": "#333537",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "on-primary": "#561f00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed": "#dde3e7",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-dim": "#121416",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "primary": "#ffb693",
+                        "surface": "#121416",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e5",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-highest": "#333537",
+                        "surface-bright": "#37393b",
+                        "surface-container-low": "#1a1c1e",
+                        "on-secondary-container": "#afb6b9",
+                        "on-secondary-fixed": "#161d1f",
+                        "on-primary-container": "#572000",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-tertiary-container": "#4c3e00",
+                        "surface-container-high": "#282a2c",
+                        "secondary": "#c1c8cb",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-background": "#e2e2e5",
+                        "surface-container": "#1e2022"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(255, 107, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+    <nav
+        class="bg-[#121416] dark:bg-[#121416] docked full-width top-0 z-50 flat no shadows border-b border-outline-variant/15">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+            <a href="index.html" aria-label="Zur Startseite">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm hover:bg-[#ffb693] transition-all duration-100 active:scale-95 inline-block">
+                    Kontakt
+                </a>
+            </div>
+            <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden px-8 pb-4 border-t border-white/10">
+            <div class="flex flex-col gap-3 pt-4">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="mt-2 bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm inline-block w-fit">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen">
+        <section class="pt-24 pb-16 px-8 blueprint-grid">
+            <div class="max-w-5xl mx-auto text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-low border border-outline-variant/30 mb-6">
+                    <span class="text-primary">⚖️</span>
+                    <span class="font-headline text-xs uppercase tracking-[0.2em] text-primary">Rechtliches</span>
+                </div>
+                <h1
+                    class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-white mb-4">
+                    Impressum
+                </h1>
+                <p class="text-secondary text-lg">Angaben gemäß § 5 TMG</p>
+            </div>
+        </section>
+
+        <section class="px-8 pb-24">
+            <div class="max-w-5xl mx-auto space-y-6">
+                <article class="bg-surface-container-low border border-outline-variant/20">
+                    <div class="bg-primary-container px-6 py-4 flex items-center gap-3">
+                        <span class="text-2xl">🏢</span>
+                        <h2 class="font-headline text-2xl font-bold uppercase tracking-tighter text-on-primary">Angaben
+                            zum Unternehmen</h2>
+                    </div>
+                    <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-1">
+                            <h3 class="font-headline text-xs uppercase tracking-[0.18em] text-primary font-bold">TA
+                                Management GmbH</h3>
+                            <p class="text-slate-300">Geibelstraße 46b</p>
+                            <p class="text-slate-300">22303 Hamburg</p>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="font-headline text-xs uppercase tracking-[0.18em] text-primary font-bold">Kontakt
+                            </h3>
+                            <p class="text-slate-300"><strong>Tel.:</strong> (040) 22 86 69 830</p>
+                            <p class="text-slate-300"><strong>E-Mail:</strong> info@ta-management.de</p>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="font-headline text-xs uppercase tracking-[0.18em] text-primary font-bold">
+                                Vertretung</h3>
+                            <p class="text-slate-300">Alleinverfügungsberechtigter Geschäftsführer:</p>
+                            <p class="text-white font-semibold">Aaron Ebermann</p>
+                        </div>
+                        <div class="space-y-1">
+                            <h3 class="font-headline text-xs uppercase tracking-[0.18em] text-primary font-bold">
+                                Registereintrag</h3>
+                            <p class="text-slate-300">Registergericht: Amtsgericht Hamburg</p>
+                            <p class="text-slate-300">Registernummer: HRB 138319</p>
+                        </div>
+                        <div class="md:col-span-2 border-t border-outline-variant/20 pt-6 space-y-1">
+                            <h3 class="font-headline text-xs uppercase tracking-[0.18em] text-primary font-bold">
+                                Umsatzsteuer-ID</h3>
+                            <p class="text-slate-300">Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:
+                                DE304265559</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-surface-container-low border border-outline-variant/20">
+                    <div class="bg-primary-container px-6 py-4 flex items-center gap-3">
+                        <span class="text-2xl">⚠️</span>
+                        <h2 class="font-headline text-2xl font-bold uppercase tracking-tighter text-on-primary">
+                            Haftungsausschluss (Disclaimer)</h2>
+                    </div>
+                    <div class="p-8 space-y-10">
+                        <div class="space-y-3">
+                            <h3 class="font-headline text-xl font-bold uppercase tracking-tighter text-white">Haftung
+                                für Inhalte</h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+                                Vollständigkeit und Aktualität der Inhalte
+                                können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1
+                                TMG für eigene Inhalte auf diesen Seiten
+                                nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+                                Diensteanbieter jedoch nicht verpflichtet,
+                                übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
+                                forschen, die auf eine rechtswidrige
+                                Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+                                Informationen nach den allgemeinen Gesetzen bleiben
+                                hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
+                                Kenntnis einer konkreten Rechtsverletzung
+                                möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese
+                                Inhalte umgehend entfernen.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h3 class="font-headline text-xl font-bold uppercase tracking-tighter text-white">Haftung
+                                für Links</h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
+                                Einfluss haben. Deshalb können wir für diese
+                                fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist
+                                stets der jeweilige Anbieter oder Betreiber
+                                der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf
+                                mögliche Rechtsverstöße überprüft.
+                                Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine
+                                permanente inhaltliche Kontrolle der verlinkten
+                                Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei
+                                Bekanntwerden von Rechtsverletzungen werden
+                                wir derartige Links umgehend entfernen.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h3 class="font-headline text-xl font-bold uppercase tracking-tighter text-white">
+                                Urheberrecht</h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+                                dem deutschen Urheberrecht. Die
+                                Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+                                Grenzen des Urheberrechtes bedürfen der
+                                schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien
+                                dieser Seite sind nur für den privaten, nicht
+                                kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom
+                                Betreiber erstellt wurden, werden die Urheberrechte
+                                Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten
+                                Sie trotzdem auf eine
+                                Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis.
+                                Bei Bekanntwerden von Rechtsverletzungen werden
+                                wir derartige Inhalte umgehend entfernen.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
+                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
+                    Ihr Partner für spezialisiertes Recruiting im Baugewerbe. Wir verbinden die besten Köpfe mit den
+                    anspruchsvollsten Projekten.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/jobs">Jobs</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/unternehmen">Services</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/ueberuns">Über Uns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/datenschutz">Datenschutz</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/impressum">Impressum</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/dsgvo">DSGVO</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="px-8 py-5 border-t border-white/5 flex flex-wrap items-center justify-center gap-4">
+            <span class="font-['Inter'] text-xs tracking-wide text-slate-500 uppercase">Folgen Sie uns</span>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.youtube.com/@TAManagementGmbH" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.instagram.com/ta_management_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
+                <span>© 2026 TA Management GmbH</span>
+                <span>Engineered Precision in Recruitment.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isHidden = mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden", !isHidden);
+                mobileMenuButton.setAttribute("aria-expanded", String(isHidden));
+                mobileMenuIcon.textContent = isHidden ? "close" : "menu";
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenuButton.setAttribute("aria-expanded", "false");
+                    mobileMenuIcon.textContent = "menu";
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

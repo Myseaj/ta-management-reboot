@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Datenschutz | TA Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#2b3134",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#5a4136",
+                        "primary-fixed": "#ffdbcc",
+                        "surface-tint": "#ffb693",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#121416",
+                        "primary-fixed-dim": "#ffb693",
+                        "inverse-surface": "#e2e2e5",
+                        "inverse-on-surface": "#2f3133",
+                        "outline": "#a98a7d",
+                        "tertiary": "#e9c400",
+                        "primary-container": "#ff6b00",
+                        "secondary-container": "#41484b",
+                        "surface-variant": "#333537",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "on-primary": "#561f00",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed": "#dde3e7",
+                        "on-tertiary": "#3a3000",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "surface-container-lowest": "#0c0e10",
+                        "surface-dim": "#121416",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "primary": "#ffb693",
+                        "surface": "#121416",
+                        "inverse-primary": "#a04100",
+                        "on-surface": "#e2e2e5",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#351000",
+                        "surface-container-highest": "#333537",
+                        "surface-bright": "#37393b",
+                        "surface-container-low": "#1a1c1e",
+                        "on-secondary-container": "#afb6b9",
+                        "on-secondary-fixed": "#161d1f",
+                        "on-primary-container": "#572000",
+                        "on-surface-variant": "#e2bfb0",
+                        "on-tertiary-container": "#4c3e00",
+                        "surface-container-high": "#282a2c",
+                        "secondary": "#c1c8cb",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-background": "#e2e2e5",
+                        "surface-container": "#1e2022"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .blueprint-grid {
+            background-image: linear-gradient(to right, rgba(255, 107, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+    <nav
+        class="bg-[#121416] dark:bg-[#121416] docked full-width top-0 z-50 flat no shadows border-b border-outline-variant/15">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+            <a href="index.html" aria-label="Zur Startseite">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm hover:bg-[#ffb693] transition-all duration-100 active:scale-95 inline-block">
+                    Kontakt
+                </a>
+            </div>
+            <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
+                aria-expanded="false" aria-controls="mobileMenu">
+                <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden px-8 pb-4 border-t border-white/10">
+            <div class="flex flex-col gap-3 pt-4">
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/jobs">Jobs</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/unternehmen">Für Unternehmen</a>
+                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                    href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="mt-2 bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm inline-block w-fit">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen">
+        <section class="pt-24 pb-16 px-8 blueprint-grid">
+            <div class="max-w-5xl mx-auto text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-low border border-outline-variant/30 mb-6">
+                    <span class="text-primary">🔒</span>
+                    <span class="font-headline text-xs uppercase tracking-[0.2em] text-primary">Rechtliches</span>
+                </div>
+                <h1
+                    class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none text-white mb-4">
+                    Datenschutzerklärung
+                </h1>
+            </div>
+        </section>
+
+        <section class="px-8 pb-24">
+            <div class="max-w-5xl mx-auto">
+                <article class="bg-surface-container-low border border-outline-variant/20 p-8 md:p-10">
+                    <div class="text-slate-300 leading-relaxed space-y-4">
+                        <p><strong class="text-white">1. Datenschutz auf einen Blick</strong></p>
+                        <p><strong class="text-white">Allgemeine Hinweise</strong></p>
+                        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
+                            personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten
+                            sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche
+                            Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten
+                            Datenschutzerklärung.</p>
+
+                        <p><strong class="text-white">Datenerfassung auf dieser Website</strong></p>
+                        <p>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</p>
+                        <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
+                            Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle“ in dieser
+                            Datenschutzerklärung entnehmen.</p>
+                        <p>Wie erfassen wir Ihre Daten?</p>
+                        <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es
+                            sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
+                        <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch
+                            unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser,
+                            Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt
+                            automatisch, sobald Sie diese Website betreten.</p>
+                        <p>Wofür nutzen wir Ihre Daten?</p>
+                        <p>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu
+                            gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+                        <p>Welche Rechte haben Sie bezüglich Ihrer Daten?</p>
+                        <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck
+                            Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die
+                            Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur
+                            Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft
+                            widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der
+                            Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein
+                            Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Hierzu sowie zu weiteren Fragen zum
+                            Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
+                        <p>Analyse-Tools und Tools von Drittanbietern</p>
+                        <p>Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das
+                            geschieht vor allem mit sogenannten Analyseprogrammen. Detaillierte Informationen zu diesen
+                            Analyseprogrammen finden Sie in der folgenden Datenschutzerklärung.</p>
+
+                        <p><strong class="text-white">2. Allgemeine Hinweise und Pflichtinformationen</strong></p>
+                        <p><strong class="text-white">Datenschutz</strong></p>
+                        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir
+                            behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen
+                            Datenschutzvorschriften sowie dieser Datenschutzerklärung. Wenn Sie diese Website benutzen,
+                            werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit
+                            denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung
+                            erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu
+                            welchem Zweck das geschieht. Wir weisen darauf hin, dass die Datenübertragung im Internet
+                            (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser
+                            Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+
+                        <p><strong class="text-white">Hinweis zur verantwortlichen Stelle</strong></p>
+                        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+                        <p>TA Management GmbH</p>
+                        <p>Überseering 13 | 22297 Hamburg</p>
+                        <p>Telefon: 040/22 86 69 83-0</p>
+                        <p>E-Mail: info@ta-management.de</p>
+                        <p>Vertreten durch Aaron Ebermann</p>
+                        <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam
+                            mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B.
+                            Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+
+                        <p><strong class="text-white">Speicherdauer</strong></p>
+                        <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde,
+                            verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung
+                            entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur
+                            Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich
+                            zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer-
+                            oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung
+                            nach Fortfall dieser Gründe.</p>
+
+                        <p><strong class="text-white">Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung
+                                auf dieser Website</strong></p>
+                        <p>Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre
+                            personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit.
+                            a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im
+                            Falle einer ausdrücklichen Einwilligung in die Übertragung personenbezogener Daten in
+                            Drittstaaten erfolgt die Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs. 1 lit. a
+                            DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in
+                            Ihr Endgerät (z. B. via Device-Fingerprinting) eingewilligt haben, erfolgt die
+                            Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TTDSG. Die Einwilligung ist
+                            jederzeit widerrufbar. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung
+                            vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6
+                            Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung
+                            einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit. c
+                            DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach
+                            Art. 6 Abs. 1 lit. f DSGVO erfolgen. Über die jeweils im Einzelfall einschlägigen
+                            Rechtsgrundlagen wird in den folgenden Absätzen dieser Datenschutzerklärung informiert.</p>
+
+                        <p><strong class="text-white">Hinweis zur Datenweitergabe in die USA und sonstige
+                                Drittstaaten</strong></p>
+                        <p>Wir verwenden unter anderem Tools von Unternehmen mit Sitz in den USA oder sonstigen
+                            datenschutzrechtlich nicht sicheren Drittstaaten. Wenn diese Tools aktiv sind, können Ihre
+                            personenbezogene Daten in diese Drittstaaten übertragen und dort verarbeitet werden. Wir
+                            weisen darauf hin, dass in diesen Ländern kein mit der EU vergleichbares Datenschutzniveau
+                            garantiert werden kann. Beispielsweise sind US-Unternehmen dazu verpflichtet,
+                            personenbezogene Daten an Sicherheitsbehörden herauszugeben, ohne dass Sie als Betroffener
+                            hiergegen gerichtlich vorgehen könnten. Es kann daher nicht ausgeschlossen werden, dass
+                            US-Behörden (z. B. Geheimdienste) Ihre auf US-Servern befindlichen Daten zu
+                            Überwachungszwecken verarbeiten, auswerten und dauerhaft speichern. Wir haben auf diese
+                            Verarbeitungstätigkeiten keinen Einfluss.</p>
+
+                        <p><strong class="text-white">Widerruf Ihrer Einwilligung zur Datenverarbeitung</strong></p>
+                        <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie
+                            können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis
+                            zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+
+                        <p><strong class="text-white">Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen
+                                sowie gegen Direktwerbung (Art. 21 DSGVO)</strong></p>
+                        <p>WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN
+                            SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN
+                            DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH FÜR
+                            EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN
+                            EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKLÄRUNG. WENN SIE WIDERSPRUCH
+                            EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI
+                            DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN, DIE IHRE
+                            INTERESSEN, RECHTE UND FREIHEITEN ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG,
+                            AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).</p>
+                        <p>WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE
+                            DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER
+                            DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH FÜR DAS PROFILING, SOWEIT ES
+                            MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE
+                            PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET
+                            (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).</p>
+
+                        <p><strong class="text-white">Beschwerderecht bei der zuständigen Aufsichtsbehörde</strong></p>
+                        <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer
+                            Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres
+                            Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht
+                            unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
+
+                        <p><strong class="text-white">Recht auf Datenübertragbarkeit</strong></p>
+                        <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines
+                            Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen,
+                            maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten
+                            an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar
+                            ist.</p>
+
+                        <p><strong class="text-white">Auskunft, Löschung und Berichtigung</strong></p>
+                        <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf
+                            unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und
+                            Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder
+                            Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten
+                            können Sie sich jederzeit an uns wenden.</p>
+
+                        <p><strong class="text-white">Recht auf Einschränkung der Verarbeitung</strong></p>
+                        <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu
+                            verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der
+                            Verarbeitung besteht in folgenden Fällen: Wenn Sie die Richtigkeit Ihrer bei uns
+                            gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies
+                            zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der
+                            Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Wenn die Verarbeitung Ihrer
+                            personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die
+                            Einschränkung der Datenverarbeitung verlangen. Wenn wir Ihre personenbezogenen Daten nicht
+                            mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von
+                            Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der
+                            Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Wenn Sie einen Widerspruch nach
+                            Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren
+                            Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen,
+                            haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu
+                            verlangen. Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben,
+                            dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur
+                            Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte
+                            einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen
+                            öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats verarbeitet werden.
+                        </p>
+
+                        <p><strong class="text-white">SSL- bzw. TLS-Verschlüsselung</strong></p>
+                        <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher
+                            Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber
+                            senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie
+                            daran, dass die Adresszeile des Browsers von „http://“ auf „https://“ wechselt und an dem
+                            Schloss-Symbol in Ihrer Browserzeile. Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist,
+                            können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
+
+                        <p><strong class="text-white">3. Datenerfassung auf dieser Website</strong></p>
+                        <p><strong class="text-white">Cookies</strong></p>
+                        <p>Unsere Internetseiten verwenden so genannte „Cookies“. Cookies sind kleine Datenpakete und
+                            richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die
+                            Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem Endgerät
+                            gespeichert. Session-Cookies werden nach Ende Ihres Besuchs automatisch gelöscht. Permanente
+                            Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese selbst löschen oder eine
+                            automatische Löschung durch Ihren Webbrowser erfolgt. Teilweise können auch Cookies von
+                            Drittunternehmen auf Ihrem Endgerät gespeichert werden, wenn Sie unsere Seite betreten
+                            (Third-Party-Cookies). Diese ermöglichen uns oder Ihnen die Nutzung bestimmter
+                            Dienstleistungen des Drittunternehmens (z. B. Cookies zur Abwicklung von
+                            Zahlungsdienstleistungen).</p>
+                        <p>Cookies haben verschiedene Funktionen. Zahlreiche Cookies sind technisch notwendig, da
+                            bestimmte Websitefunktionen ohne diese nicht funktionieren würden (z. B. die
+                            Warenkorbfunktion oder die Anzeige von Videos). Andere Cookies dienen dazu, das
+                            Nutzerverhalten auszuwerten oder Werbung anzuzeigen. Cookies, die zur Durchführung des
+                            elektronischen Kommunikationsvorgangs, zur Bereitstellung bestimmter, von Ihnen erwünschter
+                            Funktionen (z. B. für die Warenkorbfunktion) oder zur Optimierung der Website (z. B. Cookies
+                            zur Messung des Webpublikums) erforderlich sind (notwendige Cookies), werden auf Grundlage
+                            von Art. 6 Abs. 1 lit. f DSGVO gespeichert, sofern keine andere Rechtsgrundlage angegeben
+                            wird. Der Websitebetreiber hat ein berechtigtes Interesse an der Speicherung von notwendigen
+                            Cookies zur technisch fehlerfreien und optimierten Bereitstellung seiner Dienste. Sofern
+                            eine Einwilligung zur Speicherung von Cookies und vergleichbaren
+                            Wiedererkennungstechnologien abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf
+                            Grundlage dieser Einwilligung (Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG); die
+                            Einwilligung ist jederzeit widerrufbar.</p>
+                        <p>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert
+                            werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle
+                            oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des
+                            Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität dieser
+                            Website eingeschränkt sein. Soweit Cookies von Drittunternehmen oder zu Analysezwecken
+                            eingesetzt werden, werden wir Sie hierüber im Rahmen dieser Datenschutzerklärung gesondert
+                            informieren und ggf. eine Einwilligung abfragen.</p>
+
+                        <p><strong class="text-white">Kontaktformular</strong></p>
+                        <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem
+                            Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der
+                            Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir
+                            nicht ohne Ihre Einwilligung weiter.</p>
+                        <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern
+                            Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung
+                            vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung
+                            auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten
+                            Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a
+                            DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
+                        <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur
+                            Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die
+                            Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende
+                            gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+
+                        <p><strong class="text-white">Anfrage per E-Mail, Telefon oder Telefax</strong></p>
+                        <p>Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller
+                            daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung
+                            Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre
+                            Einwilligung weiter. Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1
+                            lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur
+                            Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die
+                            Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns
+                            gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1
+                            lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.</p>
+                        <p>Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, bis Sie uns
+                            zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die
+                            Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihres Anliegens).
+                            Zwingende gesetzliche Bestimmungen – insbesondere gesetzliche Aufbewahrungsfristen – bleiben
+                            unberührt.</p>
+
+                        <p><strong class="text-white">4. Plugins und Tools</strong></p>
+                        <p><strong class="text-white">Font Awesome</strong></p>
+                        <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten und Symbolen Font Awesome.
+                            Anbieter ist die Fonticons, Inc., 6 Porter Road Apartment 3R, Cambridge, Massachusetts, USA.
+                        </p>
+                        <p>Beim Aufruf einer Seite lädt Ihr Browser die benötigten Fonts in ihren Browsercache, um
+                            Texte, Schriftarten und Symbole korrekt anzuzeigen. Zu diesem Zweck muss der von Ihnen
+                            verwendete Browser Verbindung zu den Servern von Font Awesome aufnehmen. Hierdurch erlangt
+                            Font Awesome Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die
+                            Nutzung von Font Awesome erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein
+                            berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes auf unserer
+                            Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung
+                            ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit
+                            die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät
+                            des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist
+                            jederzeit widerrufbar.</p>
+                        <p>Wenn Ihr Browser Font Awesome nicht unterstützt, wird eine Standardschrift von Ihrem Computer
+                            genutzt. Weitere Informationen zu Font Awesome finden Sie und in der Datenschutzerklärung
+                            von Font Awesome unter: <a class="text-primary hover:underline"
+                                href="https://fontawesome.com/privacy" target="_blank"
+                                rel="noopener noreferrer">https://fontawesome.com/privacy</a>.</p>
+
+                        <p><strong class="text-white">Google reCAPTCHA</strong></p>
+                        <p>Wir nutzen „Google reCAPTCHA“ (im Folgenden „reCAPTCHA“) auf dieser Website. Anbieter ist die
+                            Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.</p>
+                        <p>Mit reCAPTCHA soll überprüft werden, ob die Dateneingabe auf dieser Website (z. B. in einem
+                            Kontaktformular) durch einen Menschen oder durch ein automatisiertes Programm erfolgt.
+                            Hierzu analysiert reCAPTCHA das Verhalten des Websitebesuchers anhand verschiedener
+                            Merkmale. Diese Analyse beginnt automatisch, sobald der Websitebesucher die Website betritt.
+                            Zur Analyse wertet reCAPTCHA verschiedene Informationen aus (z. B. IP-Adresse, Verweildauer
+                            des Websitebesuchers auf der Website oder vom Nutzer getätigte Mausbewegungen). Die bei der
+                            Analyse erfassten Daten werden an Google weitergeleitet.</p>
+                        <p>Die reCAPTCHA-Analysen laufen vollständig im Hintergrund. Websitebesucher werden nicht darauf
+                            hingewiesen, dass eine Analyse stattfindet.</p>
+                        <p>Die Speicherung und Analyse der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
+                            Der Websitebetreiber hat ein berechtigtes Interesse daran, seine Webangebote vor
+                            missbräuchlicher automatisierter Ausspähung und vor SPAM zu schützen. Sofern eine
+                            entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf
+                            Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die
+                            Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B.
+                            Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit
+                            widerrufbar.</p>
+                        <p>Weitere Informationen zu Google reCAPTCHA entnehmen Sie den Google-Datenschutzbestimmungen
+                            und den Google Nutzungsbedingungen unter folgenden Links:</p>
+                        <p><a class="text-primary hover:underline" href="https://policies.google.com/privacy?hl=de"
+                                target="_blank"
+                                rel="noopener noreferrer">https://policies.google.com/privacy?hl=de</a><br /><a
+                                class="text-primary hover:underline" href="https://policies.google.com/terms?hl=de"
+                                target="_blank" rel="noopener noreferrer">https://policies.google.com/terms?hl=de</a>
+                        </p>
+
+                        <p>Quelle:<br /><a class="text-primary hover:underline" href="https://www.e-recht24.de"
+                                target="_blank" rel="noopener noreferrer">https://www.e-recht24.de</a></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="col-span-1 md:col-span-1">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
+                <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
+                    Ihr Partner für spezialisiertes Recruiting im Baugewerbe. Wir verbinden die besten Köpfe mit den
+                    anspruchsvollsten Projekten.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Navigation</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/jobs">Jobs</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/unternehmen">Services</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/ueberuns">Über Uns</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-sm font-bold uppercase text-white mb-6">Rechtliches</h4>
+                <ul class="space-y-3">
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/datenschutz">Datenschutz</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/impressum">Impressum</a></li>
+                    <li><a class="font-['Inter'] text-xs tracking-wide text-slate-500 hover:text-[#ff6b00] transition-colors"
+                            href="/dsgvo">DSGVO</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="px-8 py-5 border-t border-white/5 flex flex-wrap items-center justify-center gap-4">
+            <span class="font-['Inter'] text-xs tracking-wide text-slate-500 uppercase">Folgen Sie uns</span>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.youtube.com/@TAManagementGmbH" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.instagram.com/ta_management_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
+                href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
+                <span>© 2026 TA Management GmbH</span>
+                <span>Engineered Precision in Recruitment.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+            mobileMenuButton.addEventListener("click", () => {
+                const isHidden = mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden", !isHidden);
+                mobileMenuButton.setAttribute("aria-expanded", String(isHidden));
+                mobileMenuIcon.textContent = isHidden ? "close" : "menu";
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    mobileMenuButton.setAttribute("aria-expanded", "false");
+                    mobileMenuIcon.textContent = "menu";
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
