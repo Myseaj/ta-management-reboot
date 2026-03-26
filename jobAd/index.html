@@ -500,10 +500,10 @@
 
             emojiArray.forEach((emoji) => {
                 const card = document.createElement("div");
-                card.className = "industrial-blur border border-outline-variant/20 p-8 group hover:bg-primary-container transition-all duration-300";
+                card.className = "industrial-blur border border-outline-variant/20 p-8 group hover:bg-primary-container transition-all duration-300 min-h-[250px] flex flex-col items-center justify-center text-center";
                 card.innerHTML = `
-                    <div class="text-4xl text-primary group-hover:text-on-primary-container mb-6">${emoji.icon}</div>
-                    <h3 class="font-headline font-black text-xl uppercase mb-2 group-hover:text-on-primary-container">${emoji.text}</h3>
+                    <div class="text-4xl text-primary group-hover:text-on-primary-container mb-6 leading-none">${emoji.icon}</div>
+                    <h3 class="font-headline font-black text-xl uppercase group-hover:text-on-primary-container">${emoji.text}</h3>
                 `;
                 benefitsGrid.appendChild(card);
             });
