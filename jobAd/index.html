@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffe16d",
+                        "on-tertiary-fixed": "#221b00",
+                        "background": "#121416",
+                        "on-tertiary": "#3a3000",
+                        "surface-container-high": "#282a2c",
+                        "tertiary": "#e9c400",
+                        "on-error": "#690005",
+                        "on-secondary": "#2b3134",
+                        "on-primary-container": "#572000",
+                        "on-background": "#e2e2e5",
+                        "surface-dim": "#121416",
+                        "on-tertiary-container": "#4c3e00",
+                        "on-primary": "#561f00",
+                        "surface-container-lowest": "#0c0e10",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "inverse-on-surface": "#2f3133",
+                        "surface-variant": "#333537",
+                        "on-secondary-container": "#afb6b9",
+                        "surface": "#121416",
+                        "on-primary-fixed": "#351000",
+                        "on-surface-variant": "#e2bfb0",
+                        "tertiary-container": "#c9a900",
+                        "secondary-fixed-dim": "#c1c8cb",
+                        "secondary": "#c1c8cb",
+                        "inverse-surface": "#e2e2e5",
+                        "on-secondary-fixed-variant": "#41484b",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#ffb693",
+                        "primary-fixed-dim": "#ffb693",
+                        "secondary-fixed": "#dde3e7",
+                        "secondary-container": "#41484b",
+                        "on-secondary-fixed": "#161d1f",
+                        "surface-bright": "#37393b",
+                        "primary": "#ffb693",
+                        "outline": "#a98a7d",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1e2022",
+                        "outline-variant": "#5a4136",
+                        "primary-container": "#ff6b00",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "primary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "surface-container-highest": "#333537",
+                        "on-surface": "#e2e2e5",
+                        "inverse-primary": "#a04100",
+                        "surface-container-low": "#1a1c1e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0rem", "lg": "0rem", "xl": "0rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .industrial-blur {
+            backdrop-filter: blur(20px);
+            background-color: rgba(51, 53, 55, 0.6);
+        }
+
+        .shutter-hover:hover {
+            box-shadow: inset 0 -100px 0 0 #ff6b00;
+        }
+
+        .rich-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .rich-content li {
+            position: relative;
+            padding-left: 2rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .rich-content li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ff6b00;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary">
+    <nav class="bg-[#121416] shadow-[0_64px_64px_-12px_rgba(90,65,54,0.05)] sticky top-0 z-50">
+        <div class="flex justify-between items-center w-full px-8 py-6 max-w-full">
+            <a href="/index.html" aria-label="Zur Startseite">
+                <img src="/images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
+            <a class="font-['Space_Grotesk'] font-bold tracking-tight uppercase text-slate-300 hover:text-white transition-colors"
+                href="/jobs">Zurück zu Jobs</a>
+        </div>
+    </nav>
+
+    <main id="loadingState" class="py-24 px-8 lg:px-24">
+        <div class="max-w-5xl mx-auto bg-surface-container-low p-8 border border-outline-variant/20 animate-pulse">
+            <div class="h-8 w-2/3 bg-surface-container-high mb-6"></div>
+            <div class="h-6 w-full bg-surface-container-high mb-3"></div>
+            <div class="h-6 w-2/3 bg-surface-container-high mb-8"></div>
+            <div class="h-12 w-48 bg-surface-container-high"></div>
+        </div>
+    </main>
+
+    <main id="contentState" class="hidden">
+        <header class="relative h-[819px] flex items-end overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img id="heroImage" alt="Job Header Bild" class="w-full h-full object-cover grayscale brightness-50"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkRq0-MiPxPmc3Kt3EDT2KJMVo1iMeQy9lF20tEIPqpcwOV6m5YqAQ-ONX_JSBGXZvQxLrG_8qgW3AG26E_QE5p7cAdkDWRoemnvjExuoyIlVrm3BzEZwr1N1vZq5tbNZS8-ju09JHLV3BqWAqHARFA8CWqhaOFjDwP2hprH8NMi-eWRG9RTM4b0dAEStNKTosyNtB1-3EU7S-Wu92u6vgrwV5I5mVKz-CWXZyWC-23oCL65xwbq7OUjlkbGgWMTs8egZ2GJEj2VE" />
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            </div>
+            <div class="relative z-10 w-full px-8 pb-16 lg:px-24">
+                <div class="max-w-5xl">
+                    <span class="text-primary font-headline font-bold tracking-[0.2em] uppercase mb-4 block">TA
+                        Management | Engineering Excellence</span>
+                    <h1 id="heroTitle"
+                        class="text-5xl md:text-7xl lg:text-8xl font-headline font-black text-on-background leading-none uppercase tracking-tighter mb-12">
+                    </h1>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+                        <div class="bg-surface-container border-l-4 border-primary p-6">
+                            <p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Standort</p>
+                            <p id="heroLocation" class="text-2xl font-headline font-bold uppercase"></p>
+                        </div>
+                        <div class="bg-surface-container-high border-l-4 border-primary p-6">
+                            <p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Anstellung</p>
+                            <p class="text-2xl font-headline font-bold uppercase">Festanstellung</p>
+                        </div>
+                        <div class="bg-surface-container-highest border-l-4 border-primary p-6">
+                            <p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Gehalt</p>
+                            <p id="heroSalary" class="text-2xl font-headline font-bold uppercase"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-24 px-8 lg:px-24 bg-surface-container-low">
+            <div class="max-w-4xl">
+                <h2 class="text-primary font-headline font-black text-3xl uppercase mb-8">01. Das Unternehmen</h2>
+                <p id="jobIntroduction" class="text-2xl leading-relaxed text-on-surface font-light"></p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="bg-background p-8 lg:p-24 border-r-0 lg:border-r border-outline-variant/15">
+                <h2
+                    class="text-on-background font-headline font-black text-4xl uppercase mb-12 flex items-center gap-4">
+                    <span class="text-outline-variant text-6xl">02</span>
+                    Ihr Profil
+                </h2>
+                <div id="candidateProfile" class="rich-content text-on-surface-variant"></div>
+            </div>
+            <div class="bg-surface-container-low p-8 lg:p-24">
+                <h2
+                    class="text-on-background font-headline font-black text-4xl uppercase mb-12 flex items-center gap-4">
+                    <span class="text-outline-variant text-6xl">03</span>
+                    Ihre Aufgaben
+                </h2>
+                <div id="jobTasks" class="rich-content text-on-surface-variant"></div>
+            </div>
+        </section>
+
+        <section class="py-24 px-8 lg:px-24 bg-background overflow-hidden relative">
+            <div class="absolute right-0 top-0 opacity-10 pointer-events-none">
+                <h2 class="text-[20rem] font-black uppercase text-outline leading-none select-none">BENEFITS</h2>
+            </div>
+            <div class="max-w-6xl relative z-10">
+                <h2 class="text-primary font-headline font-black text-4xl uppercase mb-16">04. Ihre Benefits</h2>
+                <div id="benefitsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <section class="bg-surface-container grid grid-cols-1 lg:grid-cols-2">
+            <div class="p-8 lg:p-24 flex flex-col justify-center">
+                <h2 class="text-primary font-headline font-black text-4xl uppercase mb-12">05. Starten Sie das
+                    Gespräch
+                </h2>
+                <div
+                    class="bg-surface p-8 border border-outline-variant/20 flex flex-col md:flex-row gap-8 items-center md:items-start shadow-2xl">
+                    <img id="contactImage" alt="Ansprechpartner"
+                        class="w-32 h-40 object-cover border-2 border-primary shadow-[0_20px_40px_-20px_rgba(255,107,0,0.45)]"
+                        src="/images/logo_correct.png" />
+                    <div class="flex-1 text-center md:text-left">
+                        <p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Ihr Ansprechpartner</p>
+                        <h3 id="contactName" class="text-2xl font-headline font-black uppercase mb-1"></h3>
+                        <p id="contactOccupation" class="text-on-surface-variant text-sm mb-6 uppercase tracking-tight">
+                        </p>
+                        <div class="space-y-2 mb-8 text-sm">
+                            <p class="flex items-center justify-center md:justify-start gap-2">
+                                <span class="material-symbols-outlined text-primary text-sm"
+                                    data-icon="call">call</span>
+                                <span id="contactPhone"></span>
+                            </p>
+                            <p class="flex items-center justify-center md:justify-start gap-2">
+                                <span class="material-symbols-outlined text-primary text-sm"
+                                    data-icon="mail">mail</span>
+                                <span id="contactEmail"></span>
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a id="applyBtn"
+                                class="text-center bg-primary-container text-on-primary-container font-headline font-black uppercase px-8 py-3 shutter-hover transition-all">Jetzt
+                                bewerben</a>
+                            <a id="calendarBtn"
+                                class="text-center border border-primary text-primary font-headline font-black uppercase px-8 py-3 hover:bg-primary/10 transition-all">Termin
+                                vereinbaren</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative min-h-[400px]">
+                <div class="absolute inset-0 grayscale contrast-125 brightness-50 opacity-60">
+                    <img id="locationImage" alt="Standort" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ90P3UUmejkomC94mLyob7uw481fPSCdESbALyzkTIUiPgr0erYDDHoNVpW-Sl4IqcYKjrQ3RlF4Bs5cBSZGncKLMGohk8lJgSxLcOnM8sdtM6DshkClLZI8olYw73EsmujQ1tjfmd7VkWKuNtYLarOTsXdLZ_kWc2bEpwfGNF8QWn1vtsQH-EG2Yqivk7WOneqtuW9AVm6xDm-WiNMQR1u66dIxsaU-ekVexsHlzYQqIJjWhBVxNwaTYA3OdYje762J36kYPSZ8" />
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-r from-surface-container to-transparent"></div>
+                <div class="relative z-10 p-12 h-full flex flex-col justify-end">
+                    <div class="bg-background/80 industrial-blur p-6 inline-block max-w-xs border-l-4 border-primary">
+                        <p class="text-primary text-xs font-bold uppercase tracking-widest mb-2">Einsatzort</p>
+                        <p id="locationHeadline" class="text-xl font-headline font-bold uppercase"></p>
+                        <p id="locationSubline" class="text-sm text-on-surface-variant mt-2"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="notFoundState" class="hidden py-24 px-8 lg:px-24">
+        <div class="max-w-4xl mx-auto bg-surface-container-low p-10 text-center border border-outline-variant/20">
+            <div class="text-5xl mb-4">🔍</div>
+            <h2 class="font-headline text-3xl font-black uppercase text-white mb-4">Stellenanzeige nicht gefunden</h2>
+            <p class="text-slate-400 mb-8">Die gewünschte Stellenanzeige ist nicht verfügbar.</p>
+            <a href="/jobs"
+                class="inline-flex bg-primary-container text-on-primary px-8 py-3 font-headline font-black uppercase">Zur
+                Jobübersicht</a>
+        </div>
+    </main>
+
+    <footer class="bg-[#0c0e10] border-t-0 shadow-none">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-10 gap-6">
+            <img src="/images/logo_correct.png" alt="Firmenlogo" class="h-8 w-auto" />
+            <div class="text-slate-500 font-['Inter'] text-xs tracking-widest uppercase">
+                © 2024 TA Management. Präzision im Recruiting.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const iconMapping2 = {
+            "Überdurchschnittlicher Verdienst": "💶",
+            "Inflationsausgleich ": "📈",
+            "Home Office": "🏠",
+            Jobrad: "🚴‍♂️",
+            Firmenwagen: "🚘",
+            Fitnessangebot: "🏋️‍♂️",
+            "Kinderbetreuung ": "👪",
+            Sabbatical: "📆",
+            "Unternehmensanteile ": "💸",
+            "Weihnachts- Urlaubsgeld ": "🎄",
+            "Kostenfreie Weiterbildung": "👩‍🎓",
+            Firmenevents: "🥂",
+            Mitarbeiterrabatte: "%",
+            Jobticket: "🚋",
+            "Zentrale Lage": "🏙️",
+            "Kostenfreies Parken": "🅿️",
+            "Kostenfreies E-Auto Laden": "🔌",
+            "Zuschuss Mittagessen": "🍲",
+            Zusatzkrankenversicherung: "🏥",
+            "Flexible Arbeitszeiten": "⏱️",
+            Massagen: "💆‍♂️",
+            Betriebsarzt: "🧑‍⚕️",
+            "Vier-Tage_Woche": "4️",
+            "Betriebliche Altersvorsorge": "👵",
+            "Hunde Willkommen": "🐕",
+            "Gutscheine ": "📑",
+        };
+
+        const jobsApiUrl = "https://vccbpwvprepehqxatnuo.supabase.co/rest/v1/public_job_ads";
+        const clicksApiUrl = "https://vccbpwvprepehqxatnuo.supabase.co/rest/v1/public_job_ad_clicks";
+        const jobsApiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjY2Jwd3ZwcmVwZWhxeGF0bnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUwNjY3MjQsImV4cCI6MTk5MDY0MjcyNH0.zEG6vuzJyiT0penToBCqyTWJnaHjmjGU0TbM7mQkJVY";
+
+        const fallbackHeroImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuAkRq0-MiPxPmc3Kt3EDT2KJMVo1iMeQy9lF20tEIPqpcwOV6m5YqAQ-ONX_JSBGXZvQxLrG_8qgW3AG26E_QE5p7cAdkDWRoemnvjExuoyIlVrm3BzEZwr1N1vZq5tbNZS8-ju09JHLV3BqWAqHARFA8CWqhaOFjDwP2hprH8NMi-eWRG9RTM4b0dAEStNKTosyNtB1-3EU7S-Wu92u6vgrwV5I5mVKz-CWXZyWC-23oCL65xwbq7OUjlkbGgWMTs8egZ2GJEj2VE";
+        const fallbackContactImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuB618AATBiWSvRvQzHILyQiSg4lTjOn-tZHlDdfAkaEgk5evOMxDgYH178DmX494xG730rHMx7z8dIx4Q8wBvfu9Nq7Oct9tJaNybw3YApFte-8WCYYAWv1srtNnmuuGDdUMprYvwQ4trib7D0tkHxo9vVxU7LJhI3p94VV-F8bVIKF2CyLnzNYMVsuOM9Ouhqm2VzJItUFZgARqHDpLKTlue7gaEEg2iowmyydjs8io4Po_hL8wyGRIZrbx8Ag85Q3kp-2fgwVfmk";
+
+        function getJobIdFromUrl() {
+            const segments = window.location.pathname.split("/").filter(Boolean);
+            const idx = segments.indexOf("jobAd");
+            if (idx > -1 && segments[idx + 1]) {
+                return decodeURIComponent(segments[idx + 1]);
+            }
+            const queryId = new URLSearchParams(window.location.search).get("id");
+            return queryId ? decodeURIComponent(queryId) : null;
+        }
+
+        function generateUUID() {
+            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+                const r = (Math.random() * 16) | 0;
+                const v = c === "x" ? r : (r & 0x3) | 0x8;
+                return v.toString(16);
+            });
+        }
+
+        function setUserId() {
+            let userId = localStorage.getItem("user_id");
+            if (!userId) {
+                userId = generateUUID();
+                localStorage.setItem("user_id", userId);
+            }
+            return userId;
+        }
+
+        function transformHtml(value) {
+            if (!value) {
+                return "";
+            }
+            const sentences = value.split("\n- ");
+            if (sentences.length > 1) {
+                let listHtml = "<ul>";
+                for (let i = 0; i < sentences.length; i += 1) {
+                    if (i === 0 && sentences[i].startsWith("- ")) {
+                        sentences[i] = sentences[i].slice(2);
+                    }
+                    listHtml += `<li>${sentences[i]}</li>`;
+                }
+                return `${listHtml}</ul>`;
+            }
+            return value;
+        }
+
+        function normalizeJob(item) {
+            const base = item?.json ?? item ?? {};
+            const location = base.location ?? "Unbekannt";
+            const cityToken = location.toLowerCase().split(" ")[0]?.split(",")[0]?.trim();
+            const locationPath = base.locationPath || `/img/Cities/${cityToken || "default"}.jpg`;
+            const benefits = Array.isArray(base.jobad_benefit_array) ? base.jobad_benefit_array : [];
+
+            let responseUserRaw = base.responseUser ?? base.response_user ?? {};
+            if (Array.isArray(responseUserRaw)) {
+                responseUserRaw = responseUserRaw[0] ?? {};
+            }
+            if (typeof responseUserRaw === "string") {
+                try {
+                    responseUserRaw = JSON.parse(responseUserRaw);
+                } catch {
+                    responseUserRaw = {};
+                }
+            }
+            const responseUser = responseUserRaw && typeof responseUserRaw === "object" ? responseUserRaw : {};
+
+            return {
+                ...base,
+                id: String(base.id ?? item?.id ?? ""),
+                title: base.title ?? "Unbenannte Position",
+                location,
+                salary_range: base.salary_range ?? "Nach Vereinbarung",
+                locationPath,
+                emojiArray: benefits.map((text) => ({
+                    text,
+                    icon: iconMapping2[text] ?? "⭐",
+                })),
+                responseUser,
+            };
+        }
+
+        async function fetchJobs() {
+            const response = await fetch(jobsApiUrl, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${jobsApiKey}`,
+                    apikey: jobsApiKey,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+            return Array.isArray(data) ? data.map(normalizeJob) : [];
+        }
+
+        async function sendToDB(job) {
+            try {
+                await fetch(clicksApiUrl, {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${jobsApiKey}`,
+                        apikey: jobsApiKey,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        job_id: job.id,
+                        user_id: setUserId(),
+                        job_title: job.title,
+                    }),
+                });
+            } catch (error) {
+                console.error("Tracking fehlgeschlagen:", error);
+            }
+        }
+
+        function setState(state) {
+            document.getElementById("loadingState").classList.toggle("hidden", state !== "loading");
+            document.getElementById("contentState").classList.toggle("hidden", state !== "content");
+            document.getElementById("notFoundState").classList.toggle("hidden", state !== "notfound");
+        }
+
+        function renderBenefits(emojiArray) {
+            const benefitsGrid = document.getElementById("benefitsGrid");
+            benefitsGrid.innerHTML = "";
+
+            if (!emojiArray || emojiArray.length === 0) {
+                benefitsGrid.innerHTML = `
+                    <div class="industrial-blur border border-outline-variant/20 p-8">
+                        <h3 class="font-headline font-black text-xl uppercase mb-2">Keine Benefits hinterlegt</h3>
+                        <p class="text-sm text-on-surface-variant">Weitere Informationen erhalten Sie im Gespräch mit Ihrem Ansprechpartner.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            emojiArray.forEach((emoji) => {
+                const card = document.createElement("div");
+                card.className = "industrial-blur border border-outline-variant/20 p-8 group hover:bg-primary-container transition-all duration-300";
+                card.innerHTML = `
+                    <div class="text-4xl text-primary group-hover:text-on-primary-container mb-6">${emoji.icon}</div>
+                    <h3 class="font-headline font-black text-xl uppercase mb-2 group-hover:text-on-primary-container">${emoji.text}</h3>
+                `;
+                benefitsGrid.appendChild(card);
+            });
+        }
+
+        function setText(id, value, fallback = "-") {
+            document.getElementById(id).textContent = value || fallback;
+        }
+
+        function renderJob(job) {
+            const heroImage = document.getElementById("heroImage");
+            heroImage.src = job.locationPath || fallbackHeroImage;
+            heroImage.onerror = () => {
+                heroImage.src = fallbackHeroImage;
+            };
+
+            const locationImage = document.getElementById("locationImage");
+            locationImage.src = job.locationPath || fallbackHeroImage;
+            locationImage.onerror = () => {
+                locationImage.src = fallbackHeroImage;
+            };
+
+            const contactImage = document.getElementById("contactImage");
+            contactImage.src = job.responseUser?.imageLink
+                || job.responseUser?.image_link
+                || job.responseUser?.image
+                || job.responseUser?.avatar
+                || fallbackContactImage;
+            contactImage.onerror = () => {
+                contactImage.src = fallbackContactImage;
+            };
+
+            setText("heroTitle", job.title);
+            setText("heroLocation", job.location);
+            setText("heroSalary", job.salary_range);
+            setText("jobIntroduction", job.jobad_introduction, "Weitere Informationen erhalten Sie im persönlichen Gespräch.");
+            setText("locationHeadline", job.location, "DACH-Region");
+            setText("locationSubline", job.position_type || job.category || job.title || "Aktuelle Vakanz");
+
+            document.getElementById("candidateProfile").innerHTML = transformHtml(job.jobad_candidate_profile || "");
+            document.getElementById("jobTasks").innerHTML = transformHtml(job.jobad_tasks || "");
+
+            setText("contactName", job.responseUser?.full_name, "Recruiting-Team");
+            setText("contactOccupation", job.responseUser?.occupation, "Personalgewinnung");
+            setText("contactPhone", job.responseUser?.phone, "Auf Anfrage");
+            setText("contactEmail", job.responseUser?.email, "contact@blueprint-talent.com");
+
+            const applyEmail = job.responseUser?.email || "contact@blueprint-talent.com";
+            document.getElementById("applyBtn").href = `mailto:${applyEmail}?subject=${encodeURIComponent(`Bewerbung: ${job.title}`)}`;
+
+            const calendarBtn = document.getElementById("calendarBtn");
+            if (job.responseUser?.calendlyLink) {
+                calendarBtn.href = job.responseUser.calendlyLink;
+                calendarBtn.target = "_blank";
+                calendarBtn.rel = "noopener noreferrer";
+            } else {
+                calendarBtn.href = `mailto:${applyEmail}`;
+                calendarBtn.removeAttribute("target");
+                calendarBtn.removeAttribute("rel");
+            }
+
+            renderBenefits(job.emojiArray);
+            document.title = `${job.title} | TA Management`;
+        }
+
+        async function init() {
+            setState("loading");
+            const jobId = getJobIdFromUrl();
+            if (!jobId) {
+                setState("notfound");
+                return;
+            }
+
+            try {
+                const jobs = await fetchJobs();
+                const job = jobs.find((item) => String(item.id) === String(jobId));
+                if (!job) {
+                    setState("notfound");
+                    return;
+                }
+
+                renderJob(job);
+                setState("content");
+                sendToDB(job);
+            } catch (error) {
+                console.error("Fehler beim Laden der Stellenanzeige:", error);
+                setState("notfound");
+            }
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

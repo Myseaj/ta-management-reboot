@@ -125,7 +125,9 @@
     <!-- TopNavBar -->
     <nav
         class="bg-[#121416] dark:bg-[#121416] flex justify-between items-center w-full px-8 py-4 max-w-none docked full-width top-0 z-50 sticky">
-        <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+        <a href="index.html" aria-label="Zur Startseite">
+            <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+        <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
         <div class="hidden md:flex gap-8 items-center">
             <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                 href="/jobs">Jobs</a>
@@ -224,10 +226,10 @@
                     <h2
                         class="font-headline text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8">
                         Für Fachkräfte</h2>
-                    <button
-                        class="bg-transparent border-2 border-primary text-primary px-8 py-4 font-headline font-bold uppercase tracking-tighter hover:bg-primary hover:text-on-primary transition-all">
+                    <a href="/jobs" data-variant="primary" data-size="large"
+                        class="inline-block bg-transparent border-2 border-primary text-primary px-8 py-4 font-headline font-bold uppercase tracking-tighter hover:bg-primary hover:text-on-primary transition-all">
                         Karriere Starten
-                    </button>
+                    </a>
                 </div>
             </div>
             <div
@@ -239,69 +241,98 @@
                     <h2
                         class="font-headline text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8">
                         Für Unternehmen</h2>
-                    <button
-                        class="bg-primary-container text-on-primary px-8 py-4 font-headline font-bold uppercase tracking-tighter shutter-hover hover:text-white">
+                    <a href="/unternehmen"
+                        class="inline-block bg-primary-container text-on-primary px-8 py-4 font-headline font-bold uppercase tracking-tighter shutter-hover hover:text-white">
                         Personal Finden
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Projects Section: Bento Gallery -->
-    <section class="py-24 px-8 max-w-7xl mx-auto">
-        <div class="mb-16">
-            <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">02 / Portfolio
+
+    <!-- Why Us Section: New Working Methodology -->
+    <section class="py-24 px-8 max-w-7xl mx-auto overflow-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div class="max-w-2xl">
+                <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">02 /
+                    Arbeitsweise</div>
+                <h2
+                    class="font-headline text-5xl md:text-6xl font-black uppercase tracking-tighter text-white leading-tight">
+                    Warum TA Management?</h2>
             </div>
-            <h2 class="font-headline text-5xl font-black uppercase tracking-tighter text-white">Projekte &amp; Erfolge
-            </h2>
+            <div class="text-slate-500 font-headline font-bold text-7xl opacity-10 hidden lg:block select-none">
+                PRÄZISION</div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
-            <div class="md:col-span-8 relative group overflow-hidden bg-surface-container">
-                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    data-alt="expansive view of a modern brutalist concrete structure with bold geometric shapes and deep shadows"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs1ilPwGnrMc-YBApIKZNZdKN0ZzP15fygGyiLLj4afKiHSgkMH6fqf9iKz_V2qgG4iwIj0PRUJWgNnbLuiKw_xyjRi6DyIp_hCL16ky0qQEggsZDW_JWcHVmSMTSuf4ZIbh2O_fcbsD_eUTJGaip9u4yoGV4K9NacnLfs1B7VJEMdRI3SC29zQL8s9LIiU7CkgKfv6K28cZc21gfcpAkvacol-fECKuuGq8lgNZoKNjZh4AAG9jO9T9-1YGxJGpi4iTUdtkKzqDw" />
-                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-                    <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-widest">Berlin,
-                        2023</span>
-                    <h4 class="font-headline text-2xl font-bold uppercase text-white mt-2">Metropol Tower</h4>
-                    <p class="text-slate-300 text-sm mt-2 max-w-md">Vollständige Besetzung des Ingenieursteams für den
-                        Fassadenbau.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Benefit 1: Geschwindigkeit -->
+            <div class="relative flex flex-col h-full bg-surface-container-low group">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
+                        data-alt="long exposure motion blur of a high-speed train or architectural element representing speed and momentum"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmMvriHw7mRN-Nc8SJ9lpgNP7bayef7tweA9PeatLGgQVcUKpQG8tgi9Vt7CB5CapCNg39OjCDB7fLf1MeaOIEZ9rvtqA8z0S5YJCyeV-NPj1hlOOAnljNq3pO8N1mY2hZgcC9_paWuEaEO8LG5tK7QtrhvgAltIEZyPlZna8QfvmXAQ0hjw63r5lAr8nt2QtPnZIeu1siE2e2A9uzWir7zCmKczDgVwGUTX0XznEURyUwlsqQMxtpDnlB-4HSb4cPkshGk3C_Sv4" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+                    <div
+                        class="absolute bottom-6 left-8 bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-bold uppercase tracking-widest">
+                        Effizienz</div>
                 </div>
-            </div>
-            <div class="md:col-span-4 relative group overflow-hidden bg-surface-container-high">
-                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    data-alt="interior view of a modern glass atrium with complex steel support structures and bright natural light"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkSR8r5MmQaO4zt_sfwoRQeR3J1Zr8DZrVs27eG_9NtKoLF1MOW8-WzuS1vhOmOk_cnYWQZeYclOUEPyxTDghOtfglIqvUgmrcy3dsjvJQthsVw7IHmcB-7lypefRSZ6FExtRaXb_88i5qpX277lbL9OaD21VFaLt5TXWE_SP6nZrHic6364vC1ylADW8DLfnfuEC30tu1izzAEg7HJhu8KLhXvcvzPfuaDUXXuM7fCDGizeH7qFZOAEJG_vQ-8vHkdSsJVNAqIhA" />
-                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-                    <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-widest">Hamburg,
-                        2024</span>
-                    <h4 class="font-headline text-xl font-bold uppercase text-white mt-2">Elbe Campus</h4>
-                </div>
-            </div>
-            <div class="md:col-span-4 relative group overflow-hidden bg-surface-container-low">
-                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    data-alt="night time long exposure of a construction site with cranes and lights creating a sense of constant movement"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3UQ9wFrxBTi6oxVBl-LF4CZnyydKlFuq1RaLcbj3_g8vJ28_Xpa6rleDNEa9qm8HohRSpLPE-1UAYiMESKJNnLM6trtcBmf-j2YE6kDYKhre8x_O_s10RlztrOaeWaP2qqI9GV8m8L0ZFjL7DGBAzFJtGqCyS-pTjt7QvJOpUCwAGKjoqKMO1NIX_y6J0SNhtfHYAor7IRcKdoUHvrCVtaNxM6oqTR0aCfwE2CEK_F24DoJMvGnW7QGzat9_5oy-CIQL1wNKkgs" />
-                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
-                    <span class="text-tertiary font-headline text-xs font-bold uppercase tracking-widest">München</span>
-                    <h4 class="font-headline text-xl font-bold uppercase text-white mt-2">Logistikzentrum Süd</h4>
-                </div>
-            </div>
-            <div class="md:col-span-8 relative group overflow-hidden bg-surface-container-highest">
-                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    data-alt="industrial architectural detail of rusted steel beams and bolted connections against a blue sky"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOmYectsQRGm1aXoIqpxWNoqRF0vkZCwAWa_cU1Izgx6x2DI5UHeaAOjWQJjEVIsZJh5YPnjLtEGpNnLZe18iEP8j4dxI7BU36V2vSI7-pZUfdeTz2QUGXutrednkYlXOKavKNPwAtpgx2h3UUO7fgHZR-ZQbqoVemlLNpXQea1s353vAuMbiyKXzCE29mQoVQT4vUW0KtMG4aMgQIDYeSD2kAZZjTHQ1WeXZBj7Y_MIr-unZGlLThOylJ3UJXhBsZjP9jN_HPPcM" />
-                <div
-                    class="absolute inset-0 glass-card opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center p-12">
-                    <div class="text-center">
-                        <h4 class="font-headline text-3xl font-black uppercase text-white">Über 250+</h4>
-                        <p class="font-body text-slate-300 mt-2">Erfolgreich besetzte Schlüsselpositionen in
-                            DACH-Region.</p>
+                <div class="p-8 pt-2">
+                    <h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white mb-4">
+                        Geschwindigkeit</h3>
+                    <p class="text-slate-400 font-body text-sm leading-relaxed">
+                        In einer Branche, in der Stillstand Kosten verursacht, liefern wir Ergebnisse. Dank unserer
+                        optimierten Prozesse besetzen wir Vakanzen deutlich schneller als der Marktdurchschnitt.
+                    </p>
+                    <div class="mt-8 border-t border-white/10 pt-4">
+                        <span class="text-primary font-headline text-xs font-bold uppercase tracking-widest">Schnelle
+                            Besetzung</span>
                     </div>
                 </div>
-                <div class="absolute bottom-8 left-8">
-                    <h4 class="font-headline text-xl font-bold uppercase text-white">Infrastruktur Nord</h4>
+            </div>
+            <!-- Benefit 2: Qualität -->
+            <div class="relative flex flex-col h-full bg-surface-container group">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
+                        data-alt="macro close-up of high-quality construction materials like steel and concrete with sharp focus on texture and detail"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFF71VFJ8AC-_n0spPCrXNrVinqBWgBRcK6GwY_UoCGPhv0in94hw5ul38jxhD4lQ-0V-KSrMIO2OLraXw1f4nErITHmqS5gfU2qvRX453PijSEbYIuP_kBZc9Y-EJXvO2A5LIWfzsfHruejAtCB9u3wZ-GI9tpfvAwuYqH-hzvVd8KhVn7dNwbmc01eBKd5UFgI_tUoNO8YZ831BAZHdr1aRoSA_SIZnaCEygZCSh3JZWsLNdYsg91VpG0xRVcKwtb2D-lDNXdKw" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+                    <div
+                        class="absolute bottom-6 left-8 bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-bold uppercase tracking-widest">
+                        Exzellenz</div>
+                </div>
+                <div class="p-8 pt-2">
+                    <h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white mb-4">Qualität</h3>
+                    <p class="text-slate-400 font-body text-sm leading-relaxed">
+                        Wir prüfen nicht nur den Lebenslauf, sondern das Fundament. Jeder Kandidat durchläuft ein
+                        technisches Assessment, das sicherstellt, dass die Expertise Ihren Anforderungen entspricht.
+                    </p>
+                    <div class="mt-8 border-t border-white/10 pt-4">
+                        <span class="text-primary font-headline text-xs font-bold uppercase tracking-widest">Geprüfte
+                            Kandidaten</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Benefit 3: Netzwerk -->
+            <div class="relative flex flex-col h-full bg-surface-container-high group">
+                <div class="relative h-64 overflow-hidden">
+                    <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
+                        data-alt="architectural rendering of a complex network of structures or a large scale urban infrastructure view"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiawAR65DnkabbB-K6RhfSP2P12_n2NnzVN5eMsbmAt0cHTxa3ysCweo7xFZV1ocz8bG7g6woruimzdAY0fwYwiCfw8Sjpoc0FqGVEDKKIcn7hljSiKT-ob7p8raEm3KNk4db9iJ1X8Tfkj51RtsEzNwjmqQF5yWI6yss2ULNBkxL-WqjBecHTpBAHcsI4YV7L7iCdufBDLrauicTMga8eSUFZxuzF6BkPT0mFybmc99xNkPvEc38LxITHWpT66nHhuuYj05hhbtE" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-high to-transparent"></div>
+                    <div
+                        class="absolute bottom-6 left-8 bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-bold uppercase tracking-widest">
+                        Zugang</div>
+                </div>
+                <div class="p-8 pt-2">
+                    <h3 class="font-headline text-2xl font-bold uppercase tracking-tight text-white mb-4">Netzwerk</h3>
+                    <p class="text-slate-400 font-body text-sm leading-relaxed">
+                        Über Jahre gewachsene Verbindungen in die Bauindustrie. Wir haben Zugriff auf einen Pool von
+                        Spezialisten, die oft nicht aktiv auf Jobbörsen suchen.
+                    </p>
+                    <div class="mt-8 border-t border-white/10 pt-4">
+                        <span
+                            class="text-primary font-headline text-xs font-bold uppercase tracking-widest">Branchen-Kontakte</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -352,8 +383,7 @@
         </div>
         <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
-                <span>© 2024</span>
-                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-5 w-auto" />
+                <span>© 2026 TA Management GmbH</span>
                 <span>Engineered Precision in Recruitment.</span>
             </div>
             <div class="flex gap-6">

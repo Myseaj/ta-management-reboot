@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
+    <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
@@ -88,6 +89,22 @@
             background-image: radial-gradient(circle, #333537 1px, transparent 1px);
             background-size: 32px 32px;
         }
+
+        .job-skeleton {
+            animation: pulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.55;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
     </style>
 </head>
 
@@ -96,7 +113,9 @@
     <nav
         class="bg-[#121416] dark:bg-[#121416] docked full-width top-0 z-50 flat no shadows border-b border-outline-variant/15">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
-            <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            <a href="index.html" aria-label="Zur Startseite">
+                <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
+            </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1"
                     href="/jobs">Jobs</a>
@@ -139,9 +158,9 @@
                     <div class="flex flex-col gap-2">
                         <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Gewerk
                             / Bereich</label>
-                        <select
+                        <select id="positionFilter"
                             class="bg-surface-container-highest border-none text-on-surface font-body py-3 focus:ring-1 focus:ring-primary">
-                            <option>Alle Bereiche</option>
+                            <option value="">Alle Bereiche</option>
                             <option>Bauleitung</option>
                             <option>Architektur</option>
                             <option>Elektro</option>
@@ -150,28 +169,25 @@
                     </div>
                     <div class="flex flex-col gap-2">
                         <label
-                            class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Standort</label>
+                            class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Standort
+                            (Stadt)</label>
                         <div class="relative">
                             <span
                                 class="material-symbols-outlined absolute left-3 top-3 text-slate-500 text-sm">location_on</span>
-                            <input
+                            <input id="locationFilter"
                                 class="w-full bg-surface-container-highest border-none text-on-surface font-body py-3 pl-10 focus:ring-1 focus:ring-primary"
-                                placeholder="Stadt oder PLZ" type="text" />
+                                placeholder="Stadt eingeben" type="text" inputmode="text" />
                         </div>
                     </div>
                     <div class="flex flex-col gap-2">
                         <label
-                            class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Vergütung</label>
-                        <select
-                            class="bg-surface-container-highest border-none text-on-surface font-body py-3 focus:ring-1 focus:ring-primary">
-                            <option>Alle Gehaltsklassen</option>
-                            <option>bis 60.000 €</option>
-                            <option>60.000 € - 90.000 €</option>
-                            <option>90.000 € +</option>
-                        </select>
+                            class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Freitextsuche</label>
+                        <input id="textSearchFilter"
+                            class="bg-surface-container-highest border-none text-on-surface font-body py-3 focus:ring-1 focus:ring-primary"
+                            placeholder="z. B. Bauleiter, Hamburg, Elektro" type="text" />
                     </div>
                     <div class="flex items-end">
-                        <button
+                        <button id="searchJobsBtn"
                             class="w-full bg-primary-container text-on-primary font-headline font-bold uppercase py-3 hover:brightness-110 transition-all flex items-center justify-center gap-2">
                             <span class="material-symbols-outlined">search</span>
                             Jobs Finden
@@ -182,174 +198,41 @@
         </section>
         <!-- Job Grid -->
         <section class="px-8 max-w-7xl mx-auto pb-24">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Job Card 1 -->
-                <div class="group bg-surface-container-low flex flex-col md:flex-row relative overflow-hidden">
-                    <div class="w-full md:w-48 h-48 md:h-auto overflow-hidden">
-                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                            data-alt="high-contrast low angle shot of a massive concrete building structure under construction with a clear blue sky"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_1OAY5UYVFO7PXsN7FttrXYa8d82jDxI2_n23FGCqadrWlt03xKiyCt2B2mxd_vqjkIgE9IPO0qq0cCdH_LVlTsdNJ_iPsXx7Cdut4O81KHeOyIZVeGEezGIEls_cmovcw5anNs9UifOxRjq8MyE4IKWyUTH2smPQNxHAX0IXKj-A9ODoUdBoY2YLsk8vaqJPws_qebw1CWnMmErouee66EwaDzOc3XdyW7ZM3E7eQ4DSgI3gAEb0yZ1ku1JcVmATlEVIdZbwaSg" />
-                    </div>
-                    <div
-                        class="flex-1 p-8 flex flex-col justify-between border-r-4 border-transparent group-hover:border-primary transition-all">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">Bauleitung</span>
-                                <span class="font-label text-xs text-slate-500 uppercase tracking-widest">Ref:
-                                    #BT-9902</span>
-                            </div>
-                            <h3
-                                class="font-headline text-2xl font-bold uppercase tracking-tighter text-white mb-2 group-hover:text-primary transition-colors">
-                                Senior Projektleiter Hochbau</h3>
-                            <p class="text-slate-400 text-sm mb-6 line-clamp-2">Verantwortung für Großbauprojekte im
-                                urbanen Raum. Fokus auf Termin- und Qualitätsmanagement.</p>
-                            <div class="flex flex-wrap gap-4 mb-8">
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">location_on</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">Berlin, DE</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">payments</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">85k - 110k €</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="bg-primary-container text-on-primary font-headline font-black uppercase text-xs py-4 px-6 self-start hover:bg-primary transition-colors">
-                            Jetzt Bewerben
-                        </button>
-                    </div>
-                    <div
-                        class="absolute top-0 right-0 w-16 h-16 bg-surface-container-high flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity">
-                        <span class="material-symbols-outlined text-primary">arrow_outward</span>
-                    </div>
+            <div id="jobsLoadingState" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-surface-container-low p-8 border border-outline-variant/20 job-skeleton">
+                    <div class="h-8 w-2/3 bg-surface-container-high mb-6"></div>
+                    <div class="h-5 w-full bg-surface-container-high mb-3"></div>
+                    <div class="h-5 w-2/3 bg-surface-container-high mb-8"></div>
+                    <div class="h-12 w-48 bg-surface-container-high"></div>
                 </div>
-                <!-- Job Card 2 -->
-                <div class="group bg-surface-container-low flex flex-col md:flex-row relative overflow-hidden">
-                    <div class="w-full md:w-48 h-48 md:h-auto overflow-hidden">
-                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                            data-alt="dramatic architectural photography of a modern skyscraper with reflective glass and steel girders in the late afternoon"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXkXwnSMmlkluzW3y5DW2KE2fOctTKptGS_SweZaHoI8bpZEleKpbz3x8erT2lph4wvE7aXQuzW4Gr8VtnYkBinWHpqU8cXsGK95Y-9BmlhYqjC61WuEIIRH27SKS4kNiPRrwF7K5aIEZt_tiGl9vHXhjyUg3LjNoGJ56vXCTO4Q7JRCJCZVSH1e7__INRhVC4YvY08L9iunjkAIA5QLJvDt7c5BbhhSEGWtBu235s_O-q4piw5UmrFvRmxEGUVejYX_WhDWH4iAI" />
-                    </div>
-                    <div
-                        class="flex-1 p-8 flex flex-col justify-between border-r-4 border-transparent group-hover:border-primary transition-all">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">Architektur</span>
-                                <span class="font-label text-xs text-slate-500 uppercase tracking-widest">Ref:
-                                    #BT-8812</span>
-                            </div>
-                            <h3
-                                class="font-headline text-2xl font-bold uppercase tracking-tighter text-white mb-2 group-hover:text-primary transition-colors">
-                                Architectural Designer (LPH 1-5)</h3>
-                            <p class="text-slate-400 text-sm mb-6 line-clamp-2">Kreative Gestaltung und technische
-                                Planung anspruchsvoller Fassadenkonzepte für New Work Hubs.</p>
-                            <div class="flex flex-wrap gap-4 mb-8">
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">location_on</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">München, DE</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">payments</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">70k - 95k €</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="bg-primary-container text-on-primary font-headline font-black uppercase text-xs py-4 px-6 self-start hover:bg-primary transition-colors">
-                            Jetzt Bewerben
-                        </button>
-                    </div>
+                <div class="bg-surface-container-low p-8 border border-outline-variant/20 job-skeleton">
+                    <div class="h-8 w-2/3 bg-surface-container-high mb-6"></div>
+                    <div class="h-5 w-full bg-surface-container-high mb-3"></div>
+                    <div class="h-5 w-2/3 bg-surface-container-high mb-8"></div>
+                    <div class="h-12 w-48 bg-surface-container-high"></div>
                 </div>
-                <!-- Job Card 3 -->
-                <div class="group bg-surface-container-low flex flex-col md:flex-row relative overflow-hidden">
-                    <div class="w-full md:w-48 h-48 md:h-auto overflow-hidden">
-                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                            data-alt="macro shot of heavy electrical wiring and industrial power systems with orange safety highlights and industrial atmosphere"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_SPszmzh5njVB6FFBAw7TfQC_HaJNGTNAj88uKGklrfuQmNo4aW9Zkc9JespjZ9_kqmpXlMr90raWNR5nCDozhyed8Zgp0DDLfSZ-UCWM39ygQjiEBBzxICFQXP9A26m57-1nl-pVq7yB8QUEcZlsKh_m6_eMJf99tSTqrW2eQ_-r32yA1CobEy3Q5FoVPAD2IhibM4e0HaUyjR9TtaWOthv1fVSRGBbj6OZEuvCOmzssE4Mm0HllfFsrDs4kzhyU7oo2X2ghO7Q" />
-                    </div>
-                    <div
-                        class="flex-1 p-8 flex flex-col justify-between border-r-4 border-transparent group-hover:border-primary transition-all">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">Elektro</span>
-                                <span class="font-label text-xs text-slate-500 uppercase tracking-widest">Ref:
-                                    #BT-7741</span>
-                            </div>
-                            <h3
-                                class="font-headline text-2xl font-bold uppercase tracking-tighter text-white mb-2 group-hover:text-primary transition-colors">
-                                Bauleitender Obermonteur (m/w/d)</h3>
-                            <p class="text-slate-400 text-sm mb-6 line-clamp-2">Führung von Montageteams bei der
-                                Installation komplexer Energie- und Gebäudetechnik in Industrieanlagen.</p>
-                            <div class="flex flex-wrap gap-4 mb-8">
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">location_on</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">Hamburg, DE</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">payments</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">55k - 75k €</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="bg-primary-container text-on-primary font-headline font-black uppercase text-xs py-4 px-6 self-start hover:bg-primary transition-colors">
-                            Jetzt Bewerben
-                        </button>
-                    </div>
-                </div>
-                <!-- Job Card 4 -->
-                <div class="group bg-surface-container-low flex flex-col md:flex-row relative overflow-hidden">
-                    <div class="w-full md:w-48 h-48 md:h-auto overflow-hidden">
-                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                            data-alt="industrial architectural interior with exposed steel beams and concrete walls under harsh artistic artificial lighting"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUCgBoYtkkGW3X25a6nT3dAZmow7WgJSaKBVrX5EVtwx44S1jvAxXzV4g2lxGihByrvTdX-rRQCoBLNFu8F_hwMc-_Rh9TGB_gItfpexvB_k2oYDSfX7vqR4hpIm2bH1ie2pH1P3qSDLbj_RnqN2rR-LJgbN2bVyE5pxQPPM5ihcCpQSsO-uBcaz6P--c6bY8zyX_a4q_XM0j4yosCKph3e8nl0kfRQEj4c8T-guiFvJ5XNv1YoZPU7aiOUgSLw2kNzA75qvCyjFw" />
-                    </div>
-                    <div
-                        class="flex-1 p-8 flex flex-col justify-between border-r-4 border-transparent group-hover:border-primary transition-all">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">Bauleitung</span>
-                                <span class="font-label text-xs text-slate-500 uppercase tracking-widest">Ref:
-                                    #BT-9955</span>
-                            </div>
-                            <h3
-                                class="font-headline text-2xl font-bold uppercase tracking-tighter text-white mb-2 group-hover:text-primary transition-colors">
-                                Projektsteuerer Infrastruktur</h3>
-                            <p class="text-slate-400 text-sm mb-6 line-clamp-2">Management von Infrastrukturprojekten im
-                                Schienen- und Tunnelbau. Fokus auf Kostenkontrolle.</p>
-                            <div class="flex flex-wrap gap-4 mb-8">
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">location_on</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">Köln, DE</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-slate-400">
-                                    <span class="material-symbols-outlined text-sm text-primary">payments</span>
-                                    <span class="text-xs uppercase font-bold tracking-tight">95k - 120k €</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="bg-primary-container text-on-primary font-headline font-black uppercase text-xs py-4 px-6 self-start hover:bg-primary transition-colors">
-                            Jetzt Bewerben
-                        </button>
-                    </div>
+                <div class="bg-surface-container-low p-8 border border-outline-variant/20 job-skeleton">
+                    <div class="h-8 w-2/3 bg-surface-container-high mb-6"></div>
+                    <div class="h-5 w-full bg-surface-container-high mb-3"></div>
+                    <div class="h-5 w-2/3 bg-surface-container-high mb-8"></div>
+                    <div class="h-12 w-48 bg-surface-container-high"></div>
                 </div>
             </div>
-            <!-- Pagination/More CTA -->
+
+            <div id="jobsList" class="grid grid-cols-1 lg:grid-cols-2 gap-8 hidden"></div>
+
+            <div id="jobsEmptyState"
+                class="mt-6 hidden bg-surface-container-low p-10 text-center border border-outline-variant/20">
+                <div class="text-5xl mb-4">🔍</div>
+                <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter text-white mb-3">Keine passenden
+                    Positionen gefunden</h3>
+                <p class="text-slate-400">Versuchen Sie es mit anderen Filterkriterien oder kontaktieren Sie uns direkt.
+                </p>
+            </div>
+
             <div class="mt-16 flex flex-col items-center gap-6">
-                <p class="font-label text-slate-500 text-sm uppercase tracking-widest">Zeige 4 von 48 verfügbaren
-                    Vakanzen</p>
-                <button
-                    class="group relative px-12 py-4 border border-outline-variant/30 hover:border-primary transition-colors">
-                    <span class="font-headline font-bold uppercase tracking-widest text-white">Weitere Stellen
-                        laden</span>
-                    <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
-                </button>
+                <p id="jobsCount" class="font-label text-slate-500 text-sm uppercase tracking-widest">Lade verfügbare
+                    Vakanzen …</p>
             </div>
         </section>
         <!-- Technical Specs/Blueprint Overlay Section -->
@@ -442,6 +325,208 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const jobsState = {
+            allJobs: [],
+            filteredJobs: [],
+            loading: true,
+        };
+
+        const jobsApiUrl = "https://vccbpwvprepehqxatnuo.supabase.co/rest/v1/public_job_ads";
+        const jobsApiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjY2Jwd3ZwcmVwZWhxeGF0bnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUwNjY3MjQsImV4cCI6MTk5MDY0MjcyNH0.zEG6vuzJyiT0penToBCqyTWJnaHjmjGU0TbM7mQkJVY";
+
+        const jobsListElement = document.getElementById("jobsList");
+        const jobsLoadingElement = document.getElementById("jobsLoadingState");
+        const jobsEmptyStateElement = document.getElementById("jobsEmptyState");
+        const jobsCountElement = document.getElementById("jobsCount");
+
+        const positionFilterElement = document.getElementById("positionFilter");
+        const locationFilterElement = document.getElementById("locationFilter");
+        const textSearchFilterElement = document.getElementById("textSearchFilter");
+        const searchJobsBtnElement = document.getElementById("searchJobsBtn");
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#39;");
+        }
+
+        function setLoading(isLoading) {
+            jobsState.loading = isLoading;
+            jobsLoadingElement.classList.toggle("hidden", !isLoading);
+            jobsListElement.classList.toggle("hidden", isLoading);
+        }
+
+        function extractJob(item) {
+            const base = item?.json ?? item ?? {};
+            return {
+                id: base.id ?? item?.id ?? crypto.randomUUID(),
+                title: base.title ?? base.position ?? "Unbenannte Position",
+                location: base.location ?? "Nicht angegeben",
+                salary: base.salary_range ?? base.salary ?? "Nach Vereinbarung",
+                category: base.position_type ?? base.position_type ?? "Allgemein",
+            };
+        }
+
+        function buildJobCard(job) {
+            const encodedId = encodeURIComponent(String(job.id));
+            return `
+                <article class="group bg-surface-container-low flex flex-col relative overflow-hidden border border-outline-variant/20">
+                    <div class="flex-1 p-8 flex flex-col justify-between border-r-4 border-transparent group-hover:border-primary transition-all">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter">${escapeHtml(job.category)}</span>
+                            </div>
+                            <h3 class="font-headline text-2xl font-bold uppercase tracking-tighter text-white mb-4 group-hover:text-primary transition-colors">${escapeHtml(job.title)}</h3>
+                            <div class="flex flex-wrap gap-4 mb-8">
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+                                    <span class="text-xs uppercase font-bold tracking-tight">${escapeHtml(job.location)}</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-slate-400">
+                                    <span class="material-symbols-outlined text-sm text-primary">payments</span>
+                                    <span class="text-xs uppercase font-bold tracking-tight">${escapeHtml(job.salary)}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/jobAd/${encodedId}" class="inline-flex items-center gap-2 bg-primary-container text-on-primary font-headline font-black uppercase text-xs py-4 px-6 self-start hover:bg-primary transition-colors">
+                            <span>Jobdetails ansehen</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-surface-container-high flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-primary">arrow_outward</span>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderJobs() {
+            jobsListElement.innerHTML = jobsState.filteredJobs.map(buildJobCard).join("");
+            const hasJobs = jobsState.filteredJobs.length > 0;
+            jobsEmptyStateElement.classList.toggle("hidden", hasJobs);
+            jobsCountElement.textContent = hasJobs
+                ? `Zeige ${jobsState.filteredJobs.length} verfügbare Vakanzen`
+                : "0 verfügbare Vakanzen";
+        }
+
+        function applyFilters() {
+            const positionFilter = positionFilterElement.value.trim().toLowerCase();
+            const rawLocationFilter = locationFilterElement.value.trim().toLowerCase();
+            const locationFilter = rawLocationFilter.replace(/\d+/g, "").trim();
+            const textSearchFilter = textSearchFilterElement.value.trim().toLowerCase();
+
+            if (rawLocationFilter !== locationFilter) {
+                locationFilterElement.value = locationFilter;
+            }
+
+            jobsState.filteredJobs = jobsState.allJobs.filter((job) => {
+                const title = String(job.title ?? "").toLowerCase();
+                const location = String(job.location ?? "").toLowerCase();
+                const city = location.split(",")[0].trim();
+                const salary = String(job.salary ?? "").toLowerCase();
+                const category = String(job.category ?? "").toLowerCase();
+
+                const matchesPosition = !positionFilter
+                    || title.includes(positionFilter)
+                    || category.includes(positionFilter);
+                const matchesLocation = !locationFilter || city.includes(locationFilter);
+                const matchesText = !textSearchFilter
+                    || title.includes(textSearchFilter)
+                    || category.includes(textSearchFilter)
+                    || city.includes(textSearchFilter)
+                    || location.includes(textSearchFilter)
+                    || salary.includes(textSearchFilter);
+
+                return matchesPosition && matchesLocation && matchesText;
+            });
+
+            renderJobs();
+        }
+
+        function populatePositionOptions() {
+            const categoriesMap = new Map();
+
+            Array.from(positionFilterElement.options)
+                .filter((option) => option.value)
+                .forEach((option) => {
+                    const value = String(option.value).trim();
+                    categoriesMap.set(value.toLowerCase(), value);
+                });
+
+            jobsState.allJobs.forEach((job) => {
+                if (!job.category) {
+                    return;
+                }
+                const value = String(job.category).trim();
+                if (!value) {
+                    return;
+                }
+                categoriesMap.set(value.toLowerCase(), value);
+            });
+
+            const sortedCategories = Array.from(categoriesMap.values()).sort((a, b) =>
+                a.localeCompare(b, "de", { sensitivity: "base" }),
+            );
+
+            positionFilterElement.innerHTML = "";
+
+            const defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.textContent = "Alle Bereiche";
+            positionFilterElement.appendChild(defaultOption);
+
+            sortedCategories.forEach((category) => {
+                const option = document.createElement("option");
+                option.value = category;
+                option.textContent = category;
+                positionFilterElement.appendChild(option);
+            });
+        }
+
+        async function loadJobs() {
+            setLoading(true);
+
+            try {
+                const response = await fetch(jobsApiUrl, {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${jobsApiKey}`,
+                        apikey: jobsApiKey,
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                jobsState.allJobs = Array.isArray(data) ? data.map(extractJob) : [];
+                jobsState.filteredJobs = [...jobsState.allJobs];
+                populatePositionOptions();
+                renderJobs();
+            } catch (error) {
+                jobsState.allJobs = [];
+                jobsState.filteredJobs = [];
+                renderJobs();
+                jobsCountElement.textContent = "Jobs konnten aktuell nicht geladen werden";
+                console.error("Jobs feed error:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        positionFilterElement.addEventListener("change", applyFilters);
+        textSearchFilterElement.addEventListener("input", applyFilters);
+        locationFilterElement.addEventListener("input", applyFilters);
+        searchJobsBtnElement.addEventListener("click", applyFilters);
+
+        loadJobs();
+    </script>
 </body>
 
 </html>
