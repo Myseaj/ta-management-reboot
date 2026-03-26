@@ -370,7 +370,7 @@
             const base = item?.json ?? item ?? {};
             const location = base.location ?? "Unbekannt";
             const cityToken = location.toLowerCase().split(" ")[0]?.split(",")[0]?.trim();
-            const locationPath = base.locationPath || `/img/Cities/${cityToken || "default"}.jpg`;
+            const locationPath = base.locationPath || `/images/Cities/${cityToken || "default"}.jpg`;
             const benefits = Array.isArray(base.jobad_benefit_array) ? base.jobad_benefit_array : [];
 
             let responseUserRaw = base.responseUser ?? base.response_user ?? {};
