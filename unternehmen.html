@@ -148,7 +148,7 @@
     </nav>
     <main class="pt-24">
         <!-- Hero Section -->
-        <section class="relative min-h-[819px] flex items-center px-8 blueprint-grid overflow-hidden">
+        <section class="relative min-h-[60vh] md:min-h-[819px] flex items-center px-4 md:px-8 blueprint-grid overflow-hidden">
             <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-8 z-10">
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high mb-6">
@@ -157,16 +157,16 @@
                             Solutions</span>
                     </div>
                     <h1
-                        class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
+                        class="font-headline text-3xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-6 md:mb-8">
                         Maßgeschneidertes <span class="text-primary-container">Recruiting</span> für Ihr Bauvorhaben
                     </h1>
-                    <p class="font-body text-xl text-secondary max-w-xl leading-relaxed mb-10">
+                    <p class="font-body text-base md:text-xl text-secondary max-w-xl leading-relaxed mb-6 md:mb-10">
                         Wir verbinden technische Exzellenz mit präziser Personalberatung. TA Management
                         ist Ihr Partner für die Vermittlung von Fach- und Führungskräften im Bauwesen.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#kontaktformular"
-                            class="bg-primary-container text-on-primary-container px-10 py-4 font-headline uppercase tracking-tighter text-lg font-black hover:bg-primary transition-all duration-100 inline-block">
+                            class="bg-primary-container text-on-primary-container px-6 md:px-10 py-3 md:py-4 font-headline uppercase tracking-tighter text-base md:text-lg font-black hover:bg-primary transition-all duration-100 inline-block">
                             Jetzt Personal finden
                         </a>
                     </div>
@@ -187,7 +187,7 @@
             </div>
         </section>
         <!-- Warum unser Ansatz? - Bento Grid -->
-        <section class="py-24 px-8 bg-surface-container-lowest">
+        <section class="py-12 md:py-24 px-4 md:px-8 bg-surface-container-lowest">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div>
@@ -203,7 +203,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
                     <!-- Feature: Speed -->
-                    <div class="bg-surface p-12 flex flex-col justify-between aspect-square group">
+                    <div class="bg-surface p-6 md:p-12 flex flex-col justify-between md:aspect-square group">
                         <div class="font-headline text-7xl font-outline text-transparent stroke-white/10 opacity-20"
                             style="-webkit-text-stroke: 1px rgba(255,255,255,0.2)">01</div>
                         <div>
@@ -215,7 +215,7 @@
                         </div>
                     </div>
                     <!-- Feature: Quality -->
-                    <div class="bg-surface-container-low p-12 flex flex-col justify-between aspect-square">
+                    <div class="bg-surface-container-low p-6 md:p-12 flex flex-col justify-between md:aspect-square">
                         <div class="font-headline text-7xl font-outline text-transparent stroke-white/10 opacity-20"
                             style="-webkit-text-stroke: 1px rgba(255,255,255,0.2)">02</div>
                         <div>
@@ -226,7 +226,7 @@
                         </div>
                     </div>
                     <!-- Feature: Network -->
-                    <div class="bg-surface p-12 flex flex-col justify-between aspect-square">
+                    <div class="bg-surface p-6 md:p-12 flex flex-col justify-between md:aspect-square">
                         <div class="font-headline text-7xl font-outline text-transparent stroke-white/10 opacity-20"
                             style="-webkit-text-stroke: 1px rgba(255,255,255,0.2)">03</div>
                         <div>
@@ -240,7 +240,7 @@
             </div>
         </section>
         <!-- Service Process -->
-        <section class="py-32 px-8 bg-background relative overflow-hidden">
+        <section class="py-16 md:py-32 px-4 md:px-8 bg-background relative overflow-hidden">
             <div class="max-w-7xl mx-auto relative z-10">
                 <div class="mb-20">
                     <span class="font-label text-xs uppercase tracking-[0.3em] text-primary block mb-4">Modulares
@@ -248,7 +248,7 @@
                     <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter">Unser Prozess
                     </h2>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Step 1 -->
                     <div class="relative group">
                         <div
@@ -256,10 +256,10 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <span
                                     class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">01</span>
-                                <h4 class="font-headline font-bold uppercase tracking-tighter">Briefing</h4>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Bedarfsanalyse</h4>
                             </div>
-                            <p class="text-sm text-secondary leading-relaxed">Wir analysieren Ihre Projektanforderungen
-                                und die Unternehmenskultur im Detail, um das ideale Profil zu erstellen.</p>
+                            <p class="text-sm text-secondary leading-relaxed">Gemeinsam mit Ihnen klären wir Fragen wie:
+                                Welche Positionen müssen besetzt werden? Was hat die größte Priorität?</p>
                         </div>
                     </div>
                     <!-- Step 2 -->
@@ -269,10 +269,11 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <span
                                     class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">02</span>
-                                <h4 class="font-headline font-bold uppercase tracking-tighter">Sourcing</h4>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Kennenlernen</h4>
                             </div>
-                            <p class="text-sm text-secondary leading-relaxed">Direktansprache über exklusive Kanäle und
-                                unser technisches Experten-Netzwerk in der DACH-Region.</p>
+                            <p class="text-sm text-secondary leading-relaxed">Für den bestmöglichen Service lernen wir
+                                unsere Partner kennen. Worauf legen Sie wert bei der Auswahl? Welche Eigenschaften oder
+                                Qualifikationen benötigen die Kandidaten? Was macht Sie als Arbeitgeber attraktiv?</p>
                         </div>
                     </div>
                     <!-- Step 3 -->
@@ -282,10 +283,10 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <span
                                     class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">03</span>
-                                <h4 class="font-headline font-bold uppercase tracking-tighter">Selection</h4>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Sourcing</h4>
                             </div>
-                            <p class="text-sm text-secondary leading-relaxed">Persönliche Interviews und
-                                Referenz-Checks. Sie erhalten nur die drei passgenauesten Dossiers.</p>
+                            <p class="text-sm text-secondary leading-relaxed">Wir finden die richtigen Kandidaten über
+                                unsere Multikanalsuche und unser branchenspezifisches Netzwerk.</p>
                         </div>
                     </div>
                     <!-- Step 4 -->
@@ -295,18 +296,45 @@
                             <div class="flex items-center gap-4 mb-6">
                                 <span
                                     class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">04</span>
-                                <h4 class="font-headline font-bold uppercase tracking-tighter">Onboarding</h4>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Präsentation /
+                                    Vorstellung</h4>
                             </div>
-                            <p class="text-sm text-secondary leading-relaxed">Begleitung der Vertragsverhandlung und
-                                Support während der Einarbeitungsphase für langfristigen Erfolg.</p>
+                            <p class="text-sm text-secondary leading-relaxed">Wir präsentieren Ihnen passende Kandidaten
+                                mit den für Sie wichtigen Informationen.</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="relative group">
+                        <div
+                            class="bg-surface-container p-8 h-full transition-transform duration-300 group-hover:-translate-y-2">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">05</span>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Beratung</h4>
+                            </div>
+                            <p class="text-sm text-secondary leading-relaxed">Wir unterstützen Sie bei der Organisation
+                                der Vorstellungsgespräche und begleiten Sie bei Vertragsverhandlungen.</p>
+                        </div>
+                    </div>
+                    <!-- Step 6 -->
+                    <div class="relative group">
+                        <div
+                            class="bg-surface-container-high p-8 h-full transition-transform duration-300 group-hover:-translate-y-2">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="bg-primary text-on-primary w-10 h-10 flex items-center justify-center font-headline font-bold">06</span>
+                                <h4 class="font-headline font-bold uppercase tracking-tighter">Partnerschaft</h4>
+                            </div>
+                            <p class="text-sm text-secondary leading-relaxed">Ihr Erfolg ist unser Erfolg. Wir legen
+                                Wert auf langfristige Partnerschaften für starke Synergien.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Kontakt Form Section -->
-        <section id="kontaktformular" class="py-24 px-8 bg-surface-container-lowest scroll-mt-28">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <section id="kontaktformular" class="py-12 md:py-24 px-4 md:px-8 bg-surface-container-lowest scroll-mt-28">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20">
                 <div>
                     <h2 class="font-headline text-4xl md:text-7xl font-black uppercase tracking-tighter mb-8">
                         Kontaktieren Sie uns</h2>
@@ -333,7 +361,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-surface p-10 relative">
+                <div class="bg-surface p-5 md:p-10 relative">
                     <div class="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-primary-container/20">
                     </div>
                     <form id="contactForm" class="space-y-6">
@@ -394,7 +422,7 @@
     </main>
     <!-- Footer -->
     <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 px-4 md:px-8 py-10 md:py-16 w-full max-w-7xl mx-auto">
             <div class="col-span-1 md:col-span-1">
                 <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
                 <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
@@ -434,7 +462,7 @@
             <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
                 href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
-        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="px-4 md:px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
                 <span>© 2026 TA Management GmbH</span>
                 <span>Engineered Precision in Recruitment.</span>

@@ -113,7 +113,7 @@
 
 <body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
     <!-- TopNavBar -->
-    <nav class="fixed top-0 z-50 w-full bg-[#121416] px-8 py-4">
+    <nav class="fixed top-0 z-50 w-full bg-[#121416] px-4 md:px-8 py-4">
         <div class="flex justify-between items-center">
             <a href="index.html" aria-label="Zur Startseite">
                 <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
@@ -153,7 +153,7 @@
     </nav>
     <main class="pt-24">
         <!-- Hero Section -->
-        <section class="relative px-8 py-24 md:py-32 overflow-hidden blueprint-grid">
+        <section class="relative px-4 md:px-8 py-16 md:py-32 overflow-hidden blueprint-grid">
             <div class="max-w-7xl mx-auto relative z-10">
                 <div
                     class="inline-flex items-center space-x-2 text-primary font-headline font-bold text-xs tracking-[0.2em] uppercase mb-6">
@@ -161,11 +161,11 @@
                     <span>Wer wir sind &amp; Wie wir arbeiten</span>
                 </div>
                 <h1
-                    class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-12 max-w-4xl">
+                    class="font-headline text-3xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-8 md:mb-12 max-w-4xl">
                     Präzision in der <span class="text-primary-container">Personalplanung.</span>
                 </h1>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <p class="text-xl md:text-2xl text-secondary leading-relaxed font-light">
+                    <p class="text-base md:text-2xl text-secondary leading-relaxed font-light">
                         Wir bauen Brücken zwischen erstklassigen Talenten und den innovativsten Bauunternehmen des
                         Landes. TA Management
                         ist mehr als eine Personalvermittlung – wir sind Ihr strategischer
@@ -178,7 +178,7 @@
             </div>
         </section>
         <!-- Werte Section -->
-        <section class="py-24 px-8 bg-surface-container-lowest">
+        <section class="py-12 md:py-24 px-4 md:px-8 bg-surface-container-lowest">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div>
@@ -193,7 +193,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
                     <div
-                        class="bg-surface-container-low p-10 group hover:bg-surface-container transition-all duration-300 relative overflow-hidden">
+                        class="bg-surface-container-low p-6 md:p-10 group hover:bg-surface-container transition-all duration-300 relative overflow-hidden">
                         <div
                             class="absolute top-0 left-0 w-1 h-full bg-primary-container transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                         </div>
@@ -205,7 +205,7 @@
                             flexible Prozesse und agile Kommunikation handeln wir schnell und zielgerichtet.</p>
                     </div>
                     <div
-                        class="bg-surface-container p-10 group hover:bg-surface-container-high transition-all duration-300 relative overflow-hidden">
+                        class="bg-surface-container p-6 md:p-10 group hover:bg-surface-container-high transition-all duration-300 relative overflow-hidden">
                         <div
                             class="absolute top-0 left-0 w-1 h-full bg-primary-container transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                         </div>
@@ -217,7 +217,7 @@
                             Partnern und Kandidaten auf. Bei jeder Personalsuche achten wir auf Diskretion.</p>
                     </div>
                     <div
-                        class="bg-surface-container-low p-10 group hover:bg-surface-container transition-all duration-300 relative overflow-hidden">
+                        class="bg-surface-container-low p-6 md:p-10 group hover:bg-surface-container transition-all duration-300 relative overflow-hidden">
                         <div
                             class="absolute top-0 left-0 w-1 h-full bg-primary-container transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                         </div>
@@ -228,7 +228,7 @@
                             und tragen unsere Begeisterung an die Kandidaten weiter.</p>
                     </div>
                     <div
-                        class="bg-surface-container p-10 group hover:bg-surface-container-high transition-all duration-300 relative overflow-hidden">
+                        class="bg-surface-container p-6 md:p-10 group hover:bg-surface-container-high transition-all duration-300 relative overflow-hidden">
                         <div
                             class="absolute top-0 left-0 w-1 h-full bg-primary-container transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top">
                         </div>
@@ -243,9 +243,9 @@
         </section>
 
         <!-- Video Einblicke Section -->
-        <section class="bg-surface-container-low py-24 px-8 border-y border-outline-variant/10">
+        <section class="bg-surface-container-low py-12 md:py-24 px-4 md:px-8 border-y border-outline-variant/10">
             <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6 md:gap-8">
                     <div>
                         <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">01.1 /
                             Einblicke</div>
@@ -256,87 +256,78 @@
                         KULTUR</div>
                 </div>
 
-                <!-- Featured Video -->
-                <div class="relative group mb-1">
-                    <div class="bg-surface-container relative overflow-hidden">
-                        <div class="absolute top-6 left-6 z-10 flex items-center gap-3">
-                            <div
-                                class="bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-bold uppercase tracking-widest">
-                                Highlight
+                <!-- Video Grid - Asymmetric Bento Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-1">
+                    <!-- Main Feature Video - spans 2 cols -->
+                    <div class="lg:col-span-2 relative group">
+                        <div class="bg-surface-container relative overflow-hidden h-full">
+                            <div class="aspect-video">
+                                <iframe width="100%" height="100%"
+                                    src="https://www.youtube.com/embed/HsCQ9kq7cUM?si=PR5H1unzbWCx4KQy"
+                                    title="TA Management 3 Jahre Jubiläum" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                                    class="w-full h-full"></iframe>
                             </div>
-                            <span class="font-headline text-xs uppercase tracking-widest text-white/60">3 Jahre
-                                Jubiläum</span>
-                        </div>
-                        <div class="aspect-video">
-                            <iframe width="100%" height="100%"
-                                src="https://www.youtube.com/embed/HsCQ9kq7cUM?si=PR5H1unzbWCx4KQy"
-                                title="TA Management 3 Jahre Jubiläum" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                class="w-full h-full"></iframe>
+                            <div class="p-8 pt-6 border-l-4 border-primary-container">
+                                <h3 class="font-headline text-xl font-bold uppercase tracking-tight text-white mb-2">3
+                                    Jahre TA Management</h3>
+                                <p class="text-slate-400 font-body text-sm leading-relaxed">Rückblick auf drei Jahre
+                                    voller Wachstum, Meilensteine und Teamspirit.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Secondary Videos -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-1">
-                    <div class="relative flex flex-col h-full bg-surface-container-low group">
-                        <div class="relative aspect-video overflow-hidden">
-                            <iframe width="100%" height="100%"
-                                src="https://www.youtube.com/embed/5rF0tUyq94Y?si=69JivfE5gB0oJEty"
-                                title="Wie ist bei TA Management zu arbeiten?" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                class="w-full h-full"></iframe>
-                            <div class="absolute top-4 left-4 z-10">
-                                <div
-                                    class="bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-bold uppercase tracking-widest">
-                                    Arbeitskultur
-                                </div>
+                    <!-- Stacked Side Videos -->
+                    <div class="flex flex-col gap-1">
+                        <!-- Side Video 1 -->
+                        <div class="relative flex flex-col flex-1 bg-surface-container-high group">
+                            <div class="relative aspect-video overflow-hidden">
+                                <iframe width="100%" height="100%"
+                                    src="https://www.youtube.com/embed/5rF0tUyq94Y?si=69JivfE5gB0oJEty"
+                                    title="Wie ist bei TA Management zu arbeiten?" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                                    class="w-full h-full"></iframe>
+                            </div>
+                            <div class="p-6 pt-4 border-l-4 border-primary-container flex-1">
+                                <h3 class="font-headline text-base font-bold uppercase tracking-tight text-white mb-1">
+                                    Wie ist bei TA Management zu arbeiten?</h3>
+                                <p class="text-slate-400 font-body text-xs leading-relaxed">Authentische Einblicke in
+                                    unsere Arbeitskultur und unser Team.</p>
                             </div>
                         </div>
-                        <div class="p-8 pt-6 border-l-4 border-primary-container">
-                            <h3 class="font-headline text-xl font-bold uppercase tracking-tight text-white mb-2">Wie ist
-                                bei TA Management zu arbeiten?</h3>
-                            <p class="text-slate-400 font-body text-sm leading-relaxed">Authentische Einblicke in unsere
-                                Arbeitskultur und unser Team.</p>
-                        </div>
-                    </div>
-                    <div class="relative flex flex-col h-full bg-surface-container group">
-                        <div class="relative aspect-video overflow-hidden">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7XQlC_l7P7c"
-                                title="Wo Business auf Leidenschaft trifft" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                class="w-full h-full"></iframe>
-                            <div class="absolute top-4 left-4 z-10">
-                                <div
-                                    class="bg-primary-container text-on-primary px-3 py-1 font-headline text-[10px] font-bold uppercase tracking-widest">
-                                    Event
-                                </div>
+                        <!-- Side Video 2 -->
+                        <div class="relative flex flex-col flex-1 bg-surface-container group">
+                            <div class="relative aspect-video overflow-hidden">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7XQlC_l7P7c"
+                                    title="Wo Business auf Leidenschaft trifft" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                                    class="w-full h-full"></iframe>
                             </div>
-                        </div>
-                        <div class="p-8 pt-6 border-l-4 border-primary-container">
-                            <h3 class="font-headline text-xl font-bold uppercase tracking-tight text-white mb-2">Wo
-                                Business auf Leidenschaft trifft</h3>
-                            <p class="text-slate-400 font-body text-sm leading-relaxed">Ein Abend beim HSV — dort wo
-                                echte Verbindungen entstehen.</p>
+                            <div class="p-6 pt-4 border-l-4 border-primary-container flex-1">
+                                <h3 class="font-headline text-base font-bold uppercase tracking-tight text-white mb-1">
+                                    Wo Business auf Leidenschaft trifft</h3>
+                                <p class="text-slate-400 font-body text-xs leading-relaxed">Ein Abend beim HSV — dort
+                                    wo echte Verbindungen entstehen.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Team Section -->
-        <section class="py-24 px-8 max-w-7xl mx-auto">
+        <section class="py-12 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
             <h2 class="font-headline text-3xl font-bold uppercase tracking-tighter mb-16 flex items-center gap-4">
                 <span class="text-tertiary-fixed-dim text-5xl">02</span>
                 Das Fundament
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/20">
                 <!-- Team Member 1 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
-                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                    class="group bg-surface-container-low p-4 md:p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
+                    <div class="aspect-[3/4] mb-4 md:mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="professional male executive in a sharp dark suit with architectural models in a blurred office background"
                             src="images/aaron-ebermann.256x256.jpg" />
@@ -350,8 +341,8 @@
                 </div>
                 <!-- Team Member 2 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
-                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                    class="group bg-surface-container-low p-4 md:p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
+                    <div class="aspect-[3/4] mb-4 md:mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="confident professional woman in industrial setting with blueprints and high-tech tablet"
                             src="images/waldemar-solotov.256x256.jpg" />
@@ -366,47 +357,77 @@
                 </div>
                 <!-- Team Member 3 -->
                 <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
-                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
+                    class="group bg-surface-container-low p-4 md:p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
+                    <div class="aspect-[3/4] mb-4 md:mb-6 bg-surface-container-highest overflow-hidden">
                         <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                             data-alt="male engineer in white helmet looking at a tablet against a blurred construction background"
                             src="images/image.256x256.jpg" />
                     </div>
                     <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Matthias Hillebrand</h3>
                     <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
-                        IT Infrastruktur Leiter</p>
+                        Innovation & Automatisierung</p>
                     <p class="text-secondary text-sm leading-relaxed mt-1">
-                        Verantwortet die technische Basis unserer Systeme und entwickelt eine stabile, sichere
-                        IT-Infrastruktur.
+                        Treibt Innovationen voran und erschließt neue Potenziale durch Automatisierung und den
+                        gezielten Einsatz von KI.
                     </p>
-                </div>
-                <!-- Team Member 4 -->
-                <div
-                    class="group bg-surface-container-low p-8 relative overflow-hidden transition-all duration-300 hover:bg-surface-container h-full flex flex-col">
-                    <div class="aspect-[3/4] mb-6 bg-surface-container-highest overflow-hidden">
-                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                            data-alt="woman in modern office space with clean minimalist architectural design"
-                            src="https://profile-images.xing.com/images/7fa3f16861e9749ca8c1fecb3711ca7f-4/simon-lorey.256x256.jpg" />
-                    </div>
-                    <h3 class="font-headline font-bold text-lg uppercase tracking-tight">Simon Lorey</h3>
-                    <p class="text-primary-container text-xs font-headline font-bold uppercase tracking-widest mb-4">
-                        Senior Recruiting Consultant Bauwesen</p>
-                    <p class="text-secondary text-sm leading-relaxed mt-1">
-                        Berät Unternehmen bei der Besetzung anspruchsvoller Positionen und verbindet Fachkompetenz mit
-                        passender Teamkultur.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Impressionen Section -->
+        <section class="bg-surface-container-low py-12 md:py-24 px-4 md:px-8 border-y border-outline-variant/10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6 md:gap-8">
+                    <div>
+                        <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">02.1 /
+                            Impressionen</div>
+                        <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter">Mehr als
+                            nur Arbeit</h2>
+                    </div>
+                    <p class="font-body text-secondary max-w-md text-right">
+                        Einblicke in unseren Alltag, unsere Events und das, was uns als Team ausmacht.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-1">
+                    <!-- Gruppenbild - large -->
+                    <div class="col-span-2 row-span-2 relative group overflow-hidden">
+                        <img src="images/impressions/gruppenbild.jpg" alt="Gruppenbild des TA Management Teams"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    </div>
+                    <!-- Weihnachtsessen -->
+                    <div class="relative group overflow-hidden aspect-square">
+                        <img src="images/impressions/weihnachtsessen.jpg" alt="Weihnachtsessen des Teams"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    </div>
+                    <!-- Schachbrett -->
+                    <div class="relative group overflow-hidden aspect-square">
+                        <img src="images/impressions/Schachbrett.jpg" alt="Schachbrett im Büro"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    </div>
+                    <!-- Fußballstadion -->
+                    <div class="relative group overflow-hidden aspect-[16/9] md:col-span-2">
+                        <img src="images/impressions/fußballstadion.jpg" alt="Teamevent im Fußballstadion"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    </div>
+                    <!-- Raumbild -->
+                    <div class="relative group overflow-hidden aspect-[16/9] md:aspect-auto">
+                        <img src="images/impressions/raumbild.jpg" alt="Büroräumlichkeiten von TA Management"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
-        <section class="bg-surface-container-lowest py-24 px-8 border-t border-outline-variant/10">
+        <section class="bg-surface-container-lowest py-12 md:py-24 px-4 md:px-8 border-t border-outline-variant/10">
             <div class="max-w-7xl mx-auto">
                 <h2 class="font-headline text-3xl font-bold uppercase tracking-tighter mb-16 flex items-center gap-4">
                     <span class="text-tertiary-fixed-dim text-5xl">03</span>
                     Projektbesprechung
                 </h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
                     <div class="space-y-12">
-                        <div class="bg-surface-container p-10 border-l-8 border-primary-container">
+                        <div class="bg-surface-container p-6 md:p-10 border-l-8 border-primary-container">
                             <h3 class="font-headline text-xl font-bold uppercase mb-6">Hamburger Zentrale</h3>
                             <div class="space-y-4 font-body text-secondary">
                                 <p class="flex items-center gap-3">
@@ -439,8 +460,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-surface-container p-10">
-                        <h3 class="font-headline text-xl font-bold uppercase mb-8">Kontaktformular</h3>
+                    <div class="bg-surface-container p-5 md:p-10">
+                        <h3 class="font-headline text-xl font-bold uppercase mb-6 md:mb-8">Kontaktformular</h3>
                         <form class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
@@ -498,7 +519,7 @@
     </main>
     <!-- Footer -->
     <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 px-4 md:px-8 py-10 md:py-16 w-full max-w-7xl mx-auto">
             <div class="col-span-1 md:col-span-1">
                 <img src="images/logo_correct.png" alt="Firmenlogo" class="h-9 w-auto mb-6" />
                 <p class="font-['Inter'] text-xs tracking-wide text-slate-400 leading-relaxed">
@@ -538,7 +559,7 @@
             <a class="font-['Inter'] text-xs tracking-wide text-slate-400 hover:text-[#ff6b00] transition-colors"
                 href="https://www.tiktok.com/@ta_management" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
-        <div class="px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="px-4 md:px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="font-['Inter'] text-xs tracking-wide text-slate-400 flex items-center gap-2">
                 <span>© 2026 TA Management GmbH</span>
                 <span>Engineered Precision in Recruitment.</span>
