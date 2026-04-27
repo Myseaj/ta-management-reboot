@@ -132,47 +132,45 @@
 
 <body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary">
     <!-- TopNavBar -->
-    <nav
-        class="bg-[#121416] dark:bg-[#121416] docked full-width top-0 z-50 flat no shadows border-b border-outline-variant/15">
-        <div class="flex justify-between items-center w-full px-8 py-4 max-w-none">
+    <nav class="fixed top-0 z-50 w-full bg-[#121416] px-4 md:px-8 py-4">
+        <div class="flex justify-between items-center">
             <a href="index.html" aria-label="Zur Startseite">
                 <img src="images/logo_correct.png" alt="Firmenlogo" class="h-10 w-auto" />
             </a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
-                    href="/">Home</a>
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1"
-                    href="/jobs">Jobs</a>
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
-                    href="/unternehmen">Für Unternehmen</a>
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
-                    href="/ueberuns">Über Uns</a>
+            <div
+                class="hidden md:flex items-center space-x-8 font-headline uppercase tracking-tighter text-sm font-bold">
+                <a class="text-white/80 hover:text-white transition-colors" href="/">Home</a>
+                <a class="text-[#ff6b00] border-b-2 border-[#ff6b00] pb-1" href="/jobs">Jobs</a>
+                <a class="text-white/80 hover:text-white transition-colors" href="/unternehmen">Für Unternehmen</a>
+                <a class="text-white/80 hover:text-white transition-colors" href="/ueberuns">Über Uns</a>
+                <a href="/unternehmen#kontaktformular"
+                    class="bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter text-sm font-bold px-6 py-2 transition-all duration-100 active:scale-95 hover:bg-primary-fixed-dim inline-block">
+                    Kontakt
+                </a>
             </div>
-            <a href="/unternehmen#kontaktformular"
-                class="bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm hover:bg-[#ffb693] transition-all duration-100 active:scale-95 inline-block">
-                Kontakt
-            </a>
             <button id="mobileMenuButton" type="button" class="md:hidden text-white" aria-label="Menü öffnen"
                 aria-expanded="false" aria-controls="mobileMenu">
                 <span id="mobileMenuIcon" class="material-symbols-outlined">menu</span>
             </button>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden px-8 pb-4 border-t border-white/10">
-            <div class="flex flex-col gap-3 pt-4">
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+        <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 border-t border-white/10 mt-4">
+            <div class="flex flex-col gap-3">
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                     href="/">Home</a>
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-[#ff6b00]"
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-[#ff6b00]"
                     href="/jobs">Jobs</a>
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                     href="/unternehmen">Für Unternehmen</a>
-                <a class="font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
+                <a class="font-headline uppercase tracking-tighter text-sm font-bold text-white/80 hover:text-white transition-colors"
                     href="/ueberuns">Über Uns</a>
                 <a href="/unternehmen#kontaktformular"
-                    class="mt-2 bg-primary-container text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-widest text-sm inline-block w-fit">Kontakt</a>
+                    class="mt-2 bg-primary-container text-on-primary-container font-headline uppercase tracking-tighter text-sm font-bold px-6 py-2 inline-block w-fit">
+                    Kontakt
+                </a>
             </div>
         </div>
     </nav>
-    <main class="min-h-screen blueprint-grid">
+    <main class="min-h-screen blueprint-grid pt-24">
         <!-- Hero Section -->
         <header class="pt-24 pb-12 px-8 max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
