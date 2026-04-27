@@ -420,11 +420,39 @@
             </div>
         </section>
 
+        <!-- Interne Jobs Section -->
+        <section class="py-12 md:py-24 px-4 md:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6 md:gap-8">
+                    <div>
+                        <div class="text-primary font-headline font-bold text-sm tracking-[0.2em] mb-4 uppercase">03 /
+                            Karriere</div>
+                        <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter">Werde Teil
+                            des Teams</h2>
+                    </div>
+                    <p class="font-body text-secondary max-w-md text-right">
+                        Aktuelle Vakanzen in unserem Unternehmen – gestalte die Zukunft von TA Management mit.
+                    </p>
+                </div>
+                <div id="internJobsLoading" class="animate-pulse space-y-4">
+                    <div class="h-24 bg-surface-container-high"></div>
+                    <div class="h-24 bg-surface-container-high"></div>
+                </div>
+                <div id="internJobsList" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1"></div>
+                <div id="internJobsEmpty" class="hidden">
+                    <div class="bg-surface-container-low p-10 text-center border border-outline-variant/20">
+                        <p class="text-slate-400">Aktuell keine internen Stellen ausgeschrieben.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="bg-surface-container-lowest py-12 md:py-24 px-4 md:px-8 border-t border-outline-variant/10">
             <div class="max-w-7xl mx-auto">
                 <h2 class="font-headline text-3xl font-bold uppercase tracking-tighter mb-16 flex items-center gap-4">
-                    <span class="text-tertiary-fixed-dim text-5xl">03</span>
+                    <span class="text-tertiary-fixed-dim text-5xl">04</span>
                     Projektbesprechung
                 </h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
@@ -575,6 +603,63 @@
         const mobileMenuButton = document.getElementById("mobileMenuButton");
         const mobileMenu = document.getElementById("mobileMenu");
         const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+
+        // Interne Jobs laden
+        (async function loadInternJobs() {
+            const apiUrl = "https://vccbpwvprepehqxatnuo.supabase.co/rest/v1/public_job_ads";
+            const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjY2Jwd3ZwcmVwZWhxeGF0bnVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUwNjY3MjQsImV4cCI6MTk5MDY0MjcyNH0.zEG6vuzJyiT0penToBCqyTWJnaHjmjGU0TbM7mQkJVY";
+            const listEl = document.getElementById("internJobsList");
+            const loadingEl = document.getElementById("internJobsLoading");
+            const emptyEl = document.getElementById("internJobsEmpty");
+
+            function esc(v) {
+                return String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+            }
+
+            try {
+                const res = await fetch(apiUrl + "?is_intern=eq.true&is_public=eq.true", {
+                    headers: { Authorization: "Bearer " + apiKey, apikey: apiKey }
+                });
+                if (!res.ok) throw new Error(res.status);
+                const data = await res.json();
+                const jobs = (Array.isArray(data) ? data : []).map(item => {
+                    const b = item?.json ?? item ?? {};
+                    return {
+                        id: b.id ?? item?.id,
+                        title: b.title ?? "Offene Position",
+                        location: b.location ?? "Nicht angegeben",
+                        salary: b.salary_range ?? "Nach Vereinbarung",
+                        category: b.position_type ?? "Allgemein"
+                    };
+                });
+
+                loadingEl.classList.add("hidden");
+                if (jobs.length === 0) {
+                    emptyEl.classList.remove("hidden");
+                    return;
+                }
+                listEl.classList.remove("hidden");
+                listEl.innerHTML = jobs.map(job => `
+                    <a href="/jobAd/${encodeURIComponent(job.id)}" class="group bg-surface-container-low p-8 border border-outline-variant/20 hover:bg-surface-container transition-all duration-300 relative overflow-hidden flex flex-col">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-primary-container transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+                        <span class="bg-tertiary-container text-on-tertiary-container text-[10px] px-2 py-0.5 font-bold uppercase tracking-tighter self-start mb-4">${esc(job.category)}</span>
+                        <h3 class="font-headline text-xl font-bold uppercase tracking-tighter text-white mb-4 group-hover:text-primary transition-colors">${esc(job.title)}</h3>
+                        <div class="flex flex-wrap gap-4 mt-auto">
+                            <span class="flex items-center gap-2 text-slate-400 text-xs uppercase font-bold tracking-tight">
+                                <span class="material-symbols-outlined text-sm text-primary">location_on</span>${esc(job.location)}
+                            </span>
+                            <span class="flex items-center gap-2 text-slate-400 text-xs uppercase font-bold tracking-tight">
+                                <span class="material-symbols-outlined text-sm text-primary">payments</span>${esc(job.salary)}
+                            </span>
+                        </div>
+                    </a>
+                `).join("");
+            } catch (e) {
+                console.error("Interne Jobs laden fehlgeschlagen:", e);
+                loadingEl.classList.add("hidden");
+                emptyEl.classList.remove("hidden");
+            }
+        })();
 
         if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
             mobileMenuButton.addEventListener("click", () => {

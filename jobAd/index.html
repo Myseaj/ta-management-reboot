@@ -275,6 +275,52 @@
         </div>
     </main>
 
+    <!-- Fixed Apply Button -->
+    <button id="fixedApplyBtn" class="hidden fixed bottom-8 right-8 z-50 bg-primary-container text-on-primary-container font-headline font-black uppercase px-8 py-4 shadow-[0_8px_32px_rgba(255,107,0,0.4)] hover:scale-105 transition-all duration-200 flex items-center gap-3">
+        <span class="material-symbols-outlined">send</span>
+        Jetzt bewerben
+    </button>
+
+    <!-- Apply Modal -->
+    <div id="applyModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div id="applyModalBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div class="relative bg-surface-container border border-outline-variant/20 w-full max-w-lg shadow-2xl">
+            <div class="flex justify-between items-center p-6 border-b border-outline-variant/20">
+                <h3 class="font-headline text-xl font-black uppercase">Jetzt bewerben</h3>
+                <button id="closeApplyModal" class="text-slate-400 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form id="applyForm" class="p-6 space-y-5">
+                <p id="applyJobTitle" class="text-primary text-xs font-bold uppercase tracking-widest"></p>
+                <div class="space-y-2">
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Name *</label>
+                    <input name="applyName" required class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="Ihr vollständiger Name" type="text" />
+                </div>
+                <div class="space-y-2">
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">E-Mail *</label>
+                    <input name="applyEmail" required class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="ihre@email.de" type="email" />
+                </div>
+                <div class="space-y-2">
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Telefon</label>
+                    <input name="applyPhone" class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="+49 ..." type="tel" />
+                </div>
+                <div class="space-y-2">
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Gehaltswunsch</label>
+                    <input name="applySalary" class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="z.B. 55.000 €" type="text" />
+                </div>
+                <div class="space-y-2">
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Kommentar</label>
+                    <textarea name="applyComment" rows="3" class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm resize-none" placeholder="Kurze Nachricht an uns..."></textarea>
+                </div>
+                <p id="applyFeedback" class="hidden text-sm"></p>
+                <button id="applySubmitBtn" type="submit" class="w-full bg-primary-container text-on-primary-container font-headline font-black uppercase py-4 hover:brightness-110 transition-all active:scale-95">
+                    Bewerbung absenden
+                </button>
+            </form>
+        </div>
+    </div>
+
     <footer class="bg-[#0c0e10] dark:bg-[#0c0e10] w-full mt-24">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 w-full max-w-7xl mx-auto">
             <div class="col-span-1 md:col-span-1">
@@ -595,6 +641,97 @@
         }
 
         init();
+
+        // Fixed apply button & modal logic
+        const googleChatWebhookUrl = "https://chat.googleapis.com/v1/spaces/AAQAQtXMCik/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=nmBuW9WfUvjXFBWof_fXSGtQHupE3q5fwK1hUA1wl9A";
+        const fixedApplyBtn = document.getElementById("fixedApplyBtn");
+        const applyModal = document.getElementById("applyModal");
+        const closeApplyModal = document.getElementById("closeApplyModal");
+        const applyModalBackdrop = document.getElementById("applyModalBackdrop");
+        const applyForm = document.getElementById("applyForm");
+        const applySubmitBtn = document.getElementById("applySubmitBtn");
+        const applyFeedback = document.getElementById("applyFeedback");
+        const applyJobTitle = document.getElementById("applyJobTitle");
+
+        // Show fixed button once content is visible
+        new MutationObserver(() => {
+            const contentVisible = !document.getElementById("contentState").classList.contains("hidden");
+            fixedApplyBtn.classList.toggle("hidden", !contentVisible);
+        }).observe(document.getElementById("contentState"), { attributes: true, attributeFilter: ["class"] });
+
+        function openApplyModal() {
+            applyModal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+            const title = document.getElementById("heroTitle")?.textContent || "";
+            applyJobTitle.textContent = title ? `Bewerbung für: ${title}` : "";
+        }
+
+        function closeModal() {
+            applyModal.classList.add("hidden");
+            document.body.style.overflow = "";
+            applyFeedback.classList.add("hidden");
+        }
+
+        fixedApplyBtn.addEventListener("click", openApplyModal);
+        closeApplyModal.addEventListener("click", closeModal);
+        applyModalBackdrop.addEventListener("click", closeModal);
+
+        // Override existing applyBtn to open modal instead of mailto
+        document.getElementById("applyBtn")?.addEventListener("click", (e) => {
+            e.preventDefault();
+            openApplyModal();
+        });
+
+        applyForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const fd = new FormData(applyForm);
+            const name = String(fd.get("applyName") ?? "").trim();
+            const email = String(fd.get("applyEmail") ?? "").trim();
+            const phone = String(fd.get("applyPhone") ?? "").trim();
+            const salary = String(fd.get("applySalary") ?? "").trim();
+            const comment = String(fd.get("applyComment") ?? "").trim();
+            const jobTitle = document.getElementById("heroTitle")?.textContent?.trim() || "Unbekannt";
+            const jobLocation = document.getElementById("heroLocation")?.textContent?.trim() || "";
+
+            applySubmitBtn.disabled = true;
+            applySubmitBtn.classList.add("opacity-70", "cursor-not-allowed");
+
+            try {
+                const text = [
+                    "📩 Neue Bewerbung über Stellenanzeige",
+                    `Stelle: ${jobTitle}`,
+                    `Standort: ${jobLocation}`,
+                    `Name: ${name}`,
+                    `E-Mail: ${email}`,
+                    phone ? `Telefon: ${phone}` : "",
+                    salary ? `Gehaltswunsch: ${salary}` : "",
+                    comment ? `Kommentar: ${comment}` : "",
+                    `URL: ${window.location.href}`,
+                ].filter(Boolean).join("\n");
+
+                const res = await fetch(googleChatWebhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text }),
+                });
+
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+                applyForm.reset();
+                applyFeedback.textContent = "Vielen Dank! Ihre Bewerbung wurde erfolgreich gesendet. Wir melden uns bei Ihnen.";
+                applyFeedback.classList.remove("hidden", "text-error");
+                applyFeedback.classList.add("text-primary");
+                setTimeout(closeModal, 3000);
+            } catch (err) {
+                console.error("Bewerbung senden fehlgeschlagen:", err);
+                applyFeedback.textContent = "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
+                applyFeedback.classList.remove("hidden", "text-primary");
+                applyFeedback.classList.add("text-error");
+            } finally {
+                applySubmitBtn.disabled = false;
+                applySubmitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+            }
+        });
     </script>
 </body>
 
