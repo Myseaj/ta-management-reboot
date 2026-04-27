@@ -668,8 +668,8 @@
                 ? descriptionParts.join("")
                 : `${job.title} bei einem führenden Unternehmen der Baubranche. Jetzt bewerben über TA Management.`;
 
-            const datePosted = job.created_at
-                ? new Date(job.created_at).toISOString().split("T")[0]
+            const datePosted = job.dateAdded
+                ? new Date(job.dateAdded).toISOString().split("T")[0]
                 : new Date().toISOString().split("T")[0];
             const validThrough = job.valid_through
                 ? new Date(job.valid_through).toISOString().split("T")[0]
