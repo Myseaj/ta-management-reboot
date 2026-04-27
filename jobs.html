@@ -25,6 +25,8 @@
     <meta name="twitter:title" content="Jobs im Bauwesen & Ingenieurwesen | TA Management" />
     <meta name="twitter:description" content="Aktuelle Stellenangebote im Bauwesen, Ingenieurwesen und TGA." />
     <meta name="twitter:image" content="https://www.ta-management.de/images/logo_correct.png" />
+    <!-- Dynamic JobPosting list schema inserted by JS -->
+    <script id="jobListSchema" type="application/ld+json">{}</script>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
@@ -589,6 +591,30 @@
         });
 
         loadJobs();
+
+        // Generate ItemList + JobPosting schemas for Google for Jobs
+        function updateJobSchemas() {
+            const jobs = jobsState.allJobs;
+            if (!jobs.length) return;
+
+            const itemList = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": jobs.slice(0, 50).map((job, i) => ({
+                    "@type": "ListItem",
+                    "position": i + 1,
+                    "url": `https://www.ta-management.de/jobAd/${encodeURIComponent(job.id)}`
+                }))
+            };
+            document.getElementById("jobListSchema").textContent = JSON.stringify(itemList);
+        }
+
+        // Hook into loadJobs completion
+        const _origRenderJobs = renderJobs;
+        renderJobs = function() {
+            _origRenderJobs();
+            updateJobSchemas();
+        };
     </script>
 </body>
 

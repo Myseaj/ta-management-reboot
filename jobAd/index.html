@@ -658,12 +658,33 @@
             document.querySelector('meta[name="twitter:title"]').content = `${job.title} | TA Management`;
             document.querySelector('meta[name="twitter:description"]').content = `${job.title} in ${job.location} – ${job.salary_range}`;
 
-            // JobPosting Schema.org
+            // JobPosting Schema.org (Google for Jobs optimiert)
+            const descriptionParts = [];
+            if (job.jobad_introduction) descriptionParts.push(`<p>${job.jobad_introduction}</p>`);
+            if (job.jobad_tasks) descriptionParts.push(`<h3>Ihre Aufgaben</h3>${transformHtml(job.jobad_tasks)}`);
+            if (job.jobad_candidate_profile) descriptionParts.push(`<h3>Ihr Profil</h3>${transformHtml(job.jobad_candidate_profile)}`);
+            if (job.emojiArray?.length) descriptionParts.push(`<h3>Benefits</h3><ul>${job.emojiArray.map(b => `<li>${b.text}</li>`).join("")}</ul>`);
+            const fullDescription = descriptionParts.length
+                ? descriptionParts.join("")
+                : `${job.title} bei einem führenden Unternehmen der Baubranche. Jetzt bewerben über TA Management.`;
+
+            const datePosted = job.created_at
+                ? new Date(job.created_at).toISOString().split("T")[0]
+                : new Date().toISOString().split("T")[0];
+            const validThrough = job.valid_through
+                ? new Date(job.valid_through).toISOString().split("T")[0]
+                : new Date(Date.now() + 90 * 86400000).toISOString().split("T")[0];
+
             const jobSchema = {
                 "@context": "https://schema.org",
                 "@type": "JobPosting",
                 "title": job.title,
-                "description": job.jobad_introduction || `${job.title} bei einem führenden Unternehmen der Baubranche.`,
+                "description": fullDescription,
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "name": "TA Management GmbH",
+                    "value": job.id
+                },
                 "hiringOrganization": {
                     "@type": "Organization",
                     "name": "TA Management GmbH",
@@ -672,14 +693,44 @@
                 },
                 "jobLocation": {
                     "@type": "Place",
-                    "address": { "@type": "PostalAddress", "addressLocality": job.location, "addressCountry": "DE" }
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": job.location,
+                        "addressCountry": "DE"
+                    }
                 },
                 "employmentType": "FULL_TIME",
-                "datePosted": new Date().toISOString().split("T")[0],
-                "validThrough": new Date(Date.now() + 90 * 86400000).toISOString().split("T")[0]
+                "datePosted": datePosted,
+                "validThrough": validThrough,
+                "directApply": true,
+                "industry": "Baugewerbe",
+                "occupationalCategory": job.position_type || job.category || "Bauwesen",
+                "url": window.location.href
             };
             if (job.salary_range && job.salary_range !== "Nach Vereinbarung") {
-                jobSchema.baseSalary = { "@type": "MonetaryAmount", "currency": "EUR", "value": { "@type": "QuantitativeValue", "value": job.salary_range, "unitText": "YEAR" } };
+                const salaryMatch = job.salary_range.match(/(\d[\d.]*)\s*[-–bis]+\s*(\d[\d.]*)/i);
+                if (salaryMatch) {
+                    jobSchema.baseSalary = {
+                        "@type": "MonetaryAmount",
+                        "currency": "EUR",
+                        "value": {
+                            "@type": "QuantitativeValue",
+                            "minValue": parseFloat(salaryMatch[1].replace(/\./g, "")),
+                            "maxValue": parseFloat(salaryMatch[2].replace(/\./g, "")),
+                            "unitText": "YEAR"
+                        }
+                    };
+                } else {
+                    jobSchema.baseSalary = {
+                        "@type": "MonetaryAmount",
+                        "currency": "EUR",
+                        "value": {
+                            "@type": "QuantitativeValue",
+                            "value": job.salary_range,
+                            "unitText": "YEAR"
+                        }
+                    };
+                }
             }
             document.getElementById("jobPostingSchema").textContent = JSON.stringify(jobSchema);
         }
