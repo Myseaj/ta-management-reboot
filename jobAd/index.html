@@ -276,7 +276,8 @@
     </main>
 
     <!-- Fixed Apply Button -->
-    <button id="fixedApplyBtn" class="hidden fixed bottom-8 right-8 z-50 bg-primary-container text-on-primary-container font-headline font-black uppercase px-8 py-4 shadow-[0_8px_32px_rgba(255,107,0,0.4)] hover:scale-105 transition-all duration-200 flex items-center gap-3">
+    <button id="fixedApplyBtn"
+        class="hidden fixed bottom-8 right-8 z-50 bg-primary-container text-on-primary-container font-headline font-black uppercase px-8 py-4 shadow-[0_8px_32px_rgba(255,107,0,0.4)] hover:scale-105 transition-all duration-200 flex items-center gap-3">
         <span class="material-symbols-outlined">send</span>
         Jetzt bewerben
     </button>
@@ -294,27 +295,43 @@
             <form id="applyForm" class="p-6 space-y-5">
                 <p id="applyJobTitle" class="text-primary text-xs font-bold uppercase tracking-widest"></p>
                 <div class="space-y-2">
-                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Name *</label>
-                    <input name="applyName" required class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="Ihr vollständiger Name" type="text" />
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Name
+                        *</label>
+                    <input name="applyName" required
+                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                        placeholder="Ihr vollständiger Name" type="text" />
                 </div>
                 <div class="space-y-2">
-                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">E-Mail *</label>
-                    <input name="applyEmail" required class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="ihre@email.de" type="email" />
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">E-Mail
+                        *</label>
+                    <input name="applyEmail" required
+                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                        placeholder="ihre@email.de" type="email" />
                 </div>
                 <div class="space-y-2">
-                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Telefon</label>
-                    <input name="applyPhone" class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="+49 ..." type="tel" />
+                    <label
+                        class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Telefon</label>
+                    <input name="applyPhone"
+                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                        placeholder="+49 ..." type="tel" />
                 </div>
                 <div class="space-y-2">
-                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Gehaltswunsch</label>
-                    <input name="applySalary" class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm" placeholder="z.B. 55.000 €" type="text" />
+                    <label
+                        class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Gehaltswunsch</label>
+                    <input name="applySalary"
+                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm"
+                        placeholder="z.B. 55.000 €" type="text" />
                 </div>
                 <div class="space-y-2">
-                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Kommentar</label>
-                    <textarea name="applyComment" rows="3" class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm resize-none" placeholder="Kurze Nachricht an uns..."></textarea>
+                    <label
+                        class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Kommentar</label>
+                    <textarea name="applyComment" rows="3"
+                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm resize-none"
+                        placeholder="Kurze Nachricht an uns..."></textarea>
                 </div>
                 <p id="applyFeedback" class="hidden text-sm"></p>
-                <button id="applySubmitBtn" type="submit" class="w-full bg-primary-container text-on-primary-container font-headline font-black uppercase py-4 hover:brightness-110 transition-all active:scale-95">
+                <button id="applySubmitBtn" type="submit"
+                    class="w-full bg-primary-container text-on-primary-container font-headline font-black uppercase py-4 hover:brightness-110 transition-all active:scale-95">
                     Bewerbung absenden
                 </button>
             </form>
