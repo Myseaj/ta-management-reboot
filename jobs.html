@@ -611,7 +611,7 @@
 
         // Hook into loadJobs completion
         const _origRenderJobs = renderJobs;
-        renderJobs = function() {
+        renderJobs = function () {
             _origRenderJobs();
             updateJobSchemas();
         };
