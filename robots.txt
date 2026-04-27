@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /images/Cities/
+Disallow: /images/impressions/
+
+Sitemap: https://www.ta-management.de/sitemap.xml

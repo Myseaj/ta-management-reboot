@@ -5,6 +5,24 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Stellenanzeige | TA Management</title>
+    <meta name="description" content="Stellenangebot im Bauwesen – Jetzt bewerben bei TA Management, Ihrem spezialisierten Recruiting-Partner für die Baubranche." />
+    <meta name="keywords" content="Stellenangebot Bau, Job Bauwesen, Karriere Ingenieurwesen, Bewerbung Baubranche, TA Management Jobs" />
+    <link rel="canonical" href="https://www.ta-management.de/jobAd/" />
+    <!-- Open Graph (dynamisch überschrieben per JS) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Stellenanzeige | TA Management" />
+    <meta property="og:description" content="Stellenangebot im Bauwesen – Jetzt bewerben bei TA Management." />
+    <meta property="og:url" content="https://www.ta-management.de/jobAd/" />
+    <meta property="og:image" content="https://www.ta-management.de/images/logo_correct.png" />
+    <meta property="og:site_name" content="TA Management GmbH" />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stellenanzeige | TA Management" />
+    <meta name="twitter:description" content="Stellenangebot im Bauwesen – Jetzt bewerben bei TA Management." />
+    <meta name="twitter:image" content="https://www.ta-management.de/images/logo_correct.png" />
+    <!-- JobPosting Schema wird dynamisch per JS eingefügt -->
+    <script id="jobPostingSchema" type="application/ld+json">{}</script>
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
@@ -216,7 +234,7 @@
                 </h2>
                 <div
                     class="bg-surface p-8 border border-outline-variant/20 flex flex-col md:flex-row gap-8 items-center md:items-start shadow-2xl">
-                    <img id="contactImage" alt="Ansprechpartner"
+                    <img id="contactImage" alt="Ansprechpartner" loading="lazy"
                         class="w-32 h-40 object-cover border-2 border-primary shadow-[0_20px_40px_-20px_rgba(255,107,0,0.45)]"
                         src="/images/logo_correct.png" />
                     <div class="flex-1 text-center md:text-left">
@@ -249,7 +267,7 @@
             </div>
             <div class="relative min-h-[400px]">
                 <div class="absolute inset-0 grayscale contrast-125 brightness-50 opacity-60">
-                    <img id="locationImage" alt="Standort" class="w-full h-full object-cover"
+                    <img id="locationImage" alt="Standort" loading="lazy" class="w-full h-full object-cover"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ90P3UUmejkomC94mLyob7uw481fPSCdESbALyzkTIUiPgr0erYDDHoNVpW-Sl4IqcYKjrQ3RlF4Bs5cBSZGncKLMGohk8lJgSxLcOnM8sdtM6DshkClLZI8olYw73EsmujQ1tjfmd7VkWKuNtYLarOTsXdLZ_kWc2bEpwfGNF8QWn1vtsQH-EG2Yqivk7WOneqtuW9AVm6xDm-WiNMQR1u66dIxsaU-ekVexsHlzYQqIJjWhBVxNwaTYA3OdYje762J36kYPSZ8" />
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-r from-surface-container to-transparent"></div>
@@ -630,6 +648,38 @@
 
             renderBenefits(job.emojiArray);
             document.title = `${job.title} | TA Management`;
+
+            // Dynamic meta tags
+            document.querySelector('meta[name="description"]').content = `${job.title} in ${job.location} – Jetzt bewerben. ${job.salary_range}. TA Management vermittelt Fach- und Führungskräfte im Bauwesen.`;
+            document.querySelector('meta[property="og:title"]').content = `${job.title} | TA Management`;
+            document.querySelector('meta[property="og:description"]').content = `${job.title} in ${job.location} – ${job.salary_range}`;
+            document.querySelector('meta[name="twitter:title"]').content = `${job.title} | TA Management`;
+            document.querySelector('meta[name="twitter:description"]').content = `${job.title} in ${job.location} – ${job.salary_range}`;
+
+            // JobPosting Schema.org
+            const jobSchema = {
+                "@context": "https://schema.org",
+                "@type": "JobPosting",
+                "title": job.title,
+                "description": job.jobad_introduction || `${job.title} bei einem führenden Unternehmen der Baubranche.`,
+                "hiringOrganization": {
+                    "@type": "Organization",
+                    "name": "TA Management GmbH",
+                    "sameAs": "https://www.ta-management.de",
+                    "logo": "https://www.ta-management.de/images/logo_correct.png"
+                },
+                "jobLocation": {
+                    "@type": "Place",
+                    "address": { "@type": "PostalAddress", "addressLocality": job.location, "addressCountry": "DE" }
+                },
+                "employmentType": "FULL_TIME",
+                "datePosted": new Date().toISOString().split("T")[0],
+                "validThrough": new Date(Date.now() + 90 * 86400000).toISOString().split("T")[0]
+            };
+            if (job.salary_range && job.salary_range !== "Nach Vereinbarung") {
+                jobSchema.baseSalary = { "@type": "MonetaryAmount", "currency": "EUR", "value": { "@type": "QuantitativeValue", "value": job.salary_range, "unitText": "YEAR" } };
+            }
+            document.getElementById("jobPostingSchema").textContent = JSON.stringify(jobSchema);
         }
 
         async function init() {
