@@ -26,6 +26,8 @@
     <!-- JobPosting Schema wird dynamisch per JS eingefügt -->
     <script id="jobPostingSchema" type="application/ld+json">{}</script>
     <link href="/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/logo_correct.png" />
+    <link rel="apple-touch-icon" href="/images/logo_correct.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
@@ -348,6 +350,13 @@
                     <textarea name="applyComment" rows="3"
                         class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm resize-none"
                         placeholder="Kurze Nachricht an uns..."></textarea>
+                </div>
+                <div class="space-y-2">
+                    <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Lebenslauf
+                        (PDF)</label>
+                    <input name="applyFile" type="file" accept=".pdf,.doc,.docx"
+                        class="w-full bg-surface-container-highest border-0 border-b-2 border-outline-variant focus:border-primary-container transition-colors py-3 px-4 outline-none text-white text-sm file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:font-bold file:bg-primary-container file:text-on-primary-container hover:file:brightness-110 file:cursor-pointer" />
+                    <p class="text-xs text-on-surface-variant">Max. 5 MB – PDF, DOC oder DOCX</p>
                 </div>
                 <p id="applyFeedback" class="hidden text-sm"></p>
                 <button id="applySubmitBtn" type="submit"
@@ -764,6 +773,7 @@
 
         // Fixed apply button & modal logic
         const googleChatWebhookUrl = "https://chat.googleapis.com/v1/spaces/AAQAQtXMCik/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=nmBuW9WfUvjXFBWof_fXSGtQHupE3q5fwK1hUA1wl9A";
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw91u9LQF1MyU89wqWbHtKfCVJ8uExTcXrA4SAgdN8oXxokEFrE6vRxFrmW1naSklwc7A/exec";
         const fixedApplyBtn = document.getElementById("fixedApplyBtn");
         const applyModal = document.getElementById("applyModal");
         const closeApplyModal = document.getElementById("closeApplyModal");
@@ -812,30 +822,57 @@
             const comment = String(fd.get("applyComment") ?? "").trim();
             const jobTitle = document.getElementById("heroTitle")?.textContent?.trim() || "Unbekannt";
             const jobLocation = document.getElementById("heroLocation")?.textContent?.trim() || "";
+            const fileInput = applyForm.querySelector('input[name="applyFile"]');
+            const file = fileInput?.files[0] || null;
+
+            // Validate file size (max 5 MB)
+            if (file && file.size > 5 * 1024 * 1024) {
+                applyFeedback.textContent = "Die Datei ist zu groß. Bitte maximal 5 MB hochladen.";
+                applyFeedback.classList.remove("hidden", "text-primary");
+                applyFeedback.classList.add("text-error");
+                return;
+            }
 
             applySubmitBtn.disabled = true;
             applySubmitBtn.classList.add("opacity-70", "cursor-not-allowed");
 
             try {
-                const text = [
-                    "📩 Neue Bewerbung über Stellenanzeige",
-                    `Stelle: ${jobTitle}`,
-                    `Standort: ${jobLocation}`,
-                    `Name: ${name}`,
-                    `E-Mail: ${email}`,
-                    phone ? `Telefon: ${phone}` : "",
-                    salary ? `Gehaltswunsch: ${salary}` : "",
-                    comment ? `Kommentar: ${comment}` : "",
-                    `URL: ${window.location.href}`,
-                ].filter(Boolean).join("\n");
+                let fileBase64 = null;
+                let fileName = null;
+                let fileMimeType = null;
 
-                const res = await fetch(googleChatWebhookUrl, {
+                if (file) {
+                    fileName = file.name;
+                    fileMimeType = file.type;
+                    fileBase64 = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(",")[1]);
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                const payload = {
+                    name,
+                    email,
+                    phone,
+                    salary,
+                    comment,
+                    jobTitle,
+                    jobLocation,
+                    url: window.location.href,
+                    fileName,
+                    fileMimeType,
+                    fileBase64,
+                };
+
+                // GAS antwortet mit 302-Redirect, was der Browser als Fehler meldet.
+                // Die Daten kommen trotzdem an – daher ignorieren wir den fetch-Fehler.
+                await fetch(APPS_SCRIPT_URL, {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ text }),
-                });
-
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    body: JSON.stringify(payload),
+                    mode: "no-cors",
+                }).catch(() => {});
 
                 applyForm.reset();
                 applyFeedback.textContent = "Vielen Dank! Ihre Bewerbung wurde erfolgreich gesendet. Wir melden uns bei Ihnen.";
