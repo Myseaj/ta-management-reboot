@@ -305,16 +305,16 @@
     </button>
 
     <!-- Apply Modal -->
-    <div id="applyModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div id="applyModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 overflow-y-auto">
         <div id="applyModalBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-        <div class="relative bg-surface-container border border-outline-variant/20 w-full max-w-lg shadow-2xl">
+        <div class="relative bg-surface-container border border-outline-variant/20 w-full max-w-lg shadow-2xl max-h-[90vh] flex flex-col my-auto">
             <div class="flex justify-between items-center p-6 border-b border-outline-variant/20">
                 <h3 class="font-headline text-xl font-black uppercase">Jetzt bewerben</h3>
                 <button id="closeApplyModal" class="text-slate-400 hover:text-white transition-colors">
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
-            <form id="applyForm" class="p-6 space-y-5">
+            <form id="applyForm" class="p-6 space-y-5 overflow-y-auto">
                 <p id="applyJobTitle" class="text-primary text-xs font-bold uppercase tracking-widest"></p>
                 <div class="space-y-2">
                     <label class="font-headline text-[10px] uppercase tracking-widest text-primary font-bold">Name
@@ -360,8 +360,12 @@
                 </div>
                 <p id="applyFeedback" class="hidden text-sm"></p>
                 <button id="applySubmitBtn" type="submit"
-                    class="w-full bg-primary-container text-on-primary-container font-headline font-black uppercase py-4 hover:brightness-110 transition-all active:scale-95">
-                    Bewerbung absenden
+                    class="w-full bg-primary-container text-on-primary-container font-headline font-black uppercase py-4 hover:brightness-110 transition-all active:scale-95 flex items-center justify-center gap-3">
+                    <svg id="applySpinner" class="hidden animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                    </svg>
+                    <span id="applyBtnText">Bewerbung absenden</span>
                 </button>
             </form>
         </div>
@@ -835,6 +839,8 @@
 
             applySubmitBtn.disabled = true;
             applySubmitBtn.classList.add("opacity-70", "cursor-not-allowed");
+            document.getElementById("applySpinner").classList.remove("hidden");
+            document.getElementById("applyBtnText").textContent = "Wird gesendet...";
 
             try {
                 let fileBase64 = null;
@@ -887,6 +893,8 @@
             } finally {
                 applySubmitBtn.disabled = false;
                 applySubmitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+                document.getElementById("applySpinner").classList.add("hidden");
+                document.getElementById("applyBtnText").textContent = "Bewerbung absenden";
             }
         });
     </script>
